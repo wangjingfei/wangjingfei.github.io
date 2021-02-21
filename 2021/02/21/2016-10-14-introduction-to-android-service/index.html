@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>关于 Android Service 的介绍 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="关于 Android Service 的介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 Android Service 的介绍">
+<meta property="og:url" content="http://example.com/2021/02/21/2016-10-14-introduction-to-android-service/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于 Android Service 的介绍">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/upload/images/13.png">
+<meta property="article:published_time" content="2021-02-21T13:57:19.813Z">
+<meta property="article:modified_time" content="2021-02-21T13:57:19.813Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="安卓">
+<meta property="article:tag" content="Android Service">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/upload/images/13.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2016-10-14-introduction-to-android-service" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/21/2016-10-14-introduction-to-android-service/" class="article-date">
+  <time class="dt-published" datetime="2021-02-21T13:57:19.813Z" itemprop="datePublished">2021-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      关于 Android Service 的介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>转载自：<a target="_blank" rel="noopener" href="http://www.jianshu.com/p/63792fc84d94#">http://www.jianshu.com/p/63792fc84d94#</a></p>
+</blockquote>
+<p>Service 是 Android 的四大组件之一，它主要的作用是后台执行操作，Activity 属于带有 UI 界面跟用户进行交互，而 Service 则没有 UI 界面，所有的操作都是基于后台运行完成。并且 Service 跟 Activity 一样也是可以由其它的应用程序调用启动的，而且就算用户切换了应用程序，Service 依旧保持运行。一个组件如果与 Service 进行了绑定( bind ),就可以跟 Service 进行数据的交互，并且也可以跟不同的进程之间进行交互 (IPC)。通常会使用到 Service 的情况有进行网络请求，音乐的操控，文件的 I/O 操作等。</p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>Service 通常是通过以下两种方式进行启动</p>
+<h3 id="startService"><a href="#startService" class="headerlink" title="startService"></a>startService</h3><p>当组件(例如 activity)通过调用<code>startService()</code>来启动 Service 的时候。一旦启动后，Service 就会独立的在后台运行，即使调用的组件已经销毁了，Service 还是可以继续在后台运行。一般情况下，<strong>只需要进行一次单独的操作，不需要将操作后的结果返回给调用者的时候，会使用该方式启动 Service</strong>。例如，进行上传或者下载操作的时候，当操作完成后，Service 应该自行调用 <code>stopService()</code> 或 <code>stopSelf()</code> 来结束运行。</p>
+<h3 id="bindService"><a href="#bindService" class="headerlink" title="bindService"></a>bindService</h3><p>当组件(例如 activity)通过调用 <code>bindService()</code> 来启动 Service 的时候。这种方式提供了 client - service 的接口，可以让调用组件跟 Service 进行发送请求及返回结果的操作，设置可以进行进程间的通信 (IPC)。只要有一个组件对该 Service 进行了绑定，那该 Service 就不会销毁。并且多个组件可以同时对一个 Service 进行绑定，只有在所有进行了绑定的组件都解绑的时候，Service 才会销毁。</p>
+<p>尽管两种方式是分开讨论的，但是并不是互斥的关系，使用 startService 启动了 Service 后，也是可以进行绑定的。</p>
+<blockquote>
+<p><strong>注意：</strong>虽然 Service 是在后台运行，但是其实还是在主线程里进行所有的操作的。Service 在启动时除非单独进行了定义，否则不会运行在单独的线程或者进程里，而都是在主线程里。所以这表示任何能堵塞主线程的操作（例如音乐的播放或者网络请求）都应该单独开辟新的线程来进行操作，否则很容易出现 ANR 。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>如果某个组件是通过调用 startService() 的方式来启动了 Service，那这个 Service 就会一直在后台运行直到 Service 内部调用 stopSelf() 或某个组件调用 stopService() 来结束该 Service。</p>
+</blockquote>
+<blockquote>
+<p>如果某个组件是通过调用 bindService() 的方式来启动了 Service，那这个 Service 就会一直在后台运行直到该组件与其解绑。Service 在没有任何组件绑定的时候，系统会将其销毁</p>
+</blockquote>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>在创建一个 Service 时，必须要去继承 Service，并且要重写父类一些主要的方法来实现功能。以下是主要方法的介绍</p>
+<h3 id="onStartCommand"><a href="#onStartCommand" class="headerlink" title="onStartCommand()"></a>onStartCommand()</h3><p>系统会调用这个函数当某个组件(例如 activity，fragment)通过调用 <code>startService()</code> 启动 Service 时。在该方法被调用后，Service 就会被启动并独立的在后台运行。如果重写了该方法，开发者需要在 Service 执行完操作后自行的调用 <code>stopSelf()</code> 或 <code>stopService()</code>来结束 Service。如果只是会通过绑定的方式 (bind) 的方式来启动 Service 则不需要重写该方法。</p>
+<h3 id="onBind"><a href="#onBind" class="headerlink" title="onBind()"></a>onBind()</h3><p>当某个组件(例如 activity, fragment)通过调用 <code>bindService()</code>绑定的方式来启动 Service 的时候，系统会调用这个函数。在实现这个函数的时候，必须要返回一个 IBinder 的继承类，来与 Service 进行通信。这个函数是默认必须要重写的，但是如果不想通过绑定的方式来启动 Service，则可以直接返回 null</p>
+<h3 id="onCreate"><a href="#onCreate" class="headerlink" title="onCreate()"></a>onCreate()</h3><p>系统会调用此方法在第一次启动 Service 的时候，用于初始化一些一次性的变量。<strong>如果 Service 已经启动了，则此方法就不会再别调用。</strong></p>
+<h3 id="onDestroy"><a href="#onDestroy" class="headerlink" title="onDestroy()"></a>onDestroy()</h3><p>系统在 Service 即将被销毁的时候会调用此方法。Service 中如有用到 thread、listeners、receivers 等的时候，应该将这些的清理方法写在此方法内。</p>
+<p>如果某个组件是通过调用 startService() 的方式来启动了 Service，那这个 Service 就会一直在后台运行直到 Service 内部调用 stopSelf() 或某个组件调用 stopService() 来结束该 Service。</p>
+<p>如果某个组件是通过调用 bindService() 的方式来启动了 Service，那这个 Service 就会一直在后台运行直到该组件与其解绑。Service 在没有任何组件绑定的时候，系统会将其销毁</p>
+<h2 id="使用Service"><a href="#使用Service" class="headerlink" title="使用Service"></a>使用Service</h2><p>下面的环节，将介绍如果通过上面讲述的两种方式来创建 Service</p>
+<h3 id="在-Manifest-里声明-Service"><a href="#在-Manifest-里声明-Service" class="headerlink" title="在 Manifest 里声明 Service"></a>在 Manifest 里声明 Service</h3><p>类似于 Activity，所有的 Service 都要在 Manifest 里面进行声明，如下:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">  ...</span><br><span class="line">  <span class="tag">&lt;<span class="name">application</span> <span class="attr">...</span> &gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">service</span> <span class="attr">android:name</span>=<span class="string">&quot;.ExampleService&quot;</span> /&gt;</span></span><br><span class="line">      ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>查看 <a target="_blank" rel="noopener" href="https://developer.android.com/guide/topics/manifest/service-element.html">&lt;service&gt;</a> 标签的官方文档来获取更多信息</p>
+<p>通过在 &lt;service&gt; 标签里将 <code>android:exported</code> 设置为 false。可以防止其他的程序来启动你的 Service。</p>
+<h3 id="通过-started-方式来启动-Service"><a href="#通过-started-方式来启动-Service" class="headerlink" title="通过 started 方式来启动 Service"></a>通过 started 方式来启动 Service</h3><p>组件(例如 activity, fragment) 通过调用 <code>startService()</code> 方法，系统随之调用 <code>onStartCommand()</code> 方法来实现 started 方式启动 Service。</p>
+<p>当 Service 以该形式启动后，Service 的整个生命周期是完全独立的，即便启动 Service 的组件已经被销毁了，Service 还是可以在后台无限的运行的。但开发者应该在 Service 中的操作执行完成后，调用 <code>stopSelf()</code> 或其它组件调用 <code>stopService()</code> 的方式来结束该 Service。</p>
+<p>程序组件(例如 activity) 可以通过传递一个 Intent 给 <code>startService()</code>,来实现组件与 Service 之前的数据传递。Service 是通过系统调用的 <code>onStartCommand()</code> 方法接受传递的Intent ，完成整个数据传递过程。</p>
+<blockquote>
+<p><strong>注意:</strong> Service 本身默认是运行在主线程里的，所以如果在 Service 要进行一些会堵塞线程的操作，一定要将这些操作放在一个新的线程里。</p>
+</blockquote>
+<p>Android 的框架提供了 <a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/app/IntentService.html">IntentService</a> 来满足后台运行异步线程的需求。</p>
+<h4 id="IntentService"><a href="#IntentService" class="headerlink" title="IntentService"></a>IntentService</h4><p>IntentService 是 Service 的子类，并且所有的请求操作都是在异步线程里。<strong>如果不需要 Service 来同时处理多个请求的话，IntentService 将会是最佳的选择。</strong>只需要继承并重写 IntentService 中的 <code>onHandleIntent()</code> 方法，就可以对接受到的 Intent 做后台的异步线程操作了。</p>
+<p>IntentService 提供了如下的几个功能:</p>
+<ul>
+<li>会创建一个异步线程来处理所有从程序主线程发送到 <code>onStartCommand()</code> 的 intents 。</li>
+<li>创建了一个队列池来保证每次只有一个 Intent 传递到 <code>onHandleIntent()</code> 方法中，避免了多线程问题。</li>
+<li>提供默认 <code>onBind()</code> 方法的实现，返回 null</li>
+<li>提供默认 <code>onStartCommand()</code> 方法的实现，将收到的 intent 放到队列池中，然后再交由 <code>onHandleIntent()</code> 做处理</li>
+</ul>
+<p>所有开发者只需要实现 <code>onHandleIntent()</code> 关注于 Service 要进行的操作即可。关于更多的 IntentService 实用技巧，请查看此文章：<a target="_blank" rel="noopener" href="https://github.com/codepath/android_guides/wiki/Starting-Background-Services%E3%80%82">https://github.com/codepath/android_guides/wiki/Starting-Background-Services。</a></p>
+<p>如果开发者需要重写其他的一些方法，例如 <code>onCreate()</code>, <code>onStartCommand()</code>, 和 <code>onDestroy()</code>，请保证调用父类的实现，这样可以保证 IntentService 能够正确的来处理线程的生命周期。例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;service starting&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent,flags,startId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="系统回收资源问题"><a href="#系统回收资源问题" class="headerlink" title="系统回收资源问题"></a>系统回收资源问题</h4><p>当系统内存不足的时候，系统会强制回收一些 Activity 和 Service 来获取更多的资源给那些用户正在交互的程序或页面。这就要求当资源充足的时候 Service 能够自动重启。这个功能是通过 <code>onStartCommand()</code> 的返回值来实现的</p>
+<h5 id="START-NOT-STICKY"><a href="#START-NOT-STICKY" class="headerlink" title="START_NOT_STICKY"></a>START_NOT_STICKY</h5><p>当系统因回收资源而销毁了 Service，当资源再次充足时不自动启动 Service。除非还有未处理的 Intent 准备发送。当你的程序可以很容易的重新开启未完成的操作时，这是最安全的避免 Service 在不必要的情况下启动的选项。</p>
+<h5 id="START-STICKY"><a href="#START-STICKY" class="headerlink" title="START_STICKY"></a>START_STICKY</h5><p>当系统因回收资源而销毁了 Service，当资源再次充足时自动启动 Service，并且再次调用 <code>onStartCommand()</code> 方法，但是不会传递最后一次的 Intent，相反系统在回调<code>onStartCommand()</code> 的时候会传一个空 Intent 。除非还有未处理的 Intent 准备发送。</p>
+<h5 id="START-REDELIVER-INTENT"><a href="#START-REDELIVER-INTENT" class="headerlink" title="START_REDELIVER_INTENT"></a>START_REDELIVER_INTENT</h5><p>当系统因回收资源而销毁了 Service，当资源再次充足时自动启动 Service，并且再次调用 <code>onStartCommand()</code> 方法，并会把最后一次 Intent 再次传递给<code>onStartCommand()</code>，相应的在队列里的 Intent 也会按次序依次传递。此模式适用于下载等服务。</p>
+<h4 id="Start-Service"><a href="#Start-Service" class="headerlink" title="Start Service"></a>Start Service</h4><p>该方式允许多个组件同时对相同的 Service 进行 startService 操作，但是如果只要有其中有一个组件调用了 <code>stopSelf()</code> 或 <code>stopService()</code>, 该 Service 就会被销毁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, HelloService.class);</span><br><span class="line">startService(intent);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Stop-Service"><a href="#Stop-Service" class="headerlink" title="Stop Service"></a>Stop Service</h4><p>当有多个组件进行了 startService 操作时，不应该直接的去调用 <code>stopSelf()</code> 或 <code>stopService()</code> 来结束 Service， 因为这会对其他已经发起请求的操作产生影响，故在 <code>onStartCommand()</code> 方法中会接受一个 startId, 然后在结束 Service 时，调用 <code>stopService(int)</code> 方法来只是结束一个特定的请求，从而达到保护其他请求不受影响的目的。</p>
+<h3 id="通过-Bind-方式启动-Service"><a href="#通过-Bind-方式启动-Service" class="headerlink" title="通过 Bind 方式启动 Service"></a>通过 Bind 方式启动 Service</h3><p>当应用程序中的 activity 或其它组件需要与服务进行交互，或者应用程序的某些功能需要暴露给其它应用程序时，你应该创建一个 Bind 服务，并通过进程间通信（IPC）来完成。</p>
+<p>Service 只在为绑定的应用程序组件工作时才会存活，因此，只要没有组件绑定到服务，系统就会自动销毁服务</p>
+<h4 id="获取-IBinder-实例"><a href="#获取-IBinder-实例" class="headerlink" title="获取 IBinder 实例"></a>获取 IBinder 实例</h4><h5 id="扩展-Binder-类"><a href="#扩展-Binder-类" class="headerlink" title="扩展 Binder 类"></a>扩展 Binder 类</h5><p>如果服务是你的应用程序所私有的，并且与客户端运行于同一个进程中（通常都是如此），你应该通过扩展 Binder 类来创建你的接口，并从 <code>onBind()</code> 返回一个它的实例。客户端接收该 Binder 对象并用它来直接访问 Binder 甚至 Service中可用的公共方法。</p>
+<p><strong>如果你的服务只是为你自己的应用程序执行一些后台工作，那这就是首选的技术方案。</strong>不用这种方式来创建接口的理由只有一个，就是服务要被其它应用程序使用或者要跨多个进程使用。</p>
+<h5 id="使用-Messenger"><a href="#使用-Messenger" class="headerlink" title="使用 Messenger"></a>使用 Messenger</h5><p>如果你需要接口跨越多个进程进行工作，可以通过 Messenger 来为服务创建接口。在这种方式下，服务定义一个响应各类消息对象 Message 的 Handler。此 Handler 是 Messenger 与客户端共享同一个 IBinder 的基础，它使得客户端可以用消息对象 Message向服务发送指令。此外，客户端还可以定义自己的 Message ，以便服务能够往回发送消息。</p>
+<p>这是执行进程间通信（IPC）最为简便的方式，因为 Messenger 会把所有的请求放入一个独立进程中的队列，这样你就不一定非要把服务设计为线程安全的模式了。</p>
+<h5 id="使用-AIDL"><a href="#使用-AIDL" class="headerlink" title="使用 AIDL"></a>使用 AIDL</h5><p>绝大多数应用程序都<strong>不应该</strong>用 AIDL 来创建 bind 服务，因为这可能需要多线程处理能力并且会让代码变得更为复杂。 因此，AIDL 对绝大多数应用程序都不适用，并且本文也不会讨论如何在服务中使用它的内容。如果你确信需要直接使用 AIDL，那请参阅 <a target="_blank" rel="noopener" href="https://developer.android.com/guide/components/aidl.html">AIDL 文档</a>。</p>
+<h4 id="扩展-Binder-类-1"><a href="#扩展-Binder-类-1" class="headerlink" title="扩展 Binder 类"></a>扩展 Binder 类</h4><p>如果你的服务只用于本地应用程序并且不需要跨进程工作，那你只要实现自己的 Binder 类即可，这样你的客户端就能直接访问服务中的公共方法了。</p>
+<blockquote>
+<p>注意：仅当客户端和服务位于同一个应用程序和进程中，这也是最常见的情况，这种方式才会有用。比如，一个音乐应用需要把一个 activity 绑定到它自己的后台音乐播放服务上，采用这种方式就会很不错。</p>
+</blockquote>
+<p>以下是设置步骤:</p>
+<ol>
+<li>在你的服务中，创建一个 Binder 的实例，其中实现以下三者之一：<ul>
+<li>包含了可供客户端调用的公共方法</li>
+<li>返回当前 Service 实例，其中包含了可供客户端调用的公共方法</li>
+<li>或者，返回内含 Service 类的其它类的一个实例，Service 中包含了可供客户端调用的公共方法</li>
+</ul>
+</li>
+<li>从回调方法 <code>onBind()</code> 中返回 Binder 的该实例</li>
+<li>在客户端中，在回调方法 <code>onServiceConnected()</code> 中接收 Binder 并用所提供的方法对绑定的服务进行调用</li>
+</ol>
+<blockquote>
+<p><strong>注意：</strong>服务和客户端之所以必须位于同一个应用程序中，是为了让客户端能够正确转换（cast）返回的对象并调用对象的 API。 服务和客户端也必须位于同一个进程中，因为这种方式不能执行任何跨进程的序列化（marshalling）操作。</p>
+</blockquote>
+<p>具体的实用案例请查看在<a target="_blank" rel="noopener" href="https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/">ApiDemos</a> 中的 <a target="_blank" rel="noopener" href="https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/LocalService.java">LocalService.java</a> 类和 <a target="_blank" rel="noopener" href="https://android.googlesource.com/platform/development/+/master/samples/ApiDemos/src/com/example/android/apis/app/LocalServiceActivities.java">LocalServiceActivities.java</a>。</p>
+<h2 id="Service-的生命周期"><a href="#Service-的生命周期" class="headerlink" title="Service 的生命周期"></a>Service 的生命周期</h2><p><img src="/upload/images/13.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/21/2016-10-14-introduction-to-android-service/" data-id="cklf7tstw0034z8t4715f6i68" data-title="关于 Android Service 的介绍" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Service/" rel="tag">Android Service</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/02/21/2016-10-10-set-vim-encoding/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          设置VIM的编码格式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/02/21/2016-10-31-read-mysql-binlog-as-sql/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">以SQL方式读取MySQL的GTID格式Binlog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice/">Microservice</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/">Web服务器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Service/" rel="tag">Android Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binlog/" rel="tag">Binlog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser-Caching/" rel="tag">Browser Caching</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CPU/" rel="tag">CPU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cobar/" rel="tag">Cobar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Email/" rel="tag">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji/" rel="tag">Emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GTID/" rel="tag">GTID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Goaccess/" rel="tag">Goaccess</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gzip/" rel="tag">Gzip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hibernate/" rel="tag">Hibernate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Introduction-to-Microservices/" rel="tag">Introduction to Microservices</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JUnit/" rel="tag">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Mail/" rel="tag">Java Mail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaMail/" rel="tag">JavaMail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jedis/" rel="tag">Jedis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Marathon/" rel="tag">Marathon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mesos/" rel="tag">Mesos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mockito/" rel="tag">Mockito</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Moint/" rel="tag">Moint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongo/" rel="tag">Mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyCAT/" rel="tag">MyCAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM/" rel="tag">ORM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Performance/" rel="tag">Performance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerMock/" rel="tag">PowerMock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMTP/" rel="tag">SMTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Script/" rel="tag">Script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Cloud/" rel="tag">Spring Cloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data-JPA/" rel="tag">Spring Data JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Modules/" rel="tag">Spring Modules</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Telnet/" rel="tag">Telnet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tuning/" rel="tag">Tuning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volumes/" rel="tag">Volumes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zabbix/" rel="tag">Zabbix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apk/" rel="tag">apk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emoji/" rel="tag">emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enca/" rel="tag">enca</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqldump/" rel="tag">mysqldump</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swap/" rel="tag">swap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf8mb4/" rel="tag">utf8mb4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" rel="tag">主从复制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" rel="tag">分布式锁</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/" rel="tag">分库分表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%8F%B7%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">序号生成器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E5%90%8D/" rel="tag">签名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" rel="tag">读写分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="tag">阿里云</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Service/" style="font-size: 10px;">Android Service</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Binlog/" style="font-size: 10px;">Binlog</a> <a href="/tags/Browser-Caching/" style="font-size: 10px;">Browser Caching</a> <a href="/tags/CPU/" style="font-size: 10px;">CPU</a> <a href="/tags/Cobar/" style="font-size: 10px;">Cobar</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/ECS/" style="font-size: 10px;">ECS</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Emoji/" style="font-size: 10px;">Emoji</a> <a href="/tags/GTID/" style="font-size: 11.67px;">GTID</a> <a href="/tags/Goaccess/" style="font-size: 10px;">Goaccess</a> <a href="/tags/Gzip/" style="font-size: 10px;">Gzip</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Introduction-to-Microservices/" style="font-size: 10px;">Introduction to Microservices</a> <a href="/tags/JDK/" style="font-size: 11.67px;">JDK</a> <a href="/tags/JUnit/" style="font-size: 10px;">JUnit</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java/" style="font-size: 11.67px;">Java</a> <a href="/tags/Java-Mail/" style="font-size: 10px;">Java Mail</a> <a href="/tags/JavaMail/" style="font-size: 10px;">JavaMail</a> <a href="/tags/Jedis/" style="font-size: 10px;">Jedis</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Marathon/" style="font-size: 10px;">Marathon</a> <a href="/tags/Mesos/" style="font-size: 10px;">Mesos</a> <a href="/tags/Mockito/" style="font-size: 10px;">Mockito</a> <a href="/tags/Moint/" style="font-size: 10px;">Moint</a> <a href="/tags/Mongo/" style="font-size: 10px;">Mongo</a> <a href="/tags/MyCAT/" style="font-size: 11.67px;">MyCAT</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Performance/" style="font-size: 11.67px;">Performance</a> <a href="/tags/PowerMock/" style="font-size: 10px;">PowerMock</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/SMTP/" style="font-size: 10px;">SMTP</a> <a href="/tags/Script/" style="font-size: 10px;">Script</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/Spring-Cloud/" style="font-size: 11.67px;">Spring Cloud</a> <a href="/tags/Spring-Data-JPA/" style="font-size: 10px;">Spring Data JPA</a> <a href="/tags/Spring-Modules/" style="font-size: 10px;">Spring Modules</a> <a href="/tags/Telnet/" style="font-size: 10px;">Telnet</a> <a href="/tags/Tuning/" style="font-size: 10px;">Tuning</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Volumes/" style="font-size: 10px;">Volumes</a> <a href="/tags/Zabbix/" style="font-size: 11.67px;">Zabbix</a> <a href="/tags/Zookeeper/" style="font-size: 10px;">Zookeeper</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/tags/enca/" style="font-size: 10px;">enca</a> <a href="/tags/mysqldump/" style="font-size: 11.67px;">mysqldump</a> <a href="/tags/swap/" style="font-size: 10px;">swap</a> <a href="/tags/utf8mb4/" style="font-size: 11.67px;">utf8mb4</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" style="font-size: 10px;">主从复制</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" style="font-size: 10px;">分布式锁</a> <a href="/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/" style="font-size: 10px;">分库分表</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 13.33px;">安卓</a> <a href="/tags/%E5%BA%8F%E5%8F%B7%E7%94%9F%E6%88%90%E5%99%A8/" style="font-size: 10px;">序号生成器</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 10px;">微信</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 11.67px;">微服务</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 15px;">监控</a> <a href="/tags/%E7%AD%BE%E5%90%8D/" style="font-size: 10px;">签名</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 11.67px;">编码</a> <a href="/tags/%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" style="font-size: 10px;">读写分离</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 18.33px;">转载</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 10px;">阿里云</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/21/2016-08-24-import-data-into-mycat/">将现有数据库的数据导入MyCAT</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-06-15-login-smtp-with-telnet/">利用telnet进行SMTP的验证</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-06-27-monitor-mysql-with-zabbix/">使用Zabbix监控MySQL服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-07-19-mongo-queries/">Mongo常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-07-19-vim-commands/">Vim常用命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

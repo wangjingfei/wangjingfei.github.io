@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Spring Framework: Modules | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Spring Framework: Modules">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Framework: Modules">
+<meta property="og:url" content="http://example.com/2021/02/21/2017-03-09-spring-framework-modules/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Spring Framework: Modules">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/upload/images/15.png">
+<meta property="article:published_time" content="2021-02-21T13:57:19.813Z">
+<meta property="article:modified_time" content="2021-02-21T13:57:19.813Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Spring Modules">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/upload/images/15.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2017-03-09-spring-framework-modules" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/21/2017-03-09-spring-framework-modules/" class="article-date">
+  <time class="dt-published" datetime="2021-02-21T13:57:19.813Z" itemprop="datePublished">2021-02-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Spring/">Spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Spring Framework: Modules
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Reference: <a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules">https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules</a></p>
+</blockquote>
+<h2 id="Spring-Framework-Modules"><a href="#Spring-Framework-Modules" class="headerlink" title="Spring Framework: Modules"></a>Spring Framework: Modules</h2><p>The Spring Framework consists of features organized into about 20 modules. These modules are grouped into <code>Core Container</code>, <code>Data Access/Integration</code>, <code>Web</code>, <code>AOP (Aspect Oriented Programming)</code>, <code>Instrumentation</code>, <code>Messaging</code>, and <code>Test</code>, as shown in the following diagram.</p>
+<p><img src="/upload/images/15.png" alt="Spring Framework 4.x 的系统架构图"></p>
+<p>The following sections list the available modules for each feature along with their artifact names and the topics they cover.</p>
+<h3 id="1-Core-Container"><a href="#1-Core-Container" class="headerlink" title="1. Core Container"></a>1. Core Container</h3><blockquote>
+<ul>
+<li>spring-core</li>
+<li>spring-beans</li>
+<li>spring-context</li>
+<li>spring-context-support</li>
+<li>spring-expression</li>
+</ul>
+</blockquote>
+<p>The <em>Core Container</em> consists of the <code>spring-core</code>, <code>spring-beans</code>, <code>spring-context</code>, <code>spring-context-support</code>, and <code>spring-expression</code> (Spring Expression Language) modules.</p>
+<p>The <code>spring-core</code> and <code>spring-beans</code> modules provide the fundamental parts of the framework, including the <em>IoC</em> and <em>Dependency Injection</em> features. The <code>BeanFactory</code> is a sophisticated implementation of the factory pattern. It removes the need for programmatic singletons and allows you to decouple the configuration and specification of dependencies from your actual program logic.</p>
+<p>The Context (<code>spring-context</code>) module builds on the solid base provided by the <em>Core</em> and <em>Beans</em> modules: it is a means to access objects in a framework-style manner that is similar to a JNDI registry. The Context module inherits its features from the <em>Beans</em> module and adds support for <code>internationalization</code> (using, for example, resource bundles), <code>event propagation</code>, <code>resource loading</code>, and <code>the transparent creation of contexts</code> by, for example, a Servlet container. The Context module also supports Java EE features such as EJB, JMX, and basic remoting. The ApplicationContext interface is the focal point of the Context module. spring-context-support provides support for integrating common third-party libraries into a Spring application context for caching (EhCache, Guava, JCache), mailing (JavaMail), scheduling (CommonJ, Quartz) and template engines (FreeMarker, JasperReports, Velocity).</p>
+<p>The <code>spring-expression</code> module provides a powerful Expression Language for querying and manipulating an object graph at runtime. It is an extension of the unified expression language (unified EL) as specified in the JSP 2.1 specification. The language supports setting and getting property values, property assignment, method invocation, accessing the content of arrays, collections and indexers, logical and arithmetic operators, named variables, and retrieval of objects by name from Spring’s IoC container. It also supports list projection and selection as well as common list aggregations.</p>
+<h3 id="2-AOP-and-Instrumentation"><a href="#2-AOP-and-Instrumentation" class="headerlink" title="2. AOP and Instrumentation"></a>2. AOP and Instrumentation</h3><blockquote>
+<ul>
+<li>spring-aop</li>
+<li>spring-aspect</li>
+<li>spring-instrument</li>
+<li>spring-instrument-tomcat</li>
+</ul>
+</blockquote>
+<p>The <code>spring-aop</code> module provides an AOP Alliance-compliant aspect-oriented programming implementation allowing you to define, for example, method interceptors and pointcuts to cleanly decouple code that implements functionality that should be separated. Using source-level metadata functionality, you can also incorporate behavioral information into your code, in a manner similar to that of .NET attributes.</p>
+<p>The separate <code>spring-aspects</code> module provides integration with AspectJ.</p>
+<p>The <code>spring-instrument</code> module provides class instrumentation support and classloader implementations to be used in certain application servers. The <code>spring-instrument-tomcat</code> module contains Spring’s instrumentation agent for Tomcat.</p>
+<h3 id="3-Messaging"><a href="#3-Messaging" class="headerlink" title="3. Messaging"></a>3. Messaging</h3><blockquote>
+<ul>
+<li>spring-messaging</li>
+</ul>
+</blockquote>
+<p>Spring Framework 4 includes a <code>spring-messaging</code> module with key abstractions from the <em>Spring Integration</em> project such as <code>Message</code>, <code>MessageChannel</code>, <code>MessageHandler</code>, and others to serve as a foundation for messaging-based applications. The module also includes a set of annotations for mapping messages to methods, similar to the Spring MVC annotation based programming model.</p>
+<h3 id="4-Data-Access-Integration"><a href="#4-Data-Access-Integration" class="headerlink" title="4. Data Access/Integration"></a>4. Data Access/Integration</h3><blockquote>
+<ul>
+<li>spring-jdbc</li>
+<li>spring-tx</li>
+<li>spring-orm</li>
+<li>spring-oxm</li>
+<li>spring-jms</li>
+</ul>
+</blockquote>
+<p>The <em>Data Access/Integration layer</em> consists of the JDBC, ORM, OXM, JMS, and Transaction modules.</p>
+<p>The <code>spring-jdbc</code> module provides a JDBC-abstraction layer that removes the need to do tedious JDBC coding and parsing of database-vendor specific error codes.</p>
+<p>The <code>spring-tx</code> module supports programmatic and declarative transaction management for classes that implement special interfaces and for all your POJOs (Plain Old Java Objects).</p>
+<p>The <code>spring-orm</code> module provides integration layers for popular object-relational mapping APIs, including JPA, JDO, and Hibernate. Using the <code>spring-orm</code> module you can use all of these O/R-mapping frameworks in combination with all of the other features Spring offers, such as the simple declarative transaction management feature mentioned previously.</p>
+<p>The <code>spring-oxm</code> module provides an abstraction layer that supports Object/XML mapping implementations such as JAXB, Castor, XMLBeans, JiBX and XStream.</p>
+<p>The <code>spring-jms</code> module (Java Messaging Service) contains features for producing and consuming messages. Since Spring Framework 4.1, it provides integration with the <code>spring-messaging</code> module.</p>
+<h3 id="5-Web"><a href="#5-Web" class="headerlink" title="5. Web"></a>5. Web</h3><blockquote>
+<ul>
+<li>spring-web</li>
+<li>spring-webmvc: Web-Servlet module</li>
+<li>spring-webmvc-portlet: Web-Portlet module</li>
+</ul>
+</blockquote>
+<p>The Web layer consists of the <code>spring-web</code>, <code>spring-webmvc</code>, <code>spring-websocket</code>, and <code>spring-webmvc-portlet</code> modules.</p>
+<p>The <code>spring-web</code> module provides basic web-oriented integration features such as multipart file upload functionality and the initialization of the IoC container using Servlet listeners and a web-oriented application context. It also contains an HTTP client and the web-related parts of Spring’s remoting support.</p>
+<p>The <code>spring-webmvc</code> module (also known as the Web-Servlet module) contains Spring’s model-view-controller (MVC) and REST Web Services implementation for web applications. Spring’s MVC framework provides a clean separation between domain model code and web forms and integrates with all of the other features of the Spring Framework.</p>
+<p>The <code>spring-webmvc-portlet</code> module (also known as the Web-Portlet module) provides the MVC implementation to be used in a Portlet environment and mirrors the functionality of the spring-webmvc module.</p>
+<h3 id="6-Test"><a href="#6-Test" class="headerlink" title="6. Test"></a>6. Test</h3><blockquote>
+<ul>
+<li>spring-test</li>
+</ul>
+</blockquote>
+<p>The <code>spring-test</code> module supports the unit testing and integration testing of Spring components with JUnit or TestNG. It provides consistent loading of Spring ApplicationContexts and caching of those contexts. It also provides mock objects that you can use to test your code in isolation.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/21/2017-03-09-spring-framework-modules/" data-id="cklf7tsu0003fz8t4bsu70s37" data-title="Spring Framework: Modules" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Modules/" rel="tag">Spring Modules</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/02/21/2017-03-02-spring-framework-architecture/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Spring Framework的整体架构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/02/21/2018-03-07-spring-cloud-components/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Spring Cloud组件介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice/">Microservice</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Microservice/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/">Web服务器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/">虚拟化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Service/" rel="tag">Android Service</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bash/" rel="tag">Bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binlog/" rel="tag">Binlog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser-Caching/" rel="tag">Browser Caching</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CPU/" rel="tag">CPU</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cobar/" rel="tag">Cobar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECS/" rel="tag">ECS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Email/" rel="tag">Email</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Emoji/" rel="tag">Emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GTID/" rel="tag">GTID</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Goaccess/" rel="tag">Goaccess</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gzip/" rel="tag">Gzip</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hibernate/" rel="tag">Hibernate</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Introduction-to-Microservices/" rel="tag">Introduction to Microservices</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDK/" rel="tag">JDK</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JUnit/" rel="tag">JUnit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-Mail/" rel="tag">Java Mail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaMail/" rel="tag">JavaMail</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jedis/" rel="tag">Jedis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Marathon/" rel="tag">Marathon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mesos/" rel="tag">Mesos</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mockito/" rel="tag">Mockito</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Moint/" rel="tag">Moint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongo/" rel="tag">Mongo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MyCAT/" rel="tag">MyCAT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/" rel="tag">Nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM/" rel="tag">ORM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Performance/" rel="tag">Performance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerMock/" rel="tag">PowerMock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMTP/" rel="tag">SMTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Script/" rel="tag">Script</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Cloud/" rel="tag">Spring Cloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Data-JPA/" rel="tag">Spring Data JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Modules/" rel="tag">Spring Modules</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Telnet/" rel="tag">Telnet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tuning/" rel="tag">Tuning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/USB/" rel="tag">USB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/" rel="tag">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volumes/" rel="tag">Volumes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zabbix/" rel="tag">Zabbix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apk/" rel="tag">apk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emoji/" rel="tag">emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/enca/" rel="tag">enca</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysqldump/" rel="tag">mysqldump</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swap/" rel="tag">swap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf8mb4/" rel="tag">utf8mb4</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" rel="tag">主从复制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" rel="tag">分布式锁</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/" rel="tag">分库分表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag">单元测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%8F%B7%E7%94%9F%E6%88%90%E5%99%A8/" rel="tag">序号生成器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" rel="tag">电子书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AD%BE%E5%90%8D/" rel="tag">签名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A0%81/" rel="tag">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" rel="tag">读写分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="tag">阿里云</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Android-Service/" style="font-size: 10px;">Android Service</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Binlog/" style="font-size: 10px;">Binlog</a> <a href="/tags/Browser-Caching/" style="font-size: 10px;">Browser Caching</a> <a href="/tags/CPU/" style="font-size: 10px;">CPU</a> <a href="/tags/Cobar/" style="font-size: 10px;">Cobar</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/ECS/" style="font-size: 10px;">ECS</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Emoji/" style="font-size: 10px;">Emoji</a> <a href="/tags/GTID/" style="font-size: 11.67px;">GTID</a> <a href="/tags/Goaccess/" style="font-size: 10px;">Goaccess</a> <a href="/tags/Gzip/" style="font-size: 10px;">Gzip</a> <a href="/tags/Hibernate/" style="font-size: 10px;">Hibernate</a> <a href="/tags/Introduction-to-Microservices/" style="font-size: 10px;">Introduction to Microservices</a> <a href="/tags/JDK/" style="font-size: 11.67px;">JDK</a> <a href="/tags/JUnit/" style="font-size: 10px;">JUnit</a> <a href="/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/tags/Java/" style="font-size: 11.67px;">Java</a> <a href="/tags/Java-Mail/" style="font-size: 10px;">Java Mail</a> <a href="/tags/JavaMail/" style="font-size: 10px;">JavaMail</a> <a href="/tags/Jedis/" style="font-size: 10px;">Jedis</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Marathon/" style="font-size: 10px;">Marathon</a> <a href="/tags/Mesos/" style="font-size: 10px;">Mesos</a> <a href="/tags/Mockito/" style="font-size: 10px;">Mockito</a> <a href="/tags/Moint/" style="font-size: 10px;">Moint</a> <a href="/tags/Mongo/" style="font-size: 10px;">Mongo</a> <a href="/tags/MyCAT/" style="font-size: 11.67px;">MyCAT</a> <a href="/tags/MySQL/" style="font-size: 20px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Performance/" style="font-size: 11.67px;">Performance</a> <a href="/tags/PowerMock/" style="font-size: 10px;">PowerMock</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/SMTP/" style="font-size: 10px;">SMTP</a> <a href="/tags/Script/" style="font-size: 10px;">Script</a> <a href="/tags/Shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/Spring/" style="font-size: 16.67px;">Spring</a> <a href="/tags/Spring-Cloud/" style="font-size: 11.67px;">Spring Cloud</a> <a href="/tags/Spring-Data-JPA/" style="font-size: 10px;">Spring Data JPA</a> <a href="/tags/Spring-Modules/" style="font-size: 10px;">Spring Modules</a> <a href="/tags/Telnet/" style="font-size: 10px;">Telnet</a> <a href="/tags/Tuning/" style="font-size: 10px;">Tuning</a> <a href="/tags/USB/" style="font-size: 10px;">USB</a> <a href="/tags/Ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Volumes/" style="font-size: 10px;">Volumes</a> <a href="/tags/Zabbix/" style="font-size: 11.67px;">Zabbix</a> <a href="/tags/Zookeeper/" style="font-size: 10px;">Zookeeper</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/tags/enca/" style="font-size: 10px;">enca</a> <a href="/tags/mysqldump/" style="font-size: 11.67px;">mysqldump</a> <a href="/tags/swap/" style="font-size: 10px;">swap</a> <a href="/tags/utf8mb4/" style="font-size: 11.67px;">utf8mb4</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 10px;">中间件</a> <a href="/tags/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" style="font-size: 10px;">主从复制</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" style="font-size: 10px;">分布式锁</a> <a href="/tags/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/" style="font-size: 10px;">分库分表</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">单元测试</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 13.33px;">安卓</a> <a href="/tags/%E5%BA%8F%E5%8F%B7%E7%94%9F%E6%88%90%E5%99%A8/" style="font-size: 10px;">序号生成器</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 10px;">微信</a> <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 11.67px;">微服务</a> <a href="/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/" style="font-size: 10px;">电子书</a> <a href="/tags/%E7%9B%91%E6%8E%A7/" style="font-size: 15px;">监控</a> <a href="/tags/%E7%AD%BE%E5%90%8D/" style="font-size: 10px;">签名</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 11.67px;">编码</a> <a href="/tags/%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" style="font-size: 10px;">读写分离</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 18.33px;">转载</a> <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" style="font-size: 10px;">阿里云</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/21/2016-08-24-import-data-into-mycat/">将现有数据库的数据导入MyCAT</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-06-15-login-smtp-with-telnet/">利用telnet进行SMTP的验证</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-06-27-monitor-mysql-with-zabbix/">使用Zabbix监控MySQL服务器</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-07-19-mongo-queries/">Mongo常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/21/2016-07-19-vim-commands/">Vim常用命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
