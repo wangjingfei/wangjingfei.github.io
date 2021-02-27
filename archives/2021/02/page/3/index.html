@@ -219,7 +219,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -239,7 +239,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -259,7 +259,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -279,7 +279,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -299,15 +299,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2021/02/27/2016-09-09-apache-mesos-getstarted/" itemprop="url">
-            <span itemprop="name">开始使用Mesos和Marathon</span>
+          <a class="post-title-link" href="/2021/02/27/2016-06-16-delete-keys-in-batch-redis/" itemprop="url">
+            <span itemprop="name">批量删除Redis数据库中的Key</span>
           </a>
       </div>
 
@@ -319,7 +319,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -339,7 +339,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -359,7 +359,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -379,7 +379,7 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
@@ -399,15 +399,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2021-02-28T00:58:14+08:00"
+              datetime="2021-02-28T01:09:24+08:00"
               content="2021-02-28">
           02-28
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2021/02/27/2016-08-30-mysql-performance-and-tunning/" itemprop="url">
-            <span itemprop="name">MySQL性能查看及调优参考</span>
+          <a class="post-title-link" href="/2021/02/27/2016-08-17-mycat-startup/" itemprop="url">
+            <span itemprop="name">开始使用MyCAT</span>
           </a>
       </div>
 
@@ -550,77 +550,6 @@
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey   : 'AIzaSyBP2MkUwn-twN58EehqUgRPv1M9jYGXe6I',
-      projectId: 'xiaotanzhu-b5785'
-    });
-
-    function getCount(doc, increaseCount) {
-      // IncreaseCount will be false when not in article page
-      return doc.get().then(d => {
-        var count = 0;
-        if (!d.exists) { // Has no data, initialize count
-          if (increaseCount) {
-            doc.set({
-              count: 1
-            });
-            count = 1;
-          }
-        } else { // Has data
-          count = d.data().count;
-          if (increaseCount) {
-            // If first view this article
-            doc.set({ // Increase count
-              count: count + 1
-            });
-            count++;
-          }
-        }
-
-        return count;
-      });
-    }
-
-    function appendCountTo(el) {
-      return count => {
-        el.innerText = count;
-      }
-    }
-  </script>
-  <script>
-    (function() {
-      var db = firebase.firestore();
-      var articles = db.collection('articles');
-
-      if (CONFIG.page.isPost) { // Is article page
-        var title = document.querySelector('.post-title').innerText.trim();
-        var doc = articles.doc(title);
-        var increaseCount = CONFIG.hostname === location.hostname;
-        if (localStorage.getItem(title)) {
-          increaseCount = false;
-        } else {
-          // Mark as visited
-          localStorage.setItem(title, true);
-        }
-        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
-      } else if (CONFIG.page.isHome) { // Is index page
-        var promises = [...document.querySelectorAll('.post-title')].map(element => {
-          var title = element.innerText.trim();
-          var doc = articles.doc(title);
-          return getCount(doc);
-        });
-        Promise.all(promises).then(counts => {
-          var metas = document.querySelectorAll('.firestore-visitors-count');
-          counts.forEach((val, idx) => {
-            appendCountTo(metas[idx])(val);
-          });
-        });
-      }
-    })();
-  </script>
 
 
 <script>
