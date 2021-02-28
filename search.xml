@@ -2,13 +2,13 @@
 <search>
   <entry>
     <title>利用telnet进行SMTP的验证</title>
-    <url>/2016/06/15/2016-06-15-login-smtp-with-telnet/</url>
+    <url>/2016/06/14/2016-06-15-login-smtp-with-telnet/</url>
     <content><![CDATA[<p>先计算BASE64编码的用户名密码，认证登录需要用到：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**fify@fify-Vostro-3902:~$ perl -MMIME::Base64 -e &#39;print encode_base64(&quot;wangjingfei&quot;);&#39;**</span><br><span class="line">d2FuZ2ppbmdmZWk&#x3D;</span><br><span class="line">**fify@fify-Vostro-3902:~$ perl -MMIME::Base64 -e &#39;print encode_base64(&quot;fakepassword&quot;);&#39;**</span><br><span class="line">ZmFrZXBhc3N3b3Jk</span><br></pre></td></tr></table></figure>
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#x65;&#x69;&#x40;&#x31;&#54;&#51;&#46;&#x63;&#x6f;&#109;">&#x77;&#97;&#x6e;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#x65;&#x69;&#x40;&#x31;&#54;&#51;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#97;&#110;&#x67;&#x6a;&#x69;&#110;&#x67;&#102;&#101;&#105;&#x40;&#50;&#x36;&#51;&#x2e;&#99;&#111;&#109;">&#119;&#97;&#110;&#x67;&#x6a;&#x69;&#110;&#x67;&#102;&#101;&#105;&#x40;&#50;&#x36;&#51;&#x2e;&#99;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#109;&#97;&#64;&#119;&#x68;&#x69;&#x74;&#x65;&#104;&#x6f;&#117;&#115;&#101;&#x2e;&#99;&#111;&#109;">&#x6f;&#x62;&#97;&#109;&#97;&#64;&#119;&#x68;&#x69;&#x74;&#x65;&#104;&#x6f;&#117;&#115;&#101;&#x2e;&#99;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#106;&#105;&#x6e;&#x70;&#105;&#x6e;&#x67;&#x40;&#x7a;&#104;&#111;&#x6e;&#103;&#x6e;&#97;&#110;&#104;&#97;&#105;&#46;&#x63;&#x6f;&#109;">&#x78;&#105;&#106;&#105;&#x6e;&#x70;&#105;&#x6e;&#x67;&#x40;&#x7a;&#104;&#111;&#x6e;&#103;&#x6e;&#97;&#110;&#104;&#97;&#105;&#46;&#x63;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#97;&#x6e;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#49;&#x36;&#x33;&#46;&#99;&#111;&#x6d;">&#119;&#97;&#x6e;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#49;&#x36;&#x33;&#46;&#99;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#106;&#x69;&#110;&#x67;&#102;&#101;&#x69;&#64;&#50;&#54;&#51;&#46;&#99;&#111;&#109;">&#x77;&#97;&#x6e;&#x67;&#106;&#x69;&#110;&#x67;&#102;&#101;&#x69;&#64;&#50;&#54;&#51;&#46;&#99;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#x61;&#109;&#97;&#x40;&#x77;&#x68;&#x69;&#x74;&#101;&#x68;&#111;&#117;&#115;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#111;&#98;&#x61;&#109;&#97;&#x40;&#x77;&#x68;&#x69;&#x74;&#101;&#x68;&#111;&#117;&#115;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#105;&#106;&#x69;&#110;&#112;&#x69;&#110;&#103;&#64;&#122;&#104;&#x6f;&#x6e;&#103;&#110;&#97;&#x6e;&#104;&#97;&#105;&#46;&#x63;&#111;&#109;">&#120;&#105;&#106;&#x69;&#110;&#112;&#x69;&#110;&#103;&#64;&#122;&#104;&#x6f;&#x6e;&#103;&#110;&#97;&#x6e;&#104;&#97;&#105;&#46;&#x63;&#111;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -25,7 +25,7 @@
   </entry>
   <entry>
     <title>批量删除Redis数据库中的Key</title>
-    <url>/2021/02/27/2016-06-16-delete-keys-in-batch-redis/</url>
+    <url>/2016/06/15/2016-06-16-delete-keys-in-batch-redis/</url>
     <content><![CDATA[<blockquote>
 <p>转载自：<a href="http://img.snail8.com/?p=502">http://img.snail8.com/?p=502</a></p>
 </blockquote>
@@ -51,7 +51,7 @@
   </entry>
   <entry>
     <title>使用Zabbix监控MySQL服务器</title>
-    <url>/2021/02/27/2016-06-27-monitor-mysql-with-zabbix/</url>
+    <url>/2016/06/26/2016-06-27-monitor-mysql-with-zabbix/</url>
     <content><![CDATA[<p>从Zabbix 2.2开始，Zabbix官方已经支持了MySQL监控，但是MySQL监控默认是不可用的，需要经过额外的设置才可以使用。</p>
 <h2 id="创建MySQL监控帐号"><a href="#创建MySQL监控帐号" class="headerlink" title="创建MySQL监控帐号"></a>创建MySQL监控帐号</h2><p>首先要建立一个MySQL帐户用于Zabbix Agent登录获取MySQL状态，这个帐户不需要任何权限，因此实质上可以使用debian-sys-maint也是可以的，另外如果在被监控的机子上本身就安装有Zabbix Server，那么可以直接使用zabbix帐户（密码可以在/etc/zabbix/zabbix_server.conf中找到）。当然可以登录被监控端的MySQL新建一个帐户：</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;zabbix&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;zabbix&#x27;</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
@@ -77,7 +77,7 @@
   </entry>
   <entry>
     <title>Mongo常用命令</title>
-    <url>/2021/02/27/2016-07-19-mongo-queries/</url>
+    <url>/2016/07/18/2016-07-19-mongo-queries/</url>
     <content><![CDATA[<p>###根据日期查找</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.getCollection(<span class="string">&#x27;webExceptionRecord&#x27;</span>).find(&#123;<span class="attr">createdDate</span>: &#123;<span class="string">&quot;$gte&quot;</span>:ISODate(<span class="string">&quot;2016-03-31T12:48:25.040+08:00&quot;</span>)&#125;&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -107,7 +107,7 @@
   </entry>
   <entry>
     <title>Vim常用命令</title>
-    <url>/2021/02/27/2016-07-19-vim-commands/</url>
+    <url>/2016/07/18/2016-07-19-vim-commands/</url>
     <content><![CDATA[<ul>
 <li>Vim是Emacs的反物质，两者本身没有问题，只是他们的使用者如果在一起会打起来，造成最后的湮灭。这里不讨论湮灭的问题。</li>
 <li>本文只用作我平时用到命令的记录，并不是所有常见的Vim命令。</li>
@@ -132,7 +132,7 @@
   </entry>
   <entry>
     <title>Generate SSH key in none-interactive way</title>
-    <url>/2021/02/27/2016-07-20-generate-sshkey-in-noneinteractive-way/</url>
+    <url>/2016/07/19/2016-07-20-generate-sshkey-in-noneinteractive-way/</url>
     <content><![CDATA[<p>We use ssh-keygen to generate ssh keys. Sometime we need to generate keys without any interaction during runtime. We have the following ways to do this.</p>
 <p>###1. Use the full commands<br>Provide all parameters needed when running ssh-keygen, as</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -N <span class="string">&quot;&quot;</span> -f my.key</span><br></pre></td></tr></table></figure>
@@ -155,7 +155,7 @@
   </entry>
   <entry>
     <title>Redis被bgsave和bgrewriteaof阻塞的解决方法</title>
-    <url>/2021/02/27/2016-07-20-redis-blocked-by-disk-ops/</url>
+    <url>/2016/07/19/2016-07-20-redis-blocked-by-disk-ops/</url>
     <content><![CDATA[<p>我们的系统由于业务特点在每天早上上班的时候，会出现访问高峰。最近发现在访问高峰的时候，系统响应会变慢。无理是APP的后端还是Web服务的后端，平时响应时间都在100ms以内的接口，响应时间居然超过了一秒，甚至有一些能够达到10秒。</p>
 <p>查看后台的监控数据，无论是服务器硬件资源利用率还是数据库访问频次都在正常的范围内。那么问题非常可能出现在Redis上，因为在我们的系统中，Redis担任了所有Web端和APP端Session的管理，权限的校验以及数据库的缓存等等任务。</p>
 <p>查看Redis的日志，果然发现了异常：后台不停的打出bgsave相关的日志。</p>
@@ -185,7 +185,7 @@
   </entry>
   <entry>
     <title>删除Docker中没有被挂载的卷（dangling volumes）</title>
-    <url>/2021/02/27/2016-07-20-remove-dangling-docker-volumes/</url>
+    <url>/2016/07/19/2016-07-20-remove-dangling-docker-volumes/</url>
     <content><![CDATA[<p>最近在帮合作上制作Docker镜像。由于系统中有需要持久化的数据，数据卷几乎成了一个必选项。但是在N多次创建镜像、删除实例、新建实例的过程中，发现我的硬盘居然不够用了！查看<code>/var/lib/docker</code>的空间，居然有几十个G之多。于是想到了数据卷。</p>
 <p>###重建实例时数据卷是否会被保留<br>基于同一个镜像时，多次创建实例会共享他们创建出的数据卷，这也是数据卷的最常用用法。但当镜像被修改时，即使名字和tags都相同，只要镜像ID不同，那么基于“相同名字”的这个镜像创建出的实例就不会共享之前的数据卷。</p>
 <p>原因就在于我的系统中保留了很多过时的未被挂载的数据卷。</p>
@@ -205,7 +205,7 @@
   </entry>
   <entry>
     <title>在生产环境中查出占用大量CPU的Java线程</title>
-    <url>/2021/02/27/2016-07-26-find-high-cpu-thread/</url>
+    <url>/2016/07/25/2016-07-26-find-high-cpu-thread/</url>
     <content><![CDATA[<p>生产环境中，有的时候会发现某一个Java进程占用了大量CPU，在测试环境又很难重现。这时候就需要在线进行保护现场和Debug。</p>
 <h3 id="定位大量占用CPU的进程"><a href="#定位大量占用CPU的进程" class="headerlink" title="定位大量占用CPU的进程"></a>定位大量占用CPU的进程</h3><p>执行<code>top</code>命令，然后按<code>P</code>按照CPU使用率排序</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">top - 16:08:03 up 54 days, 20:22,  1 user,  load average: 0.67, 1.00, 1.01</span><br><span class="line">Tasks: 477 total,   2 running, 475 sleeping,   0 stopped,   0 zombie</span><br><span class="line">%Cpu(s):  1.3 us,  1.3 sy,  0.3 ni, 96.5 id,  0.4 wa,  0.0 hi,  0.3 si,  0.0 st</span><br><span class="line">KiB Mem:  32898100 total, 29648584 used,  3249516 free,   474052 buffers</span><br><span class="line">KiB Swap: 33505276 total,  4258368 used, 29246908 free.  8192840 cached Mem</span><br><span class="line"></span><br><span class="line">  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                                  </span><br><span class="line">36730 jenkins   20   0 13.068g 1.185g   8228 S  11.6  3.8   3673:10 java                                                                                                                     </span><br><span class="line">35378 root      20   0  110784  34768   3748 S   5.0  0.1 249:51.07 gunicorn                                                                                                                 </span><br><span class="line">39103 root      39  19    7980   3172   1524 S   3.3  0.0   0:13.06 apps.plugin                                                                                                              </span><br><span class="line"> 1329 mongodb   20   0 28.476g 122940  55292 S   1.7  0.4 286:41.33 mongod                                                                                                                   </span><br><span class="line"> 2073 redis     20   0  495752 181572   2024 S   1.7  0.6 213:49.77 redis-server                                                                                                             </span><br><span class="line"> 5053 root      20   0  110956  15216   2376 S   1.7  0.0 228:35.26 gunicorn                                                                                                                 </span><br><span class="line">14444 root      20   0  110784  34720   3636 S   1.7  0.1 122:03.66 gunicorn                                                                                                                 </span><br><span class="line">20403 ubuntu    20   0   82616   2644   2564 S   1.7  0.0  11:49.45 zabbix_agentd                                                                                                            </span><br><span class="line">35032 root      20   0  110528  34944   4088 S   1.7  0.1 134:09.61 gunicorn                                                                                                                 </span><br><span class="line">40879 ubuntu    20   0  103576   3356   2400 S   1.7  0.0   0:00.01 sshd                                                                                                                     </span><br><span class="line">45221 root      20   0 8979028 921240  15540 S   1.7  2.8   4:38.85 java                                                                                                                     </span><br><span class="line">45666 root      20   0 8704800 748200  17084 S   1.7  2.3   3:53.45 java                                                                                                                     </span><br><span class="line">    1 root      20   0   33732   3892   2448 S   0.0  0.0   1:49.23 init                                                                                                                     </span><br><span class="line">    2 root      20   0       0      0      0 S   0.0  0.0   0:00.66 kthreadd                                                                                                                 </span><br><span class="line">    3 root      20   0       0      0      0 S   0.0  0.0   2:18.79 </span><br></pre></td></tr></table></figure>
@@ -240,7 +240,7 @@
   </entry>
   <entry>
     <title>使用zabbix监控Nginx</title>
-    <url>/2021/02/27/2016-07-30-monitor-nginx-with-zabbix/</url>
+    <url>/2016/07/29/2016-07-30-monitor-nginx-with-zabbix/</url>
     <content><![CDATA[<h4 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h4><ul>
 <li>Zabbix Server：2.4.8</li>
 <li>ZABBIX服务端：192.168.5.254</li>
@@ -267,7 +267,7 @@
   </entry>
   <entry>
     <title>Nginx加速：启用gzip压缩和浏览器缓存</title>
-    <url>/2021/02/27/2016-08-04-enable-gzip-in-nginx/</url>
+    <url>/2016/08/03/2016-08-04-enable-gzip-in-nginx/</url>
     <content><![CDATA[<p>Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。</p>
 <h3 id="开启gzip"><a href="#开启gzip" class="headerlink" title="开启gzip"></a>开启gzip</h3><h4 id="Nginx配置参数"><a href="#Nginx配置参数" class="headerlink" title="Nginx配置参数"></a>Nginx配置参数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 开启gzip</span><br><span class="line">gzip on;</span><br><span class="line"></span><br><span class="line"># 启用gzip压缩的最小文件，小于设置值的文件将不会压缩</span><br><span class="line">gzip_min_length 1k;</span><br><span class="line"></span><br><span class="line"># gzip 压缩级别，1-10，数字越大压缩的越好，也越占用CPU时间，后面会有详细说明</span><br><span class="line">gzip_comp_level 2;</span><br><span class="line"></span><br><span class="line"># 进行压缩的文件类型。javascript有多种形式。其中的值可以在 mime.types 文件中找到。</span><br><span class="line">gzip_types text&#x2F;plain application&#x2F;javascript application&#x2F;x-javascript text&#x2F;css application&#x2F;xml text&#x2F;javascript application&#x2F;x-httpd-php image&#x2F;jpeg image&#x2F;gif image&#x2F;png;</span><br><span class="line"></span><br><span class="line"># 是否在http header中添加Vary: Accept-Encoding，建议开启</span><br><span class="line">gzip_vary on;</span><br><span class="line"></span><br><span class="line"># 禁用IE 6 gzip</span><br><span class="line">gzip_disable &quot;MSIE [1-6]\.&quot;;</span><br></pre></td></tr></table></figure>
 
@@ -347,7 +347,7 @@
   </entry>
   <entry>
     <title>Nginx的浏览器缓存和Gzip压缩参数</title>
-    <url>/2021/02/27/2016-08-04-nginx-gzip-cache-parameters/</url>
+    <url>/2016/08/03/2016-08-04-nginx-gzip-cache-parameters/</url>
     <content><![CDATA[<h3 id="浏览器缓存（Browser-Caching）"><a href="#浏览器缓存（Browser-Caching）" class="headerlink" title="浏览器缓存（Browser Caching）"></a>浏览器缓存（Browser Caching）</h3><p>浏览器缓存是为了加速浏览并节约网络资源，浏览器在用户磁盘上对最近请求过的文档进行存储。nginx可以通过 expires 指令来设置浏览器的Header。</p>
 <blockquote>
 <p>语法： <code>expires [time|epoch|max|off]</code><br>默认值： <code>expires off</code><br>作用域： <code>http</code>, <code>server</code>, <code>location</code></p>
@@ -418,7 +418,7 @@
   </entry>
   <entry>
     <title>Install the latest Node.js on Ubuntu 14.04</title>
-    <url>/2021/02/27/2016-08-05-install-nodejs-on-ubuntu/</url>
+    <url>/2016/08/04/2016-08-05-install-nodejs-on-ubuntu/</url>
     <content><![CDATA[<blockquote>
 <p><strong>NOTE:</strong> If you are using Ubuntu Precise or Debian Wheezy, you might want to read about <a href="https://github.com/nodesource/distributions/blob/master/OLDER_DISTROS.md" title="running Node.js &gt;= 4.x on older distros">running Node.js &gt;= 4.x on older distros</a>.</p>
 </blockquote>
@@ -440,7 +440,7 @@
   </entry>
   <entry>
     <title>Redis提示Could not get a resource from the pool（jedis连接池配置）</title>
-    <url>/2021/02/27/2016-08-05-redis-jedis-pool/</url>
+    <url>/2016/08/04/2016-08-05-redis-jedis-pool/</url>
     <content><![CDATA[<p>起初在JedisPool中配置了50个活动连接，但是程序还是经常报错：Could not get a resource from the pool</p>
 <p>连接池刚开始是这样配置的：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</span><br><span class="line">config.setMaxTotal(<span class="number">50</span>);</span><br><span class="line">config.setMaxIdle(<span class="number">20</span>); </span><br><span class="line">config.setMaxWaitMillis(<span class="number">1000</span> * <span class="number">1</span>);</span><br><span class="line">config.setTestOnBorrow(<span class="keyword">true</span>);</span><br><span class="line">config.setTestOnReturn(<span class="keyword">true</span>);</span><br><span class="line">JedisPool pool = <span class="keyword">new</span> JedisPool(config, <span class="string">&quot;10.10.10.167&quot;</span>, <span class="number">6379</span>);</span><br></pre></td></tr></table></figure>
@@ -463,7 +463,7 @@
   </entry>
   <entry>
     <title>Where to find all available Java mail properties?</title>
-    <url>/2021/02/27/2016-08-06-all-available-java-mail-properties/</url>
+    <url>/2016/08/05/2016-08-06-all-available-java-mail-properties/</url>
     <content><![CDATA[<p>In the api is a reference to the properties for the specific sun protocol providers.</p>
 <ul>
 <li><code>IMAP</code> <a href="https://javamail.java.net/nonav/docs/api/com/sun/mail/imap/package-summary.html">https://javamail.java.net/nonav/docs/api/com/sun/mail/imap/package-summary.html</a></li>
@@ -481,7 +481,7 @@
   </entry>
   <entry>
     <title>Download specified oracle JDK (archived) version</title>
-    <url>/2021/02/27/2016-08-06-download-specified-jdk-version/</url>
+    <url>/2016/08/05/2016-08-06-download-specified-jdk-version/</url>
     <content><![CDATA[<p>You can go to the <a href="http://www.oracle.com/technetwork/java/archive-139210.html">Oracle Java Archive</a> page to download any version of JDK.</p>
 <p>Over!</p>
 ]]></content>
@@ -496,7 +496,7 @@
   </entry>
   <entry>
     <title>使用Redis SETNX命令实现分布式锁</title>
-    <url>/2021/02/27/2016-08-10-dist-lock-using-redis/</url>
+    <url>/2016/08/09/2016-08-10-dist-lock-using-redis/</url>
     <content><![CDATA[<blockquote>
 <p>版权声明：本文为博主原创文章，转载自: <a href="http://blog.csdn.net/lihao21">http://blog.csdn.net/lihao21</a></p>
 </blockquote>
@@ -557,7 +557,7 @@
   </entry>
   <entry>
     <title>Partial selection of Spring Data JPA</title>
-    <url>/2021/02/27/2016-08-10-partial-selection-with-jpa/</url>
+    <url>/2016/08/09/2016-08-10-partial-selection-with-jpa/</url>
     <content><![CDATA[<p>When we use <code>select</code> to retrive some data from MySQL, we do not want to get the whole row with all columns.<br>For example, I have the following <code>tab_staff_info</code> table with nearly 100 columns:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;tab_staff_info&quot;)</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaffInfo</span> <span class="keyword">extends</span> <span class="title">BaseEntity</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * qq号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String qqNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 公司Id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String companyId;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffName;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 30)</span></span><br><span class="line">    <span class="keyword">private</span> String idCardNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 20)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> IdCardType idCardType;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生日</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 性别</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 10)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> SexType sex;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 手机号码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 18)</span></span><br><span class="line">    <span class="keyword">private</span> String mobileNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A lot more columns..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In most cases, I only want to get some (not all) of the columns. For example, I want to get the basic information, which are: <code>companyId</code>, <code>staffNo</code>, <code>staffName</code> and <code>idCardNo</code>.</p>
@@ -581,7 +581,7 @@
   </entry>
   <entry>
     <title>使用Goaccess监控Nginx的运行状态</title>
-    <url>/2021/02/27/2016-08-12-monitor-nginx-with-goaccess/</url>
+    <url>/2016/08/11/2016-08-12-monitor-nginx-with-goaccess/</url>
     <content><![CDATA[<h2 id="最终启动命令"><a href="#最终启动命令" class="headerlink" title="最终启动命令"></a>最终启动命令</h2><p>如果你只需要知道最终的启动命令，可以跳过下边所有内容。启动命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">goaccess -f /var/<span class="built_in">log</span>/nginx/access.log -o /data/www/access/index.html --real-time-html --ws-url=access1.xiaotanzhu.com</span><br></pre></td></tr></table></figure>
 
@@ -668,7 +668,7 @@
   </entry>
   <entry>
     <title>创建支持emoji表情的MySQL数据库（utf8mb4）</title>
-    <url>/2021/02/27/2016-08-14-create-mysql-database-with-utf8mb4/</url>
+    <url>/2016/08/13/2016-08-14-create-mysql-database-with-utf8mb4/</url>
     <content><![CDATA[<blockquote>
 <p>本文只介绍在创建全新数据库的情况下，如何支持emoji表情等字符。如果需要对现有的数据库修改以支持emoji表情，请参考：<a href="/2016/08/14/how-to-support-full-unicode-in-mysql.html">How to support full Unicode in MySQL databases</a></p>
 </blockquote>
@@ -709,7 +709,7 @@
   </entry>
   <entry>
     <title>How to support full Unicode in MySQL databases</title>
-    <url>/2021/02/27/2016-08-14-how-to-support-full-unicode-in-mysql/</url>
+    <url>/2016/08/13/2016-08-14-how-to-support-full-unicode-in-mysql/</url>
     <content><![CDATA[<p>如果你完全从头建立一个数据库，那么事情简单了很多，直接参考：<a href="/2016/08/14/create-mysql-database-with-utf8mb4.html">创建支持emoji表情的MySQL数据库（utf8mb4）</a>。</p>
 <p>如果你的数据库已经在投入使用，那么可以参考文章的以下部分。</p>
 <blockquote>
@@ -767,7 +767,7 @@
   </entry>
   <entry>
     <title>Linux常用命令</title>
-    <url>/2021/02/27/2016-08-14-linux-commands/</url>
+    <url>/2016/08/13/2016-08-14-linux-commands/</url>
     <content><![CDATA[<p><strong>注意：</strong>常用命令中，会有一些命令仅限于特定的操作系统使用，如Ubuntu或CentOS等特定的Linux发行版本。</p>
 <h2 id="系统相关"><a href="#系统相关" class="headerlink" title="系统相关"></a>系统相关</h2><h3 id="显示当前内核版本"><a href="#显示当前内核版本" class="headerlink" title="显示当前内核版本"></a>显示当前内核版本</h3><p>命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
@@ -836,7 +836,7 @@
   </entry>
   <entry>
     <title>使用Moint监控Docker中运行的Web服务器</title>
-    <url>/2021/02/27/2016-08-19-monitor-tomcat-in-docker/</url>
+    <url>/2016/08/18/2016-08-19-monitor-tomcat-in-docker/</url>
     <content><![CDATA[<p>Monit是一个Linux系统中常用的监控软件，可以监控CPU、内存、文件系统、TCP端口、UDP端口、HTTP等基本上所有的资源。可以参考其官方网站：<a href="https://mmonit.com/monit/%E3%80%82">https://mmonit.com/monit/。</a></p>
 <p>本次要对Docker（Docker中运行了一个Web服务器）进行监控，需要满足以下几个需求：</p>
 <ol>
@@ -896,7 +896,7 @@
   </entry>
   <entry>
     <title>在MySQL中创建库和用户</title>
-    <url>/2021/02/27/2016-08-23-create-db-user-in-mysql/</url>
+    <url>/2016/08/22/2016-08-23-create-db-user-in-mysql/</url>
     <content><![CDATA[<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE `irenshi` <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
 
 <h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;irenshi&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;irenshi&#x27;</span>;</span><br></pre></td></tr></table></figure>
@@ -912,7 +912,7 @@
   </entry>
   <entry>
     <title>将现有数据库的数据导入MyCAT</title>
-    <url>/2021/02/27/2016-08-24-import-data-into-mycat/</url>
+    <url>/2016/08/23/2016-08-24-import-data-into-mycat/</url>
     <content><![CDATA[<p><strong>特别注意：</strong>请谨慎使用该方法，目前遇到了两个问题，还尚未确定是Bug还是设置问题：</p>
 <ol>
 <li>当导入数据的某列很大时（其实也不大，大于4096的时候就会出问题），导入失败：<a href="https://github.com/MyCATApache/Mycat-Server/issues/1073">https://github.com/MyCATApache/Mycat-Server/issues/1073</a></li>
@@ -961,7 +961,7 @@
   </entry>
   <entry>
     <title>MySQL服务器配置</title>
-    <url>/2021/02/27/2016-08-25-mysql-basic-config/</url>
+    <url>/2016/08/24/2016-08-25-mysql-basic-config/</url>
     <content><![CDATA[<p>MySQL版本信息：</p>
 <blockquote>
 <p>mysqld  Ver 5.6.31-0ubuntu0.14.04.2 for debian-linux-gnu on x86_64 ((Ubuntu))</p>
@@ -977,7 +977,7 @@
   </entry>
   <entry>
     <title>使用GTID机制创建MySQL主从备份和主主备份</title>
-    <url>/2021/02/27/2016-08-25-mysql-gtid-master-slave/</url>
+    <url>/2016/08/24/2016-08-25-mysql-gtid-master-slave/</url>
     <content><![CDATA[<blockquote>
 <p><strong>注意：</strong>GTID机制只适用与MySQL 5.6.10及更新版本。</p>
 </blockquote>
@@ -1068,7 +1068,7 @@
   </entry>
   <entry>
     <title>MySQL导入数据错误：ERROR 2006 (HY000) at line 1&amp;#58; MySQL server has gone away</title>
-    <url>/2021/02/27/2016-08-26-mysql-error-2006/</url>
+    <url>/2016/08/25/2016-08-26-mysql-error-2006/</url>
     <content><![CDATA[<p>这个问题出在使用mysqldump进行数据迁移的过程中，问题的原因就是单条SQL的大小比数据库的设置更大。</p>
 <p>检查两个地方的配置：</p>
 <ol>
@@ -1093,7 +1093,7 @@
   </entry>
   <entry>
     <title>阿里云ECS Linux开启swap（虚拟内存）</title>
-    <url>/2021/02/27/2016-08-26-turn-on-swap-on-aliyun-linux/</url>
+    <url>/2016/08/25/2016-08-26-turn-on-swap-on-aliyun-linux/</url>
     <content><![CDATA[<p>阿里云的服务器默认是不开启虚拟内存的，官方给出的理由如下：</p>
 <blockquote>
 <p>由于开启swap分区会导致硬盘IO性能下降，因此阿里云服务器初始状态未配置swap。</p>
@@ -1297,7 +1297,7 @@
   </entry>
   <entry>
     <title>开始使用Mesos和Marathon</title>
-    <url>/2021/02/27/2016-09-09-apache-mesos-getstarted/</url>
+    <url>/2016/09/08/2016-09-09-apache-mesos-getstarted/</url>
     <content><![CDATA[<p>Marathon 是可以跟 Mesos 一起协作的一个 framework，用来运行持久性的应用。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一共需要安装四种组件，mesos-master、marathon、zookeeper 需要安装到所有的主节点，mesos-slave 需要安装到从节点。mesos 利用 zookeeper 来进行主节点的同步，以及从节点发现主节点的过程。</p>
 <h3 id="获取Docker镜像"><a href="#获取Docker镜像" class="headerlink" title="获取Docker镜像"></a>获取Docker镜像</h3><p>在主节点上拉取mesos-master、marathon、zookeeper相关镜像：</p>
@@ -1328,7 +1328,7 @@
   </entry>
   <entry>
     <title>ZooKeeper典型使用场景总结</title>
-    <url>/2021/02/27/2016-09-09-zookeeper-senarios/</url>
+    <url>/2016/09/08/2016-09-09-zookeeper-senarios/</url>
     <content><![CDATA[<blockquote>
 <p>转载自：<a href="http://blog.csdn.net/derekjiang/article/details/8751100">http://blog.csdn.net/derekjiang/article/details/8751100</a></p>
 </blockquote>
@@ -1378,7 +1378,7 @@
   </entry>
   <entry>
     <title>Ubuntu上使用USB安装APK到手机</title>
-    <url>/2021/02/27/2016-09-20-install-apk-on-ubuntu/</url>
+    <url>/2016/09/19/2016-09-20-install-apk-on-ubuntu/</url>
     <content><![CDATA[<p>Ubuntu上可以使用<code>adb</code>命令安装APK到手机上。</p>
 <h2 id="安装adb"><a href="#安装adb" class="headerlink" title="安装adb"></a>安装adb</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install android-tools-adb</span><br></pre></td></tr></table></figure>
 
@@ -1403,7 +1403,7 @@
   </entry>
   <entry>
     <title>Android包（apk）手动签名</title>
-    <url>/2021/02/27/2016-09-21-sign-apk-with-jarsigner/</url>
+    <url>/2016/09/20/2016-09-21-sign-apk-with-jarsigner/</url>
     <content><![CDATA[<p>语法：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jarsigner -verbose -keystore &lt;keystore file&gt; -signedjar &lt;output signed file&gt; &lt;apk to be signed&gt; &lt;<span class="built_in">alias</span>&gt;</span><br></pre></td></tr></table></figure>
 
@@ -1421,7 +1421,7 @@
   </entry>
   <entry>
     <title>批量转换文件编码</title>
-    <url>/2021/02/27/2016-09-22-convert-file-charsets-batch/</url>
+    <url>/2016/09/21/2016-09-22-convert-file-charsets-batch/</url>
     <content><![CDATA[<p>Linux上可以使用<code>enca</code>查看和转换文件编码。</p>
 <h2 id="查看文件编码"><a href="#查看文件编码" class="headerlink" title="查看文件编码"></a>查看文件编码</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enca [-L LANGUAGE] [FILE]...</span><br></pre></td></tr></table></figure>
 
@@ -1454,7 +1454,7 @@
   </entry>
   <entry>
     <title>好用的电子书搜索和格式转换平台</title>
-    <url>/2021/02/27/2016-10-10-ebook-search-conversion/</url>
+    <url>/2016/10/09/2016-10-10-ebook-search-conversion/</url>
     <content><![CDATA[<p>小蜜蜂在线电子书转换器，免费电子书格式转换，转换的格式支持各种阅读软件与设备。质量无损，转换速度快，简单易用。</p>
 <p>传送门：<a href="http://cn.epubee.com/">http://cn.epubee.com/</a></p>
 <h2 id="电子书格式转换"><a href="#电子书格式转换" class="headerlink" title="电子书格式转换"></a>电子书格式转换</h2><p>它支持 ePub，PDF，Mobi，AZW，AZW3，AZW4，htmlz，PRC，TXT，LIT，LRF，FB2，PDB，TXT等电子书格式的转换。</p>
@@ -1479,7 +1479,7 @@
   </entry>
   <entry>
     <title>设置VIM的编码格式</title>
-    <url>/2021/02/27/2016-10-10-set-vim-encoding/</url>
+    <url>/2016/10/09/2016-10-10-set-vim-encoding/</url>
     <content><![CDATA[<p>有的时候使用vim打开中文文件的时候会出现乱码，原因是vim打开文件时使用的编码格式和文件的编码格式不一致。</p>
 <h2 id="设置正确的编码格式以正确的显示中文"><a href="#设置正确的编码格式以正确的显示中文" class="headerlink" title="设置正确的编码格式以正确的显示中文"></a>设置正确的编码格式以正确的显示中文</h2><p>如果该文档使用utf8编码，则可以通过以下vim命令将编码格式设置为utf8：</p>
 <figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span></span><br></pre></td></tr></table></figure>
@@ -1501,7 +1501,7 @@
   </entry>
   <entry>
     <title>关于 Android Service 的介绍</title>
-    <url>/2021/02/27/2016-10-14-introduction-to-android-service/</url>
+    <url>/2016/10/13/2016-10-14-introduction-to-android-service/</url>
     <content><![CDATA[<blockquote>
 <p>转载自：<a href="http://www.jianshu.com/p/63792fc84d94#">http://www.jianshu.com/p/63792fc84d94#</a></p>
 </blockquote>
@@ -1598,7 +1598,7 @@
   </entry>
   <entry>
     <title>以SQL方式读取MySQL的GTID格式Binlog</title>
-    <url>/2021/02/27/2016-10-31-read-mysql-binlog-as-sql/</url>
+    <url>/2016/10/30/2016-10-31-read-mysql-binlog-as-sql/</url>
     <content><![CDATA[<p>将GTID格式的binlog转换为SQL的命令：</p>
 <blockquote>
 <p><code>mysqlbinlog --no-defaults -v --base64-output=DECODE-ROWS  --skip-gtids mysql-bin.000714</code></p>
@@ -1693,7 +1693,7 @@
   </entry>
   <entry>
     <title>Spring Framework的整体架构</title>
-    <url>/2021/02/27/2017-03-02-spring-framework-architecture/</url>
+    <url>/2017/03/01/2017-03-02-spring-framework-architecture/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Spring Framework 作为一个优秀的开源框架，是为了解决企业应用程序开发复杂性而创建的。框架的主要优势之一就是其分层架构，分层架构允许您选择使用哪一个组件，同时为J2EE应用程序开发提供集成的框架。</p>
 <h2 id="Spring-Framework的整体架构"><a href="#Spring-Framework的整体架构" class="headerlink" title="Spring Framework的整体架构"></a>Spring Framework的整体架构</h2><p>Spring Framework总共有十几个组件，其中核心组件只有三个：Core、Context和Beans。</p>
 <h3 id="Spring-Framework-3-x-的总体架构图"><a href="#Spring-Framework-3-x-的总体架构图" class="headerlink" title="Spring Framework 3.x 的总体架构图"></a>Spring Framework 3.x 的总体架构图</h3><p><img src="/upload/images/14.png" alt="Spring 3.x总体架构图"></p>
@@ -1743,7 +1743,7 @@
   </entry>
   <entry>
     <title>Spring Framework: Modules</title>
-    <url>/2021/02/27/2017-03-09-spring-framework-modules/</url>
+    <url>/2017/03/08/2017-03-09-spring-framework-modules/</url>
     <content><![CDATA[<blockquote>
 <p>Reference: <a href="https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules">https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules</a></p>
 </blockquote>
@@ -1823,7 +1823,7 @@
   </entry>
   <entry>
     <title>Spring Cloud组件介绍</title>
-    <url>/2021/02/27/2018-03-07-spring-cloud-components/</url>
+    <url>/2018/03/06/2018-03-07-spring-cloud-components/</url>
     <content><![CDATA[<blockquote>
 <p>Reference:</p>
 <ul>
@@ -1932,7 +1932,7 @@
   </entry>
   <entry>
     <title>Spring Cloud(一)：大话Spring Cloud</title>
-    <url>/2021/02/27/2018-07-01-simple-springcloud/</url>
+    <url>/2018/06/30/2018-07-01-simple-springcloud/</url>
     <content><![CDATA[<blockquote>
 <p>Reference: <a href="http://www.ityouknow.com/springcloud/2017/05/01/simple-springcloud.html">http://www.ityouknow.com/springcloud/2017/05/01/simple-springcloud.html</a></p>
 </blockquote>
@@ -1946,26 +1946,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/02/27/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Spring中使用JUnit+mockito+powermock进行单元测试</title>
-    <url>/2021/02/27/2016-07-25-spring-unit-test-with-junit-mockito-powermock/</url>
+    <url>/2016/07/24/2016-07-25-spring-unit-test-with-junit-mockito-powermock/</url>
     <content><![CDATA[<p>Spring中执行单元测试，最麻烦的就是解决Bean的定义以及注入的问题。最开始使用Spring的上下文初始化进行测试，开头是这样的：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span> </span><br><span class="line"><span class="meta">@ContextConfiguration(&quot;/config/Spring-db1.xml&quot;)</span> </span><br></pre></td></tr></table></figure>
 <p>于是，为了能让这个单元测试正常运行起来，我又Mock了一堆其他的如：MySQL，MongoDB，Redis等等无数的组件。最终测试终于可以运行起来，但是运行的时候又需要对整个Spring的上下文进行初始化，跑一个单元测试需要0.1秒，跑初始化流程就需要1分钟。不过当时单元测试并不是团队高优先级的任务，后来也就没有再研究。   </p>
@@ -2054,7 +2036,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>RC4被JDK8默认禁用导致腾讯QQ邮箱无法访问</title>
-    <url>/2021/02/27/2016-07-30-use-rc4-in-tencent-mail/</url>
+    <url>/2016/07/29/2016-07-30-use-rc4-in-tencent-mail/</url>
     <content><![CDATA[<p>7月29日开始，腾讯修改了邮箱的加密方式，导致我们线上的所有的腾讯代收、代发邮件的功能全部失效。解决方法在最后，如果需要可直接跳转至<a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a>一节</p>
 <h3 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h3><p>7月29日开始，线上的所有的腾讯代收、代发邮件的功能全部失效，报<code>handshake_error</code>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">javax.mail.MessagingException: Connect failed;</span><br><span class="line">  nested exception is:</span><br><span class="line">	javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure</span><br><span class="line">	at com.sun.mail.pop3.POP3Store.protocolConnect(POP3Store.java:209)</span><br><span class="line">	at javax.mail.Service.connect(Service.java:295)</span><br><span class="line">	at javax.mail.Service.connect(Service.java:176)</span><br><span class="line">	at cn.irenshi.biz.recruit.service.impl.RecruitReceiveMailServiceImpl.testConnect(RecruitReceiveMailServiceImpl.java:507)</span><br><span class="line">	at cn.irenshi.biz.recruit.service.impl.RecruitReceiveMailServiceImpl.testMailConnect(RecruitReceiveMailServiceImpl.java:534)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:497)</span><br><span class="line">	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)</span><br><span class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)</span><br><span class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)</span><br><span class="line">	... more</span><br><span class="line"></span><br><span class="line">Caused by: javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure</span><br><span class="line">	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)</span><br><span class="line">	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:2023)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1125)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1375)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1403)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1387)</span><br><span class="line">	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:549)</span><br><span class="line">	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:354)</span><br><span class="line">	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:237)</span><br><span class="line">	at com.sun.mail.pop3.Protocol.&lt;init&gt;(Protocol.java:112)</span><br><span class="line">	at com.sun.mail.pop3.POP3Store.getPort(POP3Store.java:260)</span><br><span class="line">	at com.sun.mail.pop3.POP3Store.protocolConnect(POP3Store.java:205)</span><br><span class="line">	... 132 more</span><br></pre></td></tr></table></figure>
@@ -2136,7 +2118,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>万亿级调用系统：微信序列号生成器架构设计及演变</title>
-    <url>/2021/02/27/2016-08-09-weixin-sequence-generator/</url>
+    <url>/2016/08/08/2016-08-09-weixin-sequence-generator/</url>
     <content><![CDATA[<blockquote>
 <p><strong>曾钦松</strong>，微信高级工程师，目前负责微信后台基础服务、朋友圈后台等开发优化，致力于高可用高性能后台系统的设计与研发。2011年毕业于西安电子科技大学，早先曾在腾讯搜搜从事检索架构、分布式数据库方面的工作。</p>
 </blockquote>
@@ -2255,7 +2237,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>开始使用MyCAT</title>
-    <url>/2021/02/27/2016-08-17-mycat-startup/</url>
+    <url>/2016/08/16/2016-08-17-mycat-startup/</url>
     <content><![CDATA[<p>MyCAT是基于阿里巴巴开源数据库中间件Cobar开发并维护的数据库中间件，弥补了Cobar无人维护的尴尬境地。详细介绍可以参考官网：<a href="http://mycat.io/">http://mycat.io/</a></p>
 <p>相比Cobar来说，MyCAT的坑算是少很多了，下面是开始使用MyCAT的一些步骤。</p>
 <h2 id="准备数据库"><a href="#准备数据库" class="headerlink" title="准备数据库"></a>准备数据库</h2><h3 id="创建MySQL数据库实例"><a href="#创建MySQL数据库实例" class="headerlink" title="创建MySQL数据库实例"></a>创建MySQL数据库实例</h3><p>用Docker启动，其他安装方式不再介绍。</p>
@@ -2416,7 +2398,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>Introduction to Microservices</title>
-    <url>/2021/02/27/2018-05-19-introduction-to-microservices/</url>
+    <url>/2018/05/18/2018-05-19-introduction-to-microservices/</url>
     <content><![CDATA[<ul>
 <li>TOC</li>
 </ul>
