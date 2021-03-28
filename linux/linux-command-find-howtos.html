@@ -21,23 +21,21 @@
     var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="阿里云ECS Linux开启swap（虚拟内存）">
+  <meta name="description" content="Find命令是程序员每天都会使用的命令，是一个无处不在是命令，是linux中最有用的命令之一。你可以使用它在任意一个目录（及子目录）中搜索文件，你也可以定义一些特定的条件，如按文件名、文件类型、用户甚至是时间节点去查找文件。本文大家分享几个 find 命令的简单却又高级的用法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里云ECS Linux开启swap（虚拟内存）">
-<meta property="og:url" content="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html">
+<meta property="og:title" content="Linux find命令高阶用法">
+<meta property="og:url" content="http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html">
 <meta property="og:site_name" content="小炭猪">
-<meta property="og:description" content="阿里云ECS Linux开启swap（虚拟内存）">
+<meta property="og:description" content="Find命令是程序员每天都会使用的命令，是一个无处不在是命令，是linux中最有用的命令之一。你可以使用它在任意一个目录（及子目录）中搜索文件，你也可以定义一些特定的条件，如按文件名、文件类型、用户甚至是时间节点去查找文件。本文大家分享几个 find 命令的简单却又高级的用法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2016-08-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2016-08-25T16:00:00.000Z">
+<meta property="article:published_time" content="2021-03-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-27T16:00:00.000Z">
 <meta property="article:author" content="Fify">
+<meta property="article:tag" content="Shell">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="阿里云">
-<meta property="article:tag" content="ECS">
-<meta property="article:tag" content="swap">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html">
+<link rel="canonical" href="http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>阿里云ECS Linux开启swap（虚拟内存） | 小炭猪</title>
+  <title>Linux find命令高阶用法 | 小炭猪</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
     <script>
@@ -209,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -222,7 +220,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          阿里云ECS Linux开启swap（虚拟内存）
+          Linux find命令高阶用法
         </h1>
 
         <div class="post-meta">
@@ -232,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-08-26 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-26T00:00:00+08:00">2016-08-26</time>
+              <time title="创建时间：2021-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-28T00:00:00+08:00">2021-03-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,19 +238,19 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
             </span>
 
           
-            <span id="/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html" class="post-meta-item leancloud_visitors" data-flag-title="阿里云ECS Linux开启swap（虚拟内存）" title="阅读次数">
+            <span id="/linux/linux-command-find-howtos.html" class="post-meta-item leancloud_visitors" data-flag-title="Linux find命令高阶用法" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
-            <div class="post-description">阿里云ECS Linux开启swap（虚拟内存）</div>
+            <div class="post-description">Find命令是程序员每天都会使用的命令，是一个无处不在是命令，是linux中最有用的命令之一。你可以使用它在任意一个目录（及子目录）中搜索文件，你也可以定义一些特定的条件，如按文件名、文件类型、用户甚至是时间节点去查找文件。本文大家分享几个 find 命令的简单却又高级的用法</div>
 
         </div>
       </header>
@@ -263,30 +261,80 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>阿里云的服务器默认是不开启虚拟内存的，官方给出的理由如下：</p>
-<blockquote>
-<p>由于开启swap分区会导致硬盘IO性能下降，因此阿里云服务器初始状态未配置swap。</p>
+        <blockquote>
+<p>linux 下一切皆文件。</p>
 </blockquote>
-<p>这确实是个理由，开启swap对阿里云并没有什么太多的好处：</p>
-<ol>
-<li>开启swap分区会造成阿里云宿主机的磁盘负载增大，其一会影响磁盘IO性能，其次还会降低磁盘使用寿命；</li>
-<li>在阿里云推出SSD之后，SSD的性能和内存性能的差距相对机械硬盘来说减小很多，SSD设置可以当内存使用。但是SSD和内存的价格差别不是一点半点。</li>
-</ol>
-<p>但是不开启swap，会造成很严重的后果：</p>
-<ol>
-<li>内存使用波动的时候会导致系统直接杀死某些进程，造成严重的系统不稳定因素，触发只是因为系统偶尔的一次波动而已。</li>
-</ol>
-<h2 id="开启swap的方法"><a href="#开启swap的方法" class="headerlink" title="开启swap的方法"></a>开启swap的方法</h2><h3 id="创建用于交换分区的文件"><a href="#创建用于交换分区的文件" class="headerlink" title="创建用于交换分区的文件"></a>创建用于交换分区的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/mnt/swap bs=1M count=4096</span><br></pre></td></tr></table></figure>
-<p>注：<code>block_size</code>、<code>number_of_block</code>大小可以自定义，比如bs=1M count=4096代表设置4G大小swap分区</p>
-<h3 id="设置交换分区文件"><a href="#设置交换分区文件" class="headerlink" title="设置交换分区文件"></a>设置交换分区文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /mnt/swap</span><br></pre></td></tr></table></figure>
+<p>Find命令是程序员每天都会使用的命令，是一个无处不在是命令，是linux中最有用的命令之一。你可以使用它在任意一个目录（及子目录）中搜索文件，你也可以定义一些特定的条件，如按文件名、文件类型、用户甚至是时间节点去查找文件。</p>
+<p>毋庸置疑的是在强大的功能背后，它的使用对比其他的命令会复杂的多，比较难。下面就跟大家分享几个 find 命令的简单却又高级的用法。</p>
+<h2 id="根据访问-修改-更改时间查找文件"><a href="#根据访问-修改-更改时间查找文件" class="headerlink" title="根据访问/修改/更改时间查找文件"></a>根据访问/修改/更改时间查找文件</h2><p>如果服务器被入侵，你可以利用find 查询到近期被访问、修改、更改的文件</p>
+<blockquote>
+<p>备注：min=分钟 time=天 修改注重于对内容的修改，更改注重于对权限的更改</p>
+</blockquote>
+<p>查找1个小时内被访问过的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -amin -60</span><br></pre></td></tr></table></figure>
 
-<h3 id="立即启用交换分区文件"><a href="#立即启用交换分区文件" class="headerlink" title="立即启用交换分区文件"></a>立即启用交换分区文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swapon /mnt/swap</span><br></pre></td></tr></table></figure>
-<p>如果在/etc/rc.local中有swapoff -a 需要修改为swapon -a</p>
-<h3 id="设置开机时自启用swap分区"><a href="#设置开机时自启用swap分区" class="headerlink" title="设置开机时自启用swap分区"></a>设置开机时自启用swap分区</h3><p>需要修改文件/etc/fstab中的swap行。添加以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;mnt&#x2F;swap swap swap defaults 0 0</span><br></pre></td></tr></table></figure>
-<p>注：/mnt/swap 路径可以修改，可以根据创建的swap文件具体路径来配置。</p>
-<p>设置后可以执行free -m命令查看效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@www:~# free -m</span><br><span class="line">             total       used       free     shared    buffers     cached</span><br><span class="line">Mem:          7983       7784        199          2         70       1158</span><br><span class="line">-&#x2F;+ buffers&#x2F;cache:       6555       1428</span><br><span class="line">Swap:         4095       1052       3043</span><br></pre></td></tr></table></figure>
+<p>查找1天内被访问过的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -atime -1</span><br></pre></td></tr></table></figure>
+
+<p>查找在1个小时内被修改的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mmin -60</span><br></pre></td></tr></table></figure>
+
+<p>查找在1天内被修改的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -mtime -1</span><br></pre></td></tr></table></figure>
+
+<p>查找1小时内状态被改变的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -cmin -60</span><br></pre></td></tr></table></figure>
+
+<p>查找1天内状态被改变的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -ctime -1</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找比某文件新或某文件旧的文件"><a href="#查找比某文件新或某文件旧的文件" class="headerlink" title="查找比某文件新或某文件旧的文件"></a>查找比某文件新或某文件旧的文件</h2><p>环境上日志文件数不胜数，想删除某个时间之前的文件，该怎么处理？</p>
+<blockquote>
+<p>备注：newer（修改时间）、anewer（访问时间）、ctime（修改时间，包括权限属性的修改）<br>列出比1.log更旧的文件</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ ! -newer 1.log |xargs ls -al</span><br></pre></td></tr></table></figure>
+
+<p>列出比1.log更新的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -newer 1.log |xargs ls -al</span><br></pre></td></tr></table></figure>
+
+<h2 id="多条件组合查找"><a href="#多条件组合查找" class="headerlink" title="多条件组合查找"></a>多条件组合查找</h2><p>有时我们要查找的文件并不止一个类目这个时候我们可以使用多条件组合的方式去查找，常用的条件组合参数有<code>-a(and)</code>,<code>-o(or)</code>,<code>!(not)</code>。</p>
+<p>查找普通文档和符号链接文档：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -type f -o -type l</span><br></pre></td></tr></table></figure>
+
+<p>查找名称为skill的符号链接文档</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -name &quot;*skill&quot; -a -type l</span><br></pre></td></tr></table></figure>
+
+<p>查找log文档以外的其他文档：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ ! -name &quot;*.log&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对所查找到的文件进行操作"><a href="#对所查找到的文件进行操作" class="headerlink" title="对所查找到的文件进行操作"></a>对所查找到的文件进行操作</h2><p>文件我们已经查找到了，如何对它们做些什么呢？</p>
+<p>对于以查找到的文件，进行操作万能公式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; -exec action &#123;&#125; somearguments \\;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>命令解释：</p>
+<ul>
+<li>find . -name “something” 找出所有名字包含something的文件;</li>
+<li>-exec 执行后面的命令， action 任意命令名; {}是find的结果集合</li>
+<li>somearguments ， 命令需要的参数，就是例子中的-r; \; 结束命令</li>
+</ul>
+</blockquote>
+<p><strong>举例:</strong></p>
+<p>利用Find命令对文件进行备份</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; –exec cp &#123;&#125; /backup/&#123;&#125;.backup /;</span><br></pre></td></tr></table></figure>
+
+<p>利用Find命令对文件进行删除</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; –exec rm –I &#123;&#125; /;</span><br></pre></td></tr></table></figure>
+
+<p>下面列一些比较常用的：</p>
+<ul>
+<li>rm 命令，用于删除find查找出来的文件</li>
+<li>mv 命令，用于重命名查找出的文件</li>
+<li>ls -l 命令，显示查找出的文件的详细信息</li>
+<li>md5sum， 对查找出的文件进行md5sum运算，可以获得一个字符串，用于检测文件内容的合法性</li>
+<li>wc 命令，用于统计计算文件的单词数量，文件大小等</li>
+</ul>
+<p>执行任何Unix的shell命令<br>执行你自己写的shell脚本，参数就是每个查找出来的文件名</p>
 
     </div>
 
@@ -296,10 +344,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/shell/" rel="tag"># Shell</a>
               <a href="/tags/linux/" rel="tag"># Linux</a>
-              <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="tag"># 阿里云</a>
-              <a href="/tags/ecs/" rel="tag"># ECS</a>
-              <a href="/tags/swap/" rel="tag"># swap</a>
           </div>
 
         
@@ -308,13 +354,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-26-mysql-error-2006.html" rel="prev" title="MySQL导入数据错误：ERROR 2006 (HY000) at line 1&#58; MySQL server has gone away">
-      <i class="fa fa-chevron-left"></i> MySQL导入数据错误：ERROR 2006 (HY000) at line 1&#58; MySQL server has gone away
+    <a href="/redis/redis-performance-issues-cpu.html" rel="prev" title="Redis常见的CPU和内存性能问题">
+      <i class="fa fa-chevron-left"></i> Redis常见的CPU和内存性能问题
     </a></div>
-      <div class="post-nav-item">
-    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-30-mysql-performance-and-tunning.html" rel="next" title="MySQL性能查看及调优参考">
-      MySQL性能查看及调优参考 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -380,7 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AFswap%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">开启swap的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E4%BA%8E%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">创建用于交换分区的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">设置交换分区文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%8B%E5%8D%B3%E5%90%AF%E7%94%A8%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">立即启用交换分区文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E6%97%B6%E8%87%AA%E5%90%AF%E7%94%A8swap%E5%88%86%E5%8C%BA"><span class="nav-number">1.4.</span> <span class="nav-text">设置开机时自启用swap分区</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E8%AE%BF%E9%97%AE-%E4%BF%AE%E6%94%B9-%E6%9B%B4%E6%94%B9%E6%97%B6%E9%97%B4%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">根据访问&#x2F;修改&#x2F;更改时间查找文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%AF%94%E6%9F%90%E6%96%87%E4%BB%B6%E6%96%B0%E6%88%96%E6%9F%90%E6%96%87%E4%BB%B6%E6%97%A7%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">查找比某文件新或某文件旧的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E7%BB%84%E5%90%88%E6%9F%A5%E6%89%BE"><span class="nav-number">3.</span> <span class="nav-text">多条件组合查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%89%80%E6%9F%A5%E6%89%BE%E5%88%B0%E7%9A%84%E6%96%87%E4%BB%B6%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">对所查找到的文件进行操作</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -600,9 +643,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html";
-    this.page.identifier = "运维/2016-08-26-turn-on-swap-on-aliyun-linux.html";
-    this.page.title = "阿里云ECS Linux开启swap（虚拟内存）";
+    this.page.url = "http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html";
+    this.page.identifier = "linux/linux-command-find-howtos.html";
+    this.page.title = "Linux find命令高阶用法";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

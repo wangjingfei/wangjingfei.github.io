@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#110;&#x67;&#102;&#x65;&#x69;&#x40;&#x31;&#54;&#51;&#46;&#99;&#x6f;&#x6d;">&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#110;&#x67;&#102;&#x65;&#x69;&#x40;&#x31;&#54;&#51;&#46;&#99;&#x6f;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#x61;&#x6e;&#x67;&#x6a;&#105;&#x6e;&#103;&#x66;&#101;&#x69;&#x40;&#50;&#54;&#x33;&#46;&#99;&#111;&#109;">&#119;&#x61;&#x6e;&#x67;&#x6a;&#105;&#x6e;&#103;&#x66;&#101;&#x69;&#x40;&#50;&#54;&#x33;&#46;&#99;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#97;&#x6d;&#97;&#64;&#x77;&#104;&#x69;&#x74;&#x65;&#x68;&#111;&#117;&#115;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#111;&#98;&#97;&#x6d;&#97;&#64;&#x77;&#104;&#x69;&#x74;&#x65;&#x68;&#111;&#117;&#115;&#101;&#x2e;&#99;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#x6a;&#105;&#110;&#x70;&#x69;&#110;&#103;&#x40;&#122;&#x68;&#111;&#110;&#103;&#x6e;&#97;&#110;&#104;&#x61;&#105;&#46;&#x63;&#111;&#109;">&#x78;&#105;&#x6a;&#105;&#110;&#x70;&#x69;&#110;&#103;&#x40;&#122;&#x68;&#111;&#110;&#103;&#x6e;&#97;&#110;&#104;&#x61;&#105;&#46;&#x63;&#111;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#110;&#103;&#106;&#x69;&#x6e;&#x67;&#102;&#x65;&#x69;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#109;">&#x77;&#97;&#110;&#103;&#106;&#x69;&#x6e;&#x67;&#102;&#x65;&#x69;&#x40;&#49;&#54;&#x33;&#x2e;&#99;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#97;&#110;&#103;&#106;&#x69;&#110;&#103;&#x66;&#x65;&#x69;&#x40;&#x32;&#54;&#x33;&#x2e;&#99;&#111;&#109;">&#119;&#97;&#110;&#103;&#106;&#x69;&#110;&#103;&#x66;&#x65;&#x69;&#x40;&#x32;&#54;&#x33;&#x2e;&#99;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#x61;&#x6d;&#x61;&#64;&#119;&#x68;&#105;&#x74;&#x65;&#104;&#111;&#117;&#115;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#111;&#x62;&#x61;&#x6d;&#x61;&#64;&#119;&#x68;&#105;&#x74;&#x65;&#104;&#111;&#117;&#115;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#x6a;&#105;&#x6e;&#x70;&#x69;&#110;&#103;&#x40;&#122;&#104;&#111;&#x6e;&#103;&#x6e;&#97;&#x6e;&#x68;&#x61;&#105;&#46;&#x63;&#x6f;&#x6d;">&#x78;&#x69;&#x6a;&#105;&#x6e;&#x70;&#x69;&#110;&#103;&#x40;&#122;&#104;&#111;&#x6e;&#103;&#x6e;&#97;&#x6e;&#x68;&#x61;&#105;&#46;&#x63;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -1945,6 +1945,92 @@
       <tags>
         <tag>Spring</tag>
         <tag>Spring Cloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux find命令高阶用法</title>
+    <url>/linux/linux-command-find-howtos.html</url>
+    <content><![CDATA[<blockquote>
+<p>linux 下一切皆文件。</p>
+</blockquote>
+<p>Find命令是程序员每天都会使用的命令，是一个无处不在是命令，是linux中最有用的命令之一。你可以使用它在任意一个目录（及子目录）中搜索文件，你也可以定义一些特定的条件，如按文件名、文件类型、用户甚至是时间节点去查找文件。</p>
+<p>毋庸置疑的是在强大的功能背后，它的使用对比其他的命令会复杂的多，比较难。下面就跟大家分享几个 find 命令的简单却又高级的用法。</p>
+<h2 id="根据访问-修改-更改时间查找文件"><a href="#根据访问-修改-更改时间查找文件" class="headerlink" title="根据访问/修改/更改时间查找文件"></a>根据访问/修改/更改时间查找文件</h2><p>如果服务器被入侵，你可以利用find 查询到近期被访问、修改、更改的文件</p>
+<blockquote>
+<p>备注：min=分钟 time=天 修改注重于对内容的修改，更改注重于对权限的更改</p>
+</blockquote>
+<p>查找1个小时内被访问过的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find . -amin -60</span><br></pre></td></tr></table></figure>
+
+<p>查找1天内被访问过的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find / -atime -1</span><br></pre></td></tr></table></figure>
+
+<p>查找在1个小时内被修改的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find . -mmin -60</span><br></pre></td></tr></table></figure>
+
+<p>查找在1天内被修改的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find / -mtime -1</span><br></pre></td></tr></table></figure>
+
+<p>查找1小时内状态被改变的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find . -cmin -60</span><br></pre></td></tr></table></figure>
+
+<p>查找1天内状态被改变的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find / -ctime -1</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找比某文件新或某文件旧的文件"><a href="#查找比某文件新或某文件旧的文件" class="headerlink" title="查找比某文件新或某文件旧的文件"></a>查找比某文件新或某文件旧的文件</h2><p>环境上日志文件数不胜数，想删除某个时间之前的文件，该怎么处理？</p>
+<blockquote>
+<p>备注：newer（修改时间）、anewer（访问时间）、ctime（修改时间，包括权限属性的修改）<br>列出比1.log更旧的文件</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find ./ ! -newer 1.log |xargs ls -al</span><br></pre></td></tr></table></figure>
+
+<p>列出比1.log更新的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find ./ -newer 1.log |xargs ls -al</span><br></pre></td></tr></table></figure>
+
+<h2 id="多条件组合查找"><a href="#多条件组合查找" class="headerlink" title="多条件组合查找"></a>多条件组合查找</h2><p>有时我们要查找的文件并不止一个类目这个时候我们可以使用多条件组合的方式去查找，常用的条件组合参数有<code>-a(and)</code>,<code>-o(or)</code>,<code>!(not)</code>。</p>
+<p>查找普通文档和符号链接文档：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find ./ -type f -o -type l</span><br></pre></td></tr></table></figure>
+
+<p>查找名称为skill的符号链接文档</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find ./ -name &quot;*skill&quot; -a -type l</span><br></pre></td></tr></table></figure>
+
+<p>查找log文档以外的其他文档：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find ./ ! -name &quot;*.log&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对所查找到的文件进行操作"><a href="#对所查找到的文件进行操作" class="headerlink" title="对所查找到的文件进行操作"></a>对所查找到的文件进行操作</h2><p>文件我们已经查找到了，如何对它们做些什么呢？</p>
+<p>对于以查找到的文件，进行操作万能公式：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; -exec action &#123;&#125; somearguments \\;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>命令解释：</p>
+<ul>
+<li>find . -name “something” 找出所有名字包含something的文件;</li>
+<li>-exec 执行后面的命令， action 任意命令名; {}是find的结果集合</li>
+<li>somearguments ， 命令需要的参数，就是例子中的-r; \; 结束命令</li>
+</ul>
+</blockquote>
+<p><strong>举例:</strong></p>
+<p>利用Find命令对文件进行备份</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; –exec cp &#123;&#125; /backup/&#123;&#125;.backup /;</span><br></pre></td></tr></table></figure>
+
+<p>利用Find命令对文件进行删除</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; –exec rm –I &#123;&#125; /;</span><br></pre></td></tr></table></figure>
+
+<p>下面列一些比较常用的：</p>
+<ul>
+<li>rm 命令，用于删除find查找出来的文件</li>
+<li>mv 命令，用于重命名查找出的文件</li>
+<li>ls -l 命令，显示查找出的文件的详细信息</li>
+<li>md5sum， 对查找出的文件进行md5sum运算，可以获得一个字符串，用于检测文件内容的合法性</li>
+<li>wc 命令，用于统计计算文件的单词数量，文件大小等</li>
+</ul>
+<p>执行任何Unix的shell命令<br>执行你自己写的shell脚本，参数就是每个查找出来的文件名</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
