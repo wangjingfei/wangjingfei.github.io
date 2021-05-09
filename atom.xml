@@ -3,7 +3,7 @@
   <title>小炭猪</title>
   <icon>http://www.xiaotanzhu.com/icon.png</icon>
   <subtitle>一夕一绽一缕芳，一生一叹一痕沙</subtitle>
-  <link href="http://www.xiaotanzhu.com/feed.xml" rel="self"/>
+  <link href="http://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="http://www.xiaotanzhu.com/"/>
   <updated>2021-05-08T16:00:00.000Z</updated>
