@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</loc>
+    <lastmod>2021-05-29</lastmod>
+  </url>
+  <url>
+    <loc>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</loc>
+    <lastmod>2021-05-29</lastmod>
+  </url>
+  <url>
     <loc>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</loc>
     <lastmod>2021-05-08</lastmod>
   </url>

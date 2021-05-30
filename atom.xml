@@ -6,7 +6,7 @@
   <link href="http://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="http://www.xiaotanzhu.com/"/>
-  <updated>2021-05-08T16:00:00.000Z</updated>
+  <updated>2021-05-29T16:00:00.000Z</updated>
   <id>http://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微软模拟飞行教程</title>
+    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html"/>
+    <id>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</id>
+    <published>2021-05-29T16:00:00.000Z</published>
+    <updated>2021-05-29T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">微软模拟飞行的上手教程</summary>
+    
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
+    
+    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微软模拟飞行基本概念</title>
+    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html"/>
+    <id>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</id>
+    <published>2021-05-29T16:00:00.000Z</published>
+    <updated>2021-05-29T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">微软模拟飞行中使用到的一些基本概念和名词对照</summary>
+    
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
+    
+    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
@@ -403,50 +445,6 @@
     
     
     <category term="Zookeeper" scheme="http://www.xiaotanzhu.com/tags/zookeeper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开始使用Mesos和Marathon</title>
-    <link href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-09-09-apache-mesos-getstarted.html"/>
-    <id>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-09-09-apache-mesos-getstarted.html</id>
-    <published>2016-09-08T16:00:00.000Z</published>
-    <updated>2016-09-08T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">开始使用Mesos和Marathon</summary>
-    
-    
-    
-    <category term="运维" scheme="http://www.xiaotanzhu.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="Mesos" scheme="http://www.xiaotanzhu.com/tags/mesos/"/>
-    
-    <category term="Marathon" scheme="http://www.xiaotanzhu.com/tags/marathon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL性能查看及调优参考</title>
-    <link href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-30-mysql-performance-and-tunning.html"/>
-    <id>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-30-mysql-performance-and-tunning.html</id>
-    <published>2016-08-29T16:00:00.000Z</published>
-    <updated>2016-08-29T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">MySQL性能查看及调优参考</summary>
-    
-    
-    
-    <category term="数据库" scheme="http://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="MySQL" scheme="http://www.xiaotanzhu.com/tags/mysql/"/>
-    
-    <category term="Performance" scheme="http://www.xiaotanzhu.com/tags/performance/"/>
-    
-    <category term="Tuning" scheme="http://www.xiaotanzhu.com/tags/tuning/"/>
     
   </entry>
   
