@@ -65,6 +65,29 @@
     </item>
     
     <item>
+      <title>MacOS常见操作</title>
+      <link>http://www.xiaotanzhu.com/macos/macos-howtos.html</link>
+      <guid>http://www.xiaotanzhu.com/macos/macos-howtos.html</guid>
+      <pubDate>Mon, 17 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>目录：MacOS常见的一些配置、调整或软件</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/macos/">MacOS</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/macos/">MacOS</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/macbook/">MacBook</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/macos/macos-howtos.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
       <link>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</link>
       <guid>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</guid>
@@ -466,27 +489,6 @@
       
       
       <comments>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>ZooKeeper典型使用场景总结</title>
-      <link>http://www.xiaotanzhu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html</link>
-      <guid>http://www.xiaotanzhu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html</guid>
-      <pubDate>Thu, 08 Sep 2016 16:00:00 GMT</pubDate>
-      
-      <description>ZooKeeper典型使用场景总结</description>
-      
-      
-      
-      
-      <category domain="http://www.xiaotanzhu.com/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/">分布式系统</category>
-      
-      
-      <category domain="http://www.xiaotanzhu.com/tags/zookeeper/">Zookeeper</category>
-      
-      
-      <comments>http://www.xiaotanzhu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html#disqus_thread</comments>
       
     </item>
     
