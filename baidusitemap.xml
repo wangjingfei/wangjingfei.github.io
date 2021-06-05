@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</loc>
+    <lastmod>2021-05-29</lastmod>
+  </url>
+  <url>
     <loc>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</loc>
     <lastmod>2021-05-29</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html</loc>
+    <lastmod>2021-05-17</lastmod>
   </url>
   <url>
     <loc>http://www.xiaotanzhu.com/macos/macos-howtos.html</loc>
@@ -93,11 +97,11 @@
     <lastmod>2016-08-29</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html</loc>
+    <loc>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-26-mysql-error-2006.html</loc>
     <lastmod>2016-08-25</lastmod>
   </url>
   <url>
-    <loc>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-26-mysql-error-2006.html</loc>
+    <loc>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html</loc>
     <lastmod>2016-08-25</lastmod>
   </url>
   <url>

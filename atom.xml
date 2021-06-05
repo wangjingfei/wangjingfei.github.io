@@ -60,6 +60,27 @@
   
   <entry>
     <title>MacOS常见操作</title>
+    <link href="http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html"/>
+    <id>http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html</id>
+    <published>2021-05-17T16:00:00.000Z</published>
+    <updated>2021-05-17T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">目录：MacOS常见的一些配置、调整或软件</summary>
+    
+    
+    
+    <category term="MacOS" scheme="http://www.xiaotanzhu.com/categories/macos/"/>
+    
+    
+    <category term="MacOS" scheme="http://www.xiaotanzhu.com/tags/macos/"/>
+    
+    <category term="MacBook" scheme="http://www.xiaotanzhu.com/tags/macbook/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS常见操作</title>
     <link href="http://www.xiaotanzhu.com/macos/macos-howtos.html"/>
     <id>http://www.xiaotanzhu.com/macos/macos-howtos.html</id>
     <published>2021-05-17T16:00:00.000Z</published>
@@ -422,31 +443,6 @@
     <category term="apk" scheme="http://www.xiaotanzhu.com/tags/apk/"/>
     
     <category term="签名" scheme="http://www.xiaotanzhu.com/tags/%E7%AD%BE%E5%90%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu上使用USB安装APK到手机</title>
-    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html</id>
-    <published>2016-09-19T16:00:00.000Z</published>
-    <updated>2016-09-19T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Ubuntu上使用USB安装APK到手机</summary>
-    
-    
-    
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
-    
-    
-    <category term="Ubuntu" scheme="http://www.xiaotanzhu.com/tags/ubuntu/"/>
-    
-    <category term="Android" scheme="http://www.xiaotanzhu.com/tags/android/"/>
-    
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
-    
-    <category term="USB" scheme="http://www.xiaotanzhu.com/tags/usb/"/>
     
   </entry>
   
