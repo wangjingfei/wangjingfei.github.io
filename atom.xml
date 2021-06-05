@@ -35,6 +35,8 @@
     
     <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
     
+    <category term="新手教程" scheme="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
   </entry>
   
   <entry>
@@ -125,9 +127,9 @@
     
     <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
     
-    <category term="G1000" scheme="http://www.xiaotanzhu.com/tags/g1000/"/>
-    
     <category term="新手教程" scheme="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="G1000" scheme="http://www.xiaotanzhu.com/tags/g1000/"/>
     
   </entry>
   
