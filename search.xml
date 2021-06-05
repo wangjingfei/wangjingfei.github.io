@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#x61;&#110;&#103;&#106;&#105;&#110;&#x67;&#x66;&#101;&#x69;&#64;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;">&#119;&#x61;&#110;&#103;&#106;&#105;&#110;&#x67;&#x66;&#101;&#x69;&#64;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#110;&#103;&#106;&#x69;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#109;">&#x77;&#x61;&#110;&#103;&#106;&#x69;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#x61;&#x6d;&#x61;&#64;&#x77;&#x68;&#105;&#116;&#101;&#104;&#x6f;&#117;&#115;&#x65;&#x2e;&#x63;&#111;&#109;">&#111;&#x62;&#x61;&#x6d;&#x61;&#64;&#x77;&#x68;&#105;&#116;&#101;&#104;&#x6f;&#117;&#115;&#x65;&#x2e;&#x63;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#x6a;&#105;&#110;&#x70;&#x69;&#110;&#103;&#64;&#x7a;&#104;&#x6f;&#x6e;&#103;&#x6e;&#x61;&#110;&#x68;&#97;&#105;&#x2e;&#99;&#x6f;&#109;">&#x78;&#105;&#x6a;&#105;&#110;&#x70;&#x69;&#110;&#103;&#64;&#x7a;&#104;&#x6f;&#x6e;&#103;&#x6e;&#x61;&#110;&#x68;&#97;&#105;&#x2e;&#99;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#106;&#x69;&#x6e;&#103;&#102;&#101;&#105;&#x40;&#49;&#x36;&#51;&#46;&#99;&#111;&#109;">&#x77;&#97;&#110;&#x67;&#106;&#x69;&#x6e;&#103;&#102;&#101;&#105;&#x40;&#49;&#x36;&#51;&#46;&#99;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#97;&#110;&#x67;&#106;&#x69;&#110;&#103;&#102;&#101;&#x69;&#x40;&#x32;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;">&#119;&#97;&#110;&#x67;&#106;&#x69;&#110;&#103;&#102;&#101;&#x69;&#x40;&#x32;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#98;&#x61;&#109;&#x61;&#64;&#x77;&#x68;&#105;&#x74;&#101;&#104;&#x6f;&#x75;&#x73;&#101;&#46;&#x63;&#111;&#x6d;">&#x6f;&#98;&#x61;&#109;&#x61;&#64;&#x77;&#x68;&#105;&#x74;&#101;&#104;&#x6f;&#x75;&#x73;&#101;&#46;&#x63;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#x69;&#x6a;&#105;&#x6e;&#112;&#x69;&#x6e;&#103;&#64;&#122;&#x68;&#111;&#110;&#x67;&#x6e;&#97;&#x6e;&#x68;&#97;&#105;&#46;&#x63;&#x6f;&#x6d;">&#120;&#x69;&#x6a;&#105;&#x6e;&#112;&#x69;&#x6e;&#103;&#64;&#122;&#x68;&#111;&#110;&#x67;&#x6e;&#97;&#x6e;&#x68;&#97;&#105;&#46;&#x63;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -2196,7 +2196,8 @@
 <p>注：为什么选择无锡机场，主要考虑对新手友好，不至于距离太短而手忙脚乱，也不至于距离太远而过于无聊。</p>
 </blockquote>
 <h3 id="飞机型号"><a href="#飞机型号" class="headerlink" title="飞机型号"></a>飞机型号</h3><p>Cessna 172 (G1000)，操作系统G1000</p>
-<h3 id="面板说明"><a href="#面板说明" class="headerlink" title="面板说明"></a>面板说明</h3><h4 id="左侧面板"><a href="#左侧面板" class="headerlink" title="左侧面板"></a>左侧面板</h4><ul>
+<h3 id="面板说明"><a href="#面板说明" class="headerlink" title="面板说明"></a>面板说明</h3><p>Cessna 172主要有两个屏幕，为PFD和MFD，即主屏幕和多功能屏幕，分别为左侧和右侧两块屏幕。具体说明可以参考：<a href="https://www.bilibili.com/video/BV1Mf4y1z7Lm/">https://www.bilibili.com/video/BV1Mf4y1z7Lm/</a></p>
+<h4 id="面板左侧（PFD）"><a href="#面板左侧（PFD）" class="headerlink" title="面板左侧（PFD）"></a>面板左侧（PFD）</h4><ul>
 <li>AP：AutoPilot，开启/关闭自动驾驶</li>
 <li>FD：Flight Director，飞行指引，打开之后屏幕上会出现红色导航标记</li>
 <li>HDG：Heading Select或Heading Hold，制定航向飞行</li>
@@ -2209,11 +2210,11 @@
 <li>NoseUP：结合VS和FLC使用，提高VS或FLC的设置值</li>
 <li>NoseDN：结合VS和FLC使用，降低VS或FLC的设置值</li>
 </ul>
-<h4 id="下侧面板"><a href="#下侧面板" class="headerlink" title="下侧面板"></a>下侧面板</h4><ul>
+<h4 id="面板右侧（PFD）"><a href="#面板右侧（PFD）" class="headerlink" title="面板右侧（PFD）"></a>面板右侧（PFD）</h4><ul>
 <li>CDI：Change Direct Indicator，调整导航器。G1000中包含三种：VOR1，VOR2和GPS，分别对应频率导航NAV1、NAV2和GPS导航</li>
 <li>TMR/REF：计时器和速度参考，Vr速度后的OFF调整为ON之后，会在速度计中标记出来抬轮速度</li>
 </ul>
-<h4 id="右侧面板"><a href="#右侧面板" class="headerlink" title="右侧面板"></a>右侧面板</h4><ul>
+<h4 id="面板右侧（PFD）-1"><a href="#面板右侧（PFD）-1" class="headerlink" title="面板右侧（PFD）"></a>面板右侧（PFD）</h4><ul>
 <li>Direct Course：一个比较奇怪的图标按钮，代表直接飞行到某个点</li>
 <li>MENU：</li>
 <li>FPL：Flight Plan，查看和设置飞行计划</li>
@@ -2263,6 +2264,7 @@
         <tag>MSFS2020</tag>
         <tag>微软模拟飞行</tag>
         <tag>G1000</tag>
+        <tag>新手教程</tag>
       </tags>
   </entry>
   <entry>
