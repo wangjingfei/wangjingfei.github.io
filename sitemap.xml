@@ -16,13 +16,6 @@
   </url>
   
   <url>
-    <loc>http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html</loc>
-    
-    <lastmod>2021-05-17</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.xiaotanzhu.com/macos/macos-howtos.html</loc>
     
     <lastmod>2021-05-17</lastmod>
@@ -33,6 +26,13 @@
     <loc>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</loc>
     
     <lastmod>2021-05-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</loc>
+    
+    <lastmod>2021-05-04</lastmod>
     
   </url>
   
@@ -943,6 +943,13 @@
   
   <url>
     <loc>http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/</loc>
+    <lastmod>2021-06-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.xiaotanzhu.com/tags/g1000/</loc>
     <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

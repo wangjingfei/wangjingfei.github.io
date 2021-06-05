@@ -60,27 +60,6 @@
   
   <entry>
     <title>MacOS常见操作</title>
-    <link href="http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html"/>
-    <id>http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html</id>
-    <published>2021-05-17T16:00:00.000Z</published>
-    <updated>2021-05-17T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">目录：MacOS常见的一些配置、调整或软件</summary>
-    
-    
-    
-    <category term="MacOS" scheme="http://www.xiaotanzhu.com/categories/macos/"/>
-    
-    
-    <category term="MacOS" scheme="http://www.xiaotanzhu.com/tags/macos/"/>
-    
-    <category term="MacBook" scheme="http://www.xiaotanzhu.com/tags/macbook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MacOS常见操作</title>
     <link href="http://www.xiaotanzhu.com/macos/macos-howtos.html"/>
     <id>http://www.xiaotanzhu.com/macos/macos-howtos.html</id>
     <published>2021-05-17T16:00:00.000Z</published>
@@ -124,6 +103,29 @@
     <category term="SSL" scheme="http://www.xiaotanzhu.com/tags/ssl/"/>
     
     <category term="Github Pages" scheme="http://www.xiaotanzhu.com/tags/github-pages/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
+    <link href="http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html"/>
+    <id>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</id>
+    <published>2021-05-04T16:00:00.000Z</published>
+    <updated>2021-05-04T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场</summary>
+    
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
+    
+    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
+    
+    <category term="G1000" scheme="http://www.xiaotanzhu.com/tags/g1000/"/>
     
   </entry>
   

@@ -1,8 +1,8 @@
 http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html
 http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html
-http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html
 http://www.xiaotanzhu.com/macos/macos-howtos.html
 http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html
+http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html
 http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html
 http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html
 http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html

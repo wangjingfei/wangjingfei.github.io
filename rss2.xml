@@ -66,29 +66,6 @@
     
     <item>
       <title>MacOS常见操作</title>
-      <link>http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html</link>
-      <guid>http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html</guid>
-      <pubDate>Mon, 17 May 2021 16:00:00 GMT</pubDate>
-      
-      <description>目录：MacOS常见的一些配置、调整或软件</description>
-      
-      
-      
-      
-      <category domain="http://www.xiaotanzhu.com/categories/macos/">MacOS</category>
-      
-      
-      <category domain="http://www.xiaotanzhu.com/tags/macos/">MacOS</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/macbook/">MacBook</category>
-      
-      
-      <comments>http://www.xiaotanzhu.com/macos/msfs2020-flight-sh-wx.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>MacOS常见操作</title>
       <link>http://www.xiaotanzhu.com/macos/macos-howtos.html</link>
       <guid>http://www.xiaotanzhu.com/macos/macos-howtos.html</guid>
       <pubDate>Mon, 17 May 2021 16:00:00 GMT</pubDate>
@@ -136,6 +113,31 @@
       
       
       <comments>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
+      <link>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</link>
+      <guid>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</guid>
+      <pubDate>Tue, 04 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/msfs2020/">MSFS2020</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/msfs2020/">MSFS2020</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/">微软模拟飞行</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/g1000/">G1000</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html#disqus_thread</comments>
       
     </item>
     
