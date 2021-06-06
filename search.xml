@@ -2,13 +2,13 @@
 <search>
   <entry>
     <title>利用telnet进行SMTP的验证</title>
-    <url>/%E5%85%B6%E4%BB%96/2016-06-15-login-smtp-with-telnet.html</url>
+    <url>/2016/06/14/2016-06-15-login-smtp-with-telnet/</url>
     <content><![CDATA[<p>先计算BASE64编码的用户名密码，认证登录需要用到：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**fify@fify-Vostro-3902:~$ perl -MMIME::Base64 -e &#39;print encode_base64(&quot;wangjingfei&quot;);&#39;**</span><br><span class="line">d2FuZ2ppbmdmZWk&#x3D;</span><br><span class="line">**fify@fify-Vostro-3902:~$ perl -MMIME::Base64 -e &#39;print encode_base64(&quot;fakepassword&quot;);&#39;**</span><br><span class="line">ZmFrZXBhc3N3b3Jk</span><br></pre></td></tr></table></figure>
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#x65;&#105;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#x6f;&#109;">&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#x65;&#105;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#x65;&#105;&#64;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;">&#119;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#x65;&#105;&#64;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#x6d;&#97;&#x40;&#119;&#x68;&#x69;&#x74;&#101;&#x68;&#x6f;&#x75;&#115;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x6f;&#x62;&#97;&#x6d;&#97;&#x40;&#119;&#x68;&#x69;&#x74;&#101;&#x68;&#x6f;&#x75;&#115;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#x69;&#106;&#105;&#x6e;&#x70;&#x69;&#110;&#x67;&#64;&#122;&#x68;&#x6f;&#110;&#103;&#110;&#97;&#110;&#104;&#97;&#105;&#x2e;&#x63;&#x6f;&#109;">&#120;&#x69;&#106;&#105;&#x6e;&#x70;&#x69;&#110;&#x67;&#64;&#122;&#x68;&#x6f;&#110;&#103;&#110;&#97;&#110;&#104;&#97;&#105;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#97;&#x6e;&#103;&#x6a;&#x69;&#x6e;&#x67;&#102;&#101;&#105;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#111;&#x6d;">&#119;&#97;&#x6e;&#103;&#x6a;&#x69;&#x6e;&#x67;&#102;&#101;&#105;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#97;&#110;&#x67;&#106;&#x69;&#x6e;&#103;&#102;&#101;&#105;&#x40;&#x32;&#x36;&#51;&#x2e;&#99;&#x6f;&#x6d;">&#119;&#97;&#110;&#x67;&#106;&#x69;&#x6e;&#103;&#102;&#101;&#105;&#x40;&#x32;&#x36;&#51;&#x2e;&#99;&#x6f;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#109;&#97;&#x40;&#x77;&#104;&#x69;&#x74;&#101;&#104;&#x6f;&#117;&#x73;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x6f;&#x62;&#97;&#109;&#97;&#x40;&#x77;&#104;&#x69;&#x74;&#101;&#104;&#x6f;&#117;&#x73;&#x65;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#x6a;&#x69;&#x6e;&#x70;&#105;&#110;&#x67;&#64;&#122;&#x68;&#x6f;&#x6e;&#103;&#x6e;&#97;&#110;&#x68;&#x61;&#105;&#x2e;&#x63;&#111;&#109;">&#x78;&#x69;&#x6a;&#x69;&#x6e;&#x70;&#105;&#110;&#x67;&#64;&#122;&#x68;&#x6f;&#x6e;&#103;&#x6e;&#97;&#110;&#x68;&#x61;&#105;&#x2e;&#x63;&#111;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -25,7 +25,7 @@
   </entry>
   <entry>
     <title>批量删除Redis数据库中的Key</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-06-16-delete-keys-in-batch-redis.html</url>
+    <url>/2016/06/15/2016-06-16-delete-keys-in-batch-redis/</url>
     <content><![CDATA[<blockquote>
 <p>转载自：<a href="http://img.snail8.com/?p=502">http://img.snail8.com/?p=502</a></p>
 </blockquote>
@@ -51,7 +51,7 @@
   </entry>
   <entry>
     <title>使用Zabbix监控MySQL服务器</title>
-    <url>/%E8%BF%90%E7%BB%B4/2016-06-27-monitor-mysql-with-zabbix.html</url>
+    <url>/2016/06/26/2016-06-27-monitor-mysql-with-zabbix/</url>
     <content><![CDATA[<p>从Zabbix 2.2开始，Zabbix官方已经支持了MySQL监控，但是MySQL监控默认是不可用的，需要经过额外的设置才可以使用。</p>
 <h2 id="创建MySQL监控帐号"><a href="#创建MySQL监控帐号" class="headerlink" title="创建MySQL监控帐号"></a>创建MySQL监控帐号</h2><p>首先要建立一个MySQL帐户用于Zabbix Agent登录获取MySQL状态，这个帐户不需要任何权限，因此实质上可以使用debian-sys-maint也是可以的，另外如果在被监控的机子上本身就安装有Zabbix Server，那么可以直接使用zabbix帐户（密码可以在/etc/zabbix/zabbix_server.conf中找到）。当然可以登录被监控端的MySQL新建一个帐户：</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;zabbix&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;zabbix&#x27;</span>;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
@@ -77,7 +77,7 @@
   </entry>
   <entry>
     <title>Mongo常用命令</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-07-19-mongo-queries.html</url>
+    <url>/2016/07/18/2016-07-19-mongo-queries/</url>
     <content><![CDATA[<p>###根据日期查找</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.getCollection(<span class="string">&#x27;webExceptionRecord&#x27;</span>).find(&#123;<span class="attr">createdDate</span>: &#123;<span class="string">&quot;$gte&quot;</span>:ISODate(<span class="string">&quot;2016-03-31T12:48:25.040+08:00&quot;</span>)&#125;&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -107,7 +107,7 @@
   </entry>
   <entry>
     <title>Vim常用命令</title>
-    <url>/linux/2016-07-19-vim-commands.html</url>
+    <url>/2016/07/18/2016-07-19-vim-commands/</url>
     <content><![CDATA[<ul>
 <li>Vim是Emacs的反物质，两者本身没有问题，只是他们的使用者如果在一起会打起来，造成最后的湮灭。这里不讨论湮灭的问题。</li>
 <li>本文只用作我平时用到命令的记录，并不是所有常见的Vim命令。</li>
@@ -132,7 +132,7 @@
   </entry>
   <entry>
     <title>Generate SSH key in none-interactive way</title>
-    <url>/linux/2016-07-20-generate-sshkey-in-noneinteractive-way.html</url>
+    <url>/2016/07/19/2016-07-20-generate-sshkey-in-noneinteractive-way/</url>
     <content><![CDATA[<p>We use ssh-keygen to generate ssh keys. Sometime we need to generate keys without any interaction during runtime. We have the following ways to do this.</p>
 <p>###1. Use the full commands<br>Provide all parameters needed when running ssh-keygen, as</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -N <span class="string">&quot;&quot;</span> -f my.key</span><br></pre></td></tr></table></figure>
@@ -155,7 +155,7 @@
   </entry>
   <entry>
     <title>Redis被bgsave和bgrewriteaof阻塞的解决方法</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-07-20-redis-blocked-by-disk-ops.html</url>
+    <url>/2016/07/19/2016-07-20-redis-blocked-by-disk-ops/</url>
     <content><![CDATA[<p>我们的系统由于业务特点在每天早上上班的时候，会出现访问高峰。最近发现在访问高峰的时候，系统响应会变慢。无理是APP的后端还是Web服务的后端，平时响应时间都在100ms以内的接口，响应时间居然超过了一秒，甚至有一些能够达到10秒。</p>
 <p>查看后台的监控数据，无论是服务器硬件资源利用率还是数据库访问频次都在正常的范围内。那么问题非常可能出现在Redis上，因为在我们的系统中，Redis担任了所有Web端和APP端Session的管理，权限的校验以及数据库的缓存等等任务。</p>
 <p>查看Redis的日志，果然发现了异常：后台不停的打出bgsave相关的日志。</p>
@@ -185,7 +185,7 @@
   </entry>
   <entry>
     <title>删除Docker中没有被挂载的卷（dangling volumes）</title>
-    <url>/%E8%99%9A%E6%8B%9F%E5%8C%96/2016-07-20-remove-dangling-docker-volumes.html</url>
+    <url>/2016/07/19/2016-07-20-remove-dangling-docker-volumes/</url>
     <content><![CDATA[<p>最近在帮合作上制作Docker镜像。由于系统中有需要持久化的数据，数据卷几乎成了一个必选项。但是在N多次创建镜像、删除实例、新建实例的过程中，发现我的硬盘居然不够用了！查看<code>/var/lib/docker</code>的空间，居然有几十个G之多。于是想到了数据卷。</p>
 <p>###重建实例时数据卷是否会被保留<br>基于同一个镜像时，多次创建实例会共享他们创建出的数据卷，这也是数据卷的最常用用法。但当镜像被修改时，即使名字和tags都相同，只要镜像ID不同，那么基于“相同名字”的这个镜像创建出的实例就不会共享之前的数据卷。</p>
 <p>原因就在于我的系统中保留了很多过时的未被挂载的数据卷。</p>
@@ -205,7 +205,7 @@
   </entry>
   <entry>
     <title>在生产环境中查出占用大量CPU的Java线程</title>
-    <url>/linux/2016-07-26-find-high-cpu-thread.html</url>
+    <url>/2016/07/25/2016-07-26-find-high-cpu-thread/</url>
     <content><![CDATA[<p>生产环境中，有的时候会发现某一个Java进程占用了大量CPU，在测试环境又很难重现。这时候就需要在线进行保护现场和Debug。</p>
 <h3 id="定位大量占用CPU的进程"><a href="#定位大量占用CPU的进程" class="headerlink" title="定位大量占用CPU的进程"></a>定位大量占用CPU的进程</h3><p>执行<code>top</code>命令，然后按<code>P</code>按照CPU使用率排序</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">top - 16:08:03 up 54 days, 20:22,  1 user,  load average: 0.67, 1.00, 1.01</span><br><span class="line">Tasks: 477 total,   2 running, 475 sleeping,   0 stopped,   0 zombie</span><br><span class="line">%Cpu(s):  1.3 us,  1.3 sy,  0.3 ni, 96.5 id,  0.4 wa,  0.0 hi,  0.3 si,  0.0 st</span><br><span class="line">KiB Mem:  32898100 total, 29648584 used,  3249516 free,   474052 buffers</span><br><span class="line">KiB Swap: 33505276 total,  4258368 used, 29246908 free.  8192840 cached Mem</span><br><span class="line"></span><br><span class="line">  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                                  </span><br><span class="line">36730 jenkins   20   0 13.068g 1.185g   8228 S  11.6  3.8   3673:10 java                                                                                                                     </span><br><span class="line">35378 root      20   0  110784  34768   3748 S   5.0  0.1 249:51.07 gunicorn                                                                                                                 </span><br><span class="line">39103 root      39  19    7980   3172   1524 S   3.3  0.0   0:13.06 apps.plugin                                                                                                              </span><br><span class="line"> 1329 mongodb   20   0 28.476g 122940  55292 S   1.7  0.4 286:41.33 mongod                                                                                                                   </span><br><span class="line"> 2073 redis     20   0  495752 181572   2024 S   1.7  0.6 213:49.77 redis-server                                                                                                             </span><br><span class="line"> 5053 root      20   0  110956  15216   2376 S   1.7  0.0 228:35.26 gunicorn                                                                                                                 </span><br><span class="line">14444 root      20   0  110784  34720   3636 S   1.7  0.1 122:03.66 gunicorn                                                                                                                 </span><br><span class="line">20403 ubuntu    20   0   82616   2644   2564 S   1.7  0.0  11:49.45 zabbix_agentd                                                                                                            </span><br><span class="line">35032 root      20   0  110528  34944   4088 S   1.7  0.1 134:09.61 gunicorn                                                                                                                 </span><br><span class="line">40879 ubuntu    20   0  103576   3356   2400 S   1.7  0.0   0:00.01 sshd                                                                                                                     </span><br><span class="line">45221 root      20   0 8979028 921240  15540 S   1.7  2.8   4:38.85 java                                                                                                                     </span><br><span class="line">45666 root      20   0 8704800 748200  17084 S   1.7  2.3   3:53.45 java                                                                                                                     </span><br><span class="line">    1 root      20   0   33732   3892   2448 S   0.0  0.0   1:49.23 init                                                                                                                     </span><br><span class="line">    2 root      20   0       0      0      0 S   0.0  0.0   0:00.66 kthreadd                                                                                                                 </span><br><span class="line">    3 root      20   0       0      0      0 S   0.0  0.0   2:18.79 </span><br></pre></td></tr></table></figure>
@@ -240,7 +240,7 @@
   </entry>
   <entry>
     <title>使用zabbix监控Nginx</title>
-    <url>/%E8%BF%90%E7%BB%B4/2016-07-30-monitor-nginx-with-zabbix.html</url>
+    <url>/2016/07/29/2016-07-30-monitor-nginx-with-zabbix/</url>
     <content><![CDATA[<h4 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h4><ul>
 <li>Zabbix Server：2.4.8</li>
 <li>ZABBIX服务端：192.168.5.254</li>
@@ -267,7 +267,7 @@
   </entry>
   <entry>
     <title>Nginx加速：启用gzip压缩和浏览器缓存</title>
-    <url>/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-enable-gzip-in-nginx.html</url>
+    <url>/2016/08/03/2016-08-04-enable-gzip-in-nginx/</url>
     <content><![CDATA[<p>Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。</p>
 <h3 id="开启gzip"><a href="#开启gzip" class="headerlink" title="开启gzip"></a>开启gzip</h3><h4 id="Nginx配置参数"><a href="#Nginx配置参数" class="headerlink" title="Nginx配置参数"></a>Nginx配置参数</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 开启gzip</span><br><span class="line">gzip on;</span><br><span class="line"></span><br><span class="line"># 启用gzip压缩的最小文件，小于设置值的文件将不会压缩</span><br><span class="line">gzip_min_length 1k;</span><br><span class="line"></span><br><span class="line"># gzip 压缩级别，1-10，数字越大压缩的越好，也越占用CPU时间，后面会有详细说明</span><br><span class="line">gzip_comp_level 2;</span><br><span class="line"></span><br><span class="line"># 进行压缩的文件类型。javascript有多种形式。其中的值可以在 mime.types 文件中找到。</span><br><span class="line">gzip_types text&#x2F;plain application&#x2F;javascript application&#x2F;x-javascript text&#x2F;css application&#x2F;xml text&#x2F;javascript application&#x2F;x-httpd-php image&#x2F;jpeg image&#x2F;gif image&#x2F;png;</span><br><span class="line"></span><br><span class="line"># 是否在http header中添加Vary: Accept-Encoding，建议开启</span><br><span class="line">gzip_vary on;</span><br><span class="line"></span><br><span class="line"># 禁用IE 6 gzip</span><br><span class="line">gzip_disable &quot;MSIE [1-6]\.&quot;;</span><br></pre></td></tr></table></figure>
 
@@ -347,7 +347,7 @@
   </entry>
   <entry>
     <title>Nginx的浏览器缓存和Gzip压缩参数</title>
-    <url>/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-nginx-gzip-cache-parameters.html</url>
+    <url>/2016/08/03/2016-08-04-nginx-gzip-cache-parameters/</url>
     <content><![CDATA[<h3 id="浏览器缓存（Browser-Caching）"><a href="#浏览器缓存（Browser-Caching）" class="headerlink" title="浏览器缓存（Browser Caching）"></a>浏览器缓存（Browser Caching）</h3><p>浏览器缓存是为了加速浏览并节约网络资源，浏览器在用户磁盘上对最近请求过的文档进行存储。nginx可以通过 expires 指令来设置浏览器的Header。</p>
 <blockquote>
 <p>语法： <code>expires [time|epoch|max|off]</code><br>默认值： <code>expires off</code><br>作用域： <code>http</code>, <code>server</code>, <code>location</code></p>
@@ -418,7 +418,7 @@
   </entry>
   <entry>
     <title>Install the latest Node.js on Ubuntu 14.04</title>
-    <url>/linux/2016-08-05-install-nodejs-on-ubuntu.html</url>
+    <url>/2016/08/04/2016-08-05-install-nodejs-on-ubuntu/</url>
     <content><![CDATA[<blockquote>
 <p><strong>NOTE:</strong> If you are using Ubuntu Precise or Debian Wheezy, you might want to read about <a href="https://github.com/nodesource/distributions/blob/master/OLDER_DISTROS.md" title="running Node.js &gt;= 4.x on older distros">running Node.js &gt;= 4.x on older distros</a>.</p>
 </blockquote>
@@ -440,7 +440,7 @@
   </entry>
   <entry>
     <title>Redis提示Could not get a resource from the pool（jedis连接池配置）</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-08-05-redis-jedis-pool.html</url>
+    <url>/2016/08/04/2016-08-05-redis-jedis-pool/</url>
     <content><![CDATA[<p>起初在JedisPool中配置了50个活动连接，但是程序还是经常报错：Could not get a resource from the pool</p>
 <p>连接池刚开始是这样配置的：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">JedisPoolConfig config = <span class="keyword">new</span> JedisPoolConfig();</span><br><span class="line">config.setMaxTotal(<span class="number">50</span>);</span><br><span class="line">config.setMaxIdle(<span class="number">20</span>); </span><br><span class="line">config.setMaxWaitMillis(<span class="number">1000</span> * <span class="number">1</span>);</span><br><span class="line">config.setTestOnBorrow(<span class="keyword">true</span>);</span><br><span class="line">config.setTestOnReturn(<span class="keyword">true</span>);</span><br><span class="line">JedisPool pool = <span class="keyword">new</span> JedisPool(config, <span class="string">&quot;10.10.10.167&quot;</span>, <span class="number">6379</span>);</span><br></pre></td></tr></table></figure>
@@ -463,7 +463,7 @@
   </entry>
   <entry>
     <title>Where to find all available Java mail properties?</title>
-    <url>/java/2016-08-06-all-available-java-mail-properties.html</url>
+    <url>/2016/08/05/2016-08-06-all-available-java-mail-properties/</url>
     <content><![CDATA[<p>In the api is a reference to the properties for the specific sun protocol providers.</p>
 <ul>
 <li><code>IMAP</code> <a href="https://javamail.java.net/nonav/docs/api/com/sun/mail/imap/package-summary.html">https://javamail.java.net/nonav/docs/api/com/sun/mail/imap/package-summary.html</a></li>
@@ -481,7 +481,7 @@
   </entry>
   <entry>
     <title>Download specified oracle JDK (archived) version</title>
-    <url>/java/2016-08-06-download-specified-jdk-version.html</url>
+    <url>/2016/08/05/2016-08-06-download-specified-jdk-version/</url>
     <content><![CDATA[<p>You can go to the <a href="http://www.oracle.com/technetwork/java/archive-139210.html">Oracle Java Archive</a> page to download any version of JDK.</p>
 <p>Over!</p>
 ]]></content>
@@ -496,7 +496,7 @@
   </entry>
   <entry>
     <title>使用Redis SETNX命令实现分布式锁</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-08-10-dist-lock-using-redis.html</url>
+    <url>/2016/08/09/2016-08-10-dist-lock-using-redis/</url>
     <content><![CDATA[<blockquote>
 <p>版权声明：本文为博主原创文章，转载自: <a href="http://blog.csdn.net/lihao21">http://blog.csdn.net/lihao21</a></p>
 </blockquote>
@@ -557,7 +557,7 @@
   </entry>
   <entry>
     <title>Partial selection of Spring Data JPA</title>
-    <url>/spring/2016-08-10-partial-selection-with-jpa.html</url>
+    <url>/2016/08/09/2016-08-10-partial-selection-with-jpa/</url>
     <content><![CDATA[<p>When we use <code>select</code> to retrive some data from MySQL, we do not want to get the whole row with all columns.<br>For example, I have the following <code>tab_staff_info</code> table with nearly 100 columns:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;tab_staff_info&quot;)</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaffInfo</span> <span class="keyword">extends</span> <span class="title">BaseEntity</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * qq号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String qqNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 公司Id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String companyId;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffName;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 30)</span></span><br><span class="line">    <span class="keyword">private</span> String idCardNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 20)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> IdCardType idCardType;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生日</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 性别</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 10)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> SexType sex;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 手机号码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 18)</span></span><br><span class="line">    <span class="keyword">private</span> String mobileNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A lot more columns..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In most cases, I only want to get some (not all) of the columns. For example, I want to get the basic information, which are: <code>companyId</code>, <code>staffNo</code>, <code>staffName</code> and <code>idCardNo</code>.</p>
@@ -581,7 +581,7 @@
   </entry>
   <entry>
     <title>使用Goaccess监控Nginx的运行状态</title>
-    <url>/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html</url>
+    <url>/2016/08/11/2016-08-12-monitor-nginx-with-goaccess/</url>
     <content><![CDATA[<h2 id="最终启动命令"><a href="#最终启动命令" class="headerlink" title="最终启动命令"></a>最终启动命令</h2><p>如果你只需要知道最终的启动命令，可以跳过下边所有内容。启动命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">goaccess -f /var/<span class="built_in">log</span>/nginx/access.log -o /data/www/access/index.html --real-time-html --ws-url=access1.xiaotanzhu.com</span><br></pre></td></tr></table></figure>
 
@@ -668,7 +668,7 @@
   </entry>
   <entry>
     <title>创建支持emoji表情的MySQL数据库（utf8mb4）</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-14-create-mysql-database-with-utf8mb4.html</url>
+    <url>/2016/08/13/2016-08-14-create-mysql-database-with-utf8mb4/</url>
     <content><![CDATA[<blockquote>
 <p>本文只介绍在创建全新数据库的情况下，如何支持emoji表情等字符。如果需要对现有的数据库修改以支持emoji表情，请参考：<a href="/2016/08/14/how-to-support-full-unicode-in-mysql.html">How to support full Unicode in MySQL databases</a></p>
 </blockquote>
@@ -709,7 +709,7 @@
   </entry>
   <entry>
     <title>How to support full Unicode in MySQL databases</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-14-how-to-support-full-unicode-in-mysql.html</url>
+    <url>/2016/08/13/2016-08-14-how-to-support-full-unicode-in-mysql/</url>
     <content><![CDATA[<p>如果你完全从头建立一个数据库，那么事情简单了很多，直接参考：<a href="/2016/08/14/create-mysql-database-with-utf8mb4.html">创建支持emoji表情的MySQL数据库（utf8mb4）</a>。</p>
 <p>如果你的数据库已经在投入使用，那么可以参考文章的以下部分。</p>
 <blockquote>
@@ -767,7 +767,7 @@
   </entry>
   <entry>
     <title>Linux常用命令</title>
-    <url>/linux/2016-08-14-linux-commands.html</url>
+    <url>/2016/08/13/2016-08-14-linux-commands/</url>
     <content><![CDATA[<p><strong>注意：</strong>常用命令中，会有一些命令仅限于特定的操作系统使用，如Ubuntu或CentOS等特定的Linux发行版本。</p>
 <h2 id="系统相关"><a href="#系统相关" class="headerlink" title="系统相关"></a>系统相关</h2><h3 id="显示当前内核版本"><a href="#显示当前内核版本" class="headerlink" title="显示当前内核版本"></a>显示当前内核版本</h3><p>命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
@@ -838,7 +838,7 @@
   </entry>
   <entry>
     <title>使用Moint监控Docker中运行的Web服务器</title>
-    <url>/%E8%BF%90%E7%BB%B4/2016-08-19-monitor-tomcat-in-docker.html</url>
+    <url>/2016/08/18/2016-08-19-monitor-tomcat-in-docker/</url>
     <content><![CDATA[<p>Monit是一个Linux系统中常用的监控软件，可以监控CPU、内存、文件系统、TCP端口、UDP端口、HTTP等基本上所有的资源。可以参考其官方网站：<a href="https://mmonit.com/monit/%E3%80%82">https://mmonit.com/monit/。</a></p>
 <p>本次要对Docker（Docker中运行了一个Web服务器）进行监控，需要满足以下几个需求：</p>
 <ol>
@@ -898,7 +898,7 @@
   </entry>
   <entry>
     <title>在MySQL中创建库和用户</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-23-create-db-user-in-mysql.html</url>
+    <url>/2016/08/22/2016-08-23-create-db-user-in-mysql/</url>
     <content><![CDATA[<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE `irenshi` <span class="keyword">DEFAULT</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci;</span><br></pre></td></tr></table></figure>
 
 <h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;irenshi&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;irenshi&#x27;</span>;</span><br></pre></td></tr></table></figure>
@@ -914,7 +914,7 @@
   </entry>
   <entry>
     <title>将现有数据库的数据导入MyCAT</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-24-import-data-into-mycat.html</url>
+    <url>/2016/08/23/2016-08-24-import-data-into-mycat/</url>
     <content><![CDATA[<p><strong>特别注意：</strong>请谨慎使用该方法，目前遇到了两个问题，还尚未确定是Bug还是设置问题：</p>
 <ol>
 <li>当导入数据的某列很大时（其实也不大，大于4096的时候就会出问题），导入失败：<a href="https://github.com/MyCATApache/Mycat-Server/issues/1073">https://github.com/MyCATApache/Mycat-Server/issues/1073</a></li>
@@ -963,7 +963,7 @@
   </entry>
   <entry>
     <title>MySQL服务器配置</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-basic-config.html</url>
+    <url>/2016/08/24/2016-08-25-mysql-basic-config/</url>
     <content><![CDATA[<p>MySQL版本信息：</p>
 <blockquote>
 <p>mysqld  Ver 5.6.31-0ubuntu0.14.04.2 for debian-linux-gnu on x86_64 ((Ubuntu))</p>
@@ -979,7 +979,7 @@
   </entry>
   <entry>
     <title>使用GTID机制创建MySQL主从备份和主主备份</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-gtid-master-slave.html</url>
+    <url>/2016/08/24/2016-08-25-mysql-gtid-master-slave/</url>
     <content><![CDATA[<blockquote>
 <p><strong>注意：</strong>GTID机制只适用与MySQL 5.6.10及更新版本。</p>
 </blockquote>
@@ -1070,7 +1070,7 @@
   </entry>
   <entry>
     <title>MySQL导入数据错误：ERROR 2006 (HY000) at line 1&amp;#58; MySQL server has gone away</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-26-mysql-error-2006.html</url>
+    <url>/2016/08/25/2016-08-26-mysql-error-2006/</url>
     <content><![CDATA[<p>这个问题出在使用mysqldump进行数据迁移的过程中，问题的原因就是单条SQL的大小比数据库的设置更大。</p>
 <p>检查两个地方的配置：</p>
 <ol>
@@ -1095,7 +1095,7 @@
   </entry>
   <entry>
     <title>阿里云ECS Linux开启swap（虚拟内存）</title>
-    <url>/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html</url>
+    <url>/2016/08/25/2016-08-26-turn-on-swap-on-aliyun-linux/</url>
     <content><![CDATA[<p>阿里云的服务器默认是不开启虚拟内存的，官方给出的理由如下：</p>
 <blockquote>
 <p>由于开启swap分区会导致硬盘IO性能下降，因此阿里云服务器初始状态未配置swap。</p>
@@ -1133,7 +1133,7 @@
   </entry>
   <entry>
     <title>MySQL性能查看及调优参考</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-30-mysql-performance-and-tunning.html</url>
+    <url>/2016/08/29/2016-08-30-mysql-performance-and-tunning/</url>
     <content><![CDATA[<p>网上有很多的文章教怎么配置MySQL服务器，但考虑到服务器硬件配置的不同，具体应用的差别，那些文章的做法只能作为初步设置参考，我们需要根据自己的情况进行配置优化，好的做法是MySQL服务器稳定运行了一段时间后运行，根据服务器的”状态”进行优化。</p>
 <p>主要依赖两个命令，1）可以列出MySQL服务器运行各种状态值：</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> status;</span><br></pre></td></tr></table></figure>
@@ -1299,7 +1299,7 @@
   </entry>
   <entry>
     <title>开始使用Mesos和Marathon</title>
-    <url>/%E8%BF%90%E7%BB%B4/2016-09-09-apache-mesos-getstarted.html</url>
+    <url>/2016/09/08/2016-09-09-apache-mesos-getstarted/</url>
     <content><![CDATA[<p>Marathon 是可以跟 Mesos 一起协作的一个 framework，用来运行持久性的应用。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一共需要安装四种组件，mesos-master、marathon、zookeeper 需要安装到所有的主节点，mesos-slave 需要安装到从节点。mesos 利用 zookeeper 来进行主节点的同步，以及从节点发现主节点的过程。</p>
 <h3 id="获取Docker镜像"><a href="#获取Docker镜像" class="headerlink" title="获取Docker镜像"></a>获取Docker镜像</h3><p>在主节点上拉取mesos-master、marathon、zookeeper相关镜像：</p>
@@ -1330,7 +1330,7 @@
   </entry>
   <entry>
     <title>ZooKeeper典型使用场景总结</title>
-    <url>/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html</url>
+    <url>/2016/09/08/2016-09-09-zookeeper-senarios/</url>
     <content><![CDATA[<blockquote>
 <p>转载自：<a href="http://blog.csdn.net/derekjiang/article/details/8751100">http://blog.csdn.net/derekjiang/article/details/8751100</a></p>
 </blockquote>
@@ -1380,7 +1380,7 @@
   </entry>
   <entry>
     <title>Ubuntu上使用USB安装APK到手机</title>
-    <url>/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html</url>
+    <url>/2016/09/19/2016-09-20-install-apk-on-ubuntu/</url>
     <content><![CDATA[<p>Ubuntu上可以使用<code>adb</code>命令安装APK到手机上。</p>
 <h2 id="安装adb"><a href="#安装adb" class="headerlink" title="安装adb"></a>安装adb</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get install android-tools-adb</span><br></pre></td></tr></table></figure>
 
@@ -1405,7 +1405,7 @@
   </entry>
   <entry>
     <title>Android包（apk）手动签名</title>
-    <url>/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</url>
+    <url>/2016/09/20/2016-09-21-sign-apk-with-jarsigner/</url>
     <content><![CDATA[<p>语法：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jarsigner -verbose -keystore &lt;keystore file&gt; -signedjar &lt;output signed file&gt; &lt;apk to be signed&gt; &lt;<span class="built_in">alias</span>&gt;</span><br></pre></td></tr></table></figure>
 
@@ -1423,7 +1423,7 @@
   </entry>
   <entry>
     <title>批量转换文件编码</title>
-    <url>/linux/2016-09-22-convert-file-charsets-batch.html</url>
+    <url>/2016/09/21/2016-09-22-convert-file-charsets-batch/</url>
     <content><![CDATA[<p>Linux上可以使用<code>enca</code>查看和转换文件编码。</p>
 <h2 id="查看文件编码"><a href="#查看文件编码" class="headerlink" title="查看文件编码"></a>查看文件编码</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enca [-L LANGUAGE] [FILE]...</span><br></pre></td></tr></table></figure>
 
@@ -1456,7 +1456,7 @@
   </entry>
   <entry>
     <title>好用的电子书搜索和格式转换平台</title>
-    <url>/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</url>
+    <url>/2016/10/09/2016-10-10-ebook-search-conversion/</url>
     <content><![CDATA[<p>小蜜蜂在线电子书转换器，免费电子书格式转换，转换的格式支持各种阅读软件与设备。质量无损，转换速度快，简单易用。</p>
 <p>传送门：<a href="http://cn.epubee.com/">http://cn.epubee.com/</a></p>
 <h2 id="电子书格式转换"><a href="#电子书格式转换" class="headerlink" title="电子书格式转换"></a>电子书格式转换</h2><p>它支持 ePub，PDF，Mobi，AZW，AZW3，AZW4，htmlz，PRC，TXT，LIT，LRF，FB2，PDB，TXT等电子书格式的转换。</p>
@@ -1481,7 +1481,7 @@
   </entry>
   <entry>
     <title>设置VIM的编码格式</title>
-    <url>/linux/2016-10-10-set-vim-encoding.html</url>
+    <url>/2016/10/09/2016-10-10-set-vim-encoding/</url>
     <content><![CDATA[<p>有的时候使用vim打开中文文件的时候会出现乱码，原因是vim打开文件时使用的编码格式和文件的编码格式不一致。</p>
 <h2 id="设置正确的编码格式以正确的显示中文"><a href="#设置正确的编码格式以正确的显示中文" class="headerlink" title="设置正确的编码格式以正确的显示中文"></a>设置正确的编码格式以正确的显示中文</h2><p>如果该文档使用utf8编码，则可以通过以下vim命令将编码格式设置为utf8：</p>
 <figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span></span><br></pre></td></tr></table></figure>
@@ -1503,7 +1503,7 @@
   </entry>
   <entry>
     <title>关于 Android Service 的介绍</title>
-    <url>/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</url>
+    <url>/2016/10/13/2016-10-14-introduction-to-android-service/</url>
     <content><![CDATA[<blockquote>
 <p>转载自：<a href="http://www.jianshu.com/p/63792fc84d94#">http://www.jianshu.com/p/63792fc84d94#</a></p>
 </blockquote>
@@ -1600,7 +1600,7 @@
   </entry>
   <entry>
     <title>以SQL方式读取MySQL的GTID格式Binlog</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</url>
+    <url>/2016/10/30/2016-10-31-read-mysql-binlog-as-sql/</url>
     <content><![CDATA[<p>将GTID格式的binlog转换为SQL的命令：</p>
 <blockquote>
 <p><code>mysqlbinlog --no-defaults -v --base64-output=DECODE-ROWS  --skip-gtids mysql-bin.000714</code></p>
@@ -1695,7 +1695,7 @@
   </entry>
   <entry>
     <title>Spring Framework的整体架构</title>
-    <url>/spring/2017-03-02-spring-framework-architecture.html</url>
+    <url>/2017/03/01/2017-03-02-spring-framework-architecture/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Spring Framework 作为一个优秀的开源框架，是为了解决企业应用程序开发复杂性而创建的。框架的主要优势之一就是其分层架构，分层架构允许您选择使用哪一个组件，同时为J2EE应用程序开发提供集成的框架。</p>
 <h2 id="Spring-Framework的整体架构"><a href="#Spring-Framework的整体架构" class="headerlink" title="Spring Framework的整体架构"></a>Spring Framework的整体架构</h2><p>Spring Framework总共有十几个组件，其中核心组件只有三个：Core、Context和Beans。</p>
 <h3 id="Spring-Framework-3-x-的总体架构图"><a href="#Spring-Framework-3-x-的总体架构图" class="headerlink" title="Spring Framework 3.x 的总体架构图"></a>Spring Framework 3.x 的总体架构图</h3><p><img src="/upload/images/14.png" alt="Spring 3.x总体架构图"></p>
@@ -1745,7 +1745,7 @@
   </entry>
   <entry>
     <title>Spring Framework: Modules</title>
-    <url>/spring/2017-03-09-spring-framework-modules.html</url>
+    <url>/2017/03/08/2017-03-09-spring-framework-modules/</url>
     <content><![CDATA[<blockquote>
 <p>Reference: <a href="https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules">https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules</a></p>
 </blockquote>
@@ -1825,7 +1825,7 @@
   </entry>
   <entry>
     <title>Spring Cloud组件介绍</title>
-    <url>/spring/2018-03-07-spring-cloud-components.html</url>
+    <url>/2018/03/06/2018-03-07-spring-cloud-components/</url>
     <content><![CDATA[<blockquote>
 <p>Reference:</p>
 <ul>
@@ -1934,7 +1934,7 @@
   </entry>
   <entry>
     <title>Spring Cloud(一)：大话Spring Cloud</title>
-    <url>/spring/2018-07-01-simple-springcloud.html</url>
+    <url>/2018/06/30/2018-07-01-simple-springcloud/</url>
     <content><![CDATA[<blockquote>
 <p>Reference: <a href="http://www.ityouknow.com/springcloud/2017/05/01/simple-springcloud.html">http://www.ityouknow.com/springcloud/2017/05/01/simple-springcloud.html</a></p>
 </blockquote>
@@ -1949,7 +1949,7 @@
   </entry>
   <entry>
     <title>Ansible常用命令</title>
-    <url>/%E8%BF%90%E7%BB%B4/ansible-commands.html</url>
+    <url>/2020/05/16/ansible-commands/</url>
     <content><![CDATA[<h2 id="Host匹配方式"><a href="#Host匹配方式" class="headerlink" title="Host匹配方式"></a>Host匹配方式</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">web_server:!http1:&amp;http2</span><br><span class="line">http*:web_server</span><br><span class="line">web_server[0]</span><br><span class="line">web_server[0:3]</span><br><span class="line">&#x27;~(web|http)*&#x27;</span><br></pre></td></tr></table></figure>
 
 <h2 id="用户名密码验证方式"><a href="#用户名密码验证方式" class="headerlink" title="用户名密码验证方式"></a>用户名密码验证方式</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -k</span><br><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -u username -k</span><br><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -u username --sudo [--ask-sudo-pass]</span><br></pre></td></tr></table></figure>
@@ -1977,7 +1977,7 @@
   </entry>
   <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
-    <url>/nginx/letsencrypt-for-free-ssl-cert.html</url>
+    <url>/2021/05/08/letsencrypt-for-free-ssl-cert/</url>
     <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><a href="https://letsencrypt.org/">Let’s Encrypt</a>是一个免费颁发SSL证书的非盈利组织，其颁布的证书已被Chrome等主流浏览器认可。GitHub Pages站点默认使用的SSL证书也是<a href="https://letsencrypt.org/">Let’s Encrypt</a>提供的。</p>
 <p>此文主要解决：</p>
 <ol>
@@ -2041,7 +2041,7 @@
   </entry>
   <entry>
     <title>Linux find命令高阶用法</title>
-    <url>/linux/linux-command-find-howtos.html</url>
+    <url>/2021/03/27/linux-command-find-howtos/</url>
     <content><![CDATA[<blockquote>
 <p>linux 下一切皆文件。</p>
 </blockquote>
@@ -2127,7 +2127,7 @@
   </entry>
   <entry>
     <title>MacOS常见操作</title>
-    <url>/macos/macos-howtos.html</url>
+    <url>/2021/05/17/macos-howtos/</url>
     <content><![CDATA[<h2 id="常见配置"><a href="#常见配置" class="headerlink" title="常见配置"></a>常见配置</h2><h3 id="屏幕截图的默认存储位置调整"><a href="#屏幕截图的默认存储位置调整" class="headerlink" title="屏幕截图的默认存储位置调整"></a>屏幕截图的默认存储位置调整</h3><p>在mac终端执行命令：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">defaults write com.apple.screencapture location ~&#x2F;Desktop&#x2F;idolaoxuPic</span><br></pre></td></tr></table></figure>
 
@@ -2154,7 +2154,7 @@
   </entry>
   <entry>
     <title>微软模拟飞行基本概念</title>
-    <url>/msfs2020/msfs-concepts.html</url>
+    <url>/2021/05/29/msfs-concepts/</url>
     <content><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
 <li><p>FLAPS</p>
 </li>
@@ -2174,7 +2174,7 @@
   </entry>
   <entry>
     <title>微软模拟飞行教程</title>
-    <url>/msfs2020/msfs-tutorials.html</url>
+    <url>/2021/05/29/msfs-tutorials/</url>
     <content><![CDATA[<h2 id="入门教程"><a href="#入门教程" class="headerlink" title="入门教程"></a>入门教程</h2><h3 id="尾翼的作用"><a href="#尾翼的作用" class="headerlink" title="尾翼的作用"></a>尾翼的作用</h3><p>飞机尾翼在飞行中的作用及原理是什么？ - 迷惘的熊猫的回答 - 知乎<br><a href="https://www.zhihu.com/question/23038548/answer/859728438">https://www.zhihu.com/question/23038548/answer/859728438</a></p>
 <h3 id="Garmin-1000-操作教程"><a href="#Garmin-1000-操作教程" class="headerlink" title="Garmin 1000 操作教程"></a>Garmin 1000 操作教程</h3><p>面板操作说明：<br><a href="https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html">https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html</a></p>
 <p>使用G1000进行完整的起飞-降落过程：</p>
@@ -2191,7 +2191,7 @@
   </entry>
   <entry>
     <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
-    <url>/msfs2020/msfs2020-flight-sh-wx.html</url>
+    <url>/2021/05/04/msfs2020-flight-sh-wx/</url>
     <content><![CDATA[<h2 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h2><h3 id="飞行起止"><a href="#飞行起止" class="headerlink" title="飞行起止"></a>飞行起止</h3><p>出发：浦东国际机场（ZSPD），跑道36R<br>到达：无锡硕放机场（ZSWX），跑道21</p>
 <blockquote>
 <p>注：为什么选择无锡机场，主要考虑对新手友好，不至于距离太短而手忙脚乱，也不至于距离太远而过于无聊。</p>
@@ -2270,7 +2270,7 @@
   </entry>
   <entry>
     <title>PowerBI常见操作</title>
-    <url>/powerbi/powerbi-howtos.html</url>
+    <url>/2021/04/17/powerbi-howtos/</url>
     <content><![CDATA[<h2 id="分析方法"><a href="#分析方法" class="headerlink" title="分析方法"></a>分析方法</h2><h3 id="按周进行数据分析"><a href="#按周进行数据分析" class="headerlink" title="按周进行数据分析"></a>按周进行数据分析</h3><p>Source：<a href="https://zhuanlan.zhihu.com/p/58948031">https://zhuanlan.zhihu.com/p/58948031</a></p>
 <h2 id="类Excel的计算"><a href="#类Excel的计算" class="headerlink" title="类Excel的计算"></a>类Excel的计算</h2><h3 id="VLOOKUP-DAX"><a href="#VLOOKUP-DAX" class="headerlink" title="VLOOKUP (DAX)"></a>VLOOKUP (DAX)</h3><p>Document: <a href="https://docs.microsoft.com/en-us/dax/lookupvalue-function-dax">https://docs.microsoft.com/en-us/dax/lookupvalue-function-dax</a><br>Example: <a href="https://www.wallstreetmojo.com/vlookup-in-power-bi/">https://www.wallstreetmojo.com/vlookup-in-power-bi/</a></p>
 <h4 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOOKUPVALUE(</span><br><span class="line">    &lt;result_columnName&gt;,</span><br><span class="line">    &lt;search_columnName&gt;,</span><br><span class="line">    &lt;search_value&gt;</span><br><span class="line">    [, &lt;search2_columnName&gt;, &lt;search2_value&gt;]…</span><br><span class="line">    [, &lt;alternateResult&gt;]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
@@ -2313,7 +2313,7 @@
   </entry>
   <entry>
     <title>Redis常见的CPU和内存性能问题</title>
-    <url>/redis/redis-performance-issues-cpu.html</url>
+    <url>/2021/03/06/redis-performance-issues-cpu/</url>
     <content><![CDATA[<blockquote>
 <p>Reference: <a href="https://www.infoq.cn/article/yqUuS2qNRybILGrQUliv">https://www.infoq.cn/article/yqUuS2qNRybILGrQUliv</a></p>
 </blockquote>
@@ -2397,8 +2397,101 @@
       </tags>
   </entry>
   <entry>
+    <title>B端产品人为什么总说“我不关注用户体验”</title>
+    <url>/2021/05/24/user-experience-in-tob-products/</url>
+    <content><![CDATA[<blockquote>
+<p>编辑导语：很多时候产品对于用户体验都是非常看重的，互联网人在设计产品时，需要考虑到各方面的体验；但有人会觉得B端产品不用在乎用户体验，为什么会有这样的想法呢？本文作者分享了关于B端对用户体验的看法，我们一起来了解一下。</p>
+</blockquote>
+<p>互联网行业的崛起，衍生出了很多专业术语，“用户体验”就是其中一个。</p>
+<p>用户体验被当成“新时代的工匠精神”，并在以腾讯、字节、阿里为首的一线互联网大厂持续践行的过程中，逐渐成为互联网人所关注和接受的设计理念。</p>
+<p>可近两年崛起的B端产品，却截然相反，不仅表现出不重视用户体验，甚至有人宣称“做B端产品，并不需要用户体验”。</p>
+<p>而这个理由，居然吸引了不少在C端行业，排斥强化用户体验的年轻人，转向了B端产品的怀抱中。</p>
+<p>可事实上，我们的B端产品真的不关注用户体验吗？</p>
+<p>如果不是的话，那为什么B端产品经理总说“我不关注用户体验”呢？</p>
+<p>我将从岗位职能、决策过程、关注内容这三个角度上，来谈谈下我对这句话的理解。</p>
+<h2 id="一、做B端行业就可以不需要关注用户体验了？"><a href="#一、做B端行业就可以不需要关注用户体验了？" class="headerlink" title="一、做B端行业就可以不需要关注用户体验了？"></a>一、做B端行业就可以不需要关注用户体验了？</h2><p>随着互联网行业的发展，产品岗被逐步衍生并细化出来（如下图所示）</p>
+<p><img src="/images/0005.png"></p>
+<p>产品经理总的来说可分为B端和C端，这里划分的依据是看这款产品，主要是为谁而设计的。</p>
+<p>如果是为每一个独立个体服务的产品，就属于C端产品，而为每个企业、公司、甚至有经营资格的小微商户服务的产品，就属于B端产品。</p>
+<p>而对应的C端和B端之下，根据行业和岗位职能的不同，也可以划分出很多不同带有“前缀”的产品经理。</p>
+<p>可在实际工作中，我们的划分，有时候并没有清晰可见的界限。</p>
+<p>C端的产品，有可能也需要从B端客户角度去思考业务，同样，B端的业务，有可能也需要从C端用户的角度去思考方案。</p>
+<p>如淘宝，在用户使用app的页面上，也可能需要考虑到商家使用后台的设计；</p>
+<p>同样，钉钉的产品经理，在客户端的设计上，也可能需要考虑每一个公司下，每一个实际用户，如何使用产品更舒服。</p>
+<p>所以，刚入行的新同学，如果认为做B端产品，可以不需要关注用户体验的话，其实是不太正确的观点。</p>
+<p>我们所有的工作，都是以业务为导向的。即，我们在什么行业，为谁，做什么方案，能够提升产品价值，提高团队的收益。</p>
+<p>除此之外，产品是否关注用户体验，也会随着产品的生命周期而不断变化。</p>
+<p>不论是B端还是C端产品，发展到相对成熟的阶段，或者说拥有足够体量的用户/客户的时候，在产品的设计上，都是会关注产品使用者的使用体验。</p>
+<p>所以，如果你认为做B端业务，就可以避免扣细节和抠体验，这类繁琐工作的话。我劝你，还是趁早打消这个念头吧。</p>
+<p>想通过转行来偷懒，不仅是在互联网行业，而是任何行业，都行不通。</p>
+<h2 id="二、为什么B端产品会说“我不关注用户体验”"><a href="#二、为什么B端产品会说“我不关注用户体验”" class="headerlink" title="二、为什么B端产品会说“我不关注用户体验”"></a>二、为什么B端产品会说“我不关注用户体验”</h2><p>在正式回答这个问题之前，我们得先了解下，为什么C端产品需要关注用户体验。</p>
+<h3 id="1-C端产品：从无到有，从有到优的竞争模式"><a href="#1-C端产品：从无到有，从有到优的竞争模式" class="headerlink" title="1. C端产品：从无到有，从有到优的竞争模式"></a>1. C端产品：从无到有，从有到优的竞争模式</h3><p>从根本目的来说，C端产品本质是消费，即，通过免费或付费的方式，去解决我们生活过程中遇到的需求。</p>
+<p>我们做产品的根本目的，就是创造一款尽可能让更多人来使用的产品，当用户足够多之后，产品才可以通过各种方式让用户付费，从而帮助企业实现盈利。</p>
+<p>所以，为了让更多人来用，产品必须先解决用户的核心需求，如，淘宝的出现，一开始，就是为了让人们可以在家，就能买到想买的东西。</p>
+<p>可很多人不知道的是，刚面世的淘宝，在使用上也是不太好用的。</p>
+<p>因为这还是产品“从无到有”的阶段。</p>
+<p>我得先保证你产品能用，解决你的根本需求之后，我才会考虑如何让你“更好用”这个问题。</p>
+<p>而随着网络的发展和普及，我们每个人都可以根据自己的喜好和需求，来决定选择使用或不使用一款产品。</p>
+<p>因为，当选择增多之后，用户在产品的忠诚度也会随之下降。</p>
+<p>在面对同样能满足需求的竞品不断涌现时，如何让用户留下来，就成了产品的首要目标。</p>
+<p>而如果一款产品能让用户感觉这款产品比其他产品“更好用”，用户就会持续选择使用这款产品，甚至让用户成为产品的忠实粉丝。</p>
+<p>更好用的定义，个人认为主要包括两个层面：</p>
+<ol>
+<li>新功能，可以解决在使用过程中的问题；</li>
+<li>旧功能，用起来比别的产品更顺畅；</li>
+</ol>
+<p>而使用起来更顺畅，就是用户体验。</p>
+<p>俞军产品公式：</p>
+<blockquote>
+<p>用户价值 = (新体验-旧体验) – 替换成本</p>
+</blockquote>
+<p>C端产品的替换成本，在同类能够解决需求的C端产品面前，可以算是在一定区间内动态变化的，或者说是可控的。</p>
+<p>所以，一款C端产品想要尽可能的获取用户，尽可能地获得市场份额，就需要不断优化你的新体验，拉开与竞品之间的体验差。</p>
+<p>同理，你想要让你的用户留存下来，不被其他产品瓜分，也需要不断优化你的用户体验，避免与新产品之间产生体验差。</p>
+<p>所以，从这个角度上来说，C端产品用户体验的好坏，就能够直接影响到你的用户留存情况，这也是为什么一线大厂愿意投入大量的资源去优化产品的用户体验。</p>
+<h3 id="2-B端产品：解决客户问题为主导"><a href="#2-B端产品：解决客户问题为主导" class="headerlink" title="2. B端产品：解决客户问题为主导"></a>2. B端产品：解决客户问题为主导</h3><p>和C端产品不同的是，B端产品的根本目的是商业，即，开源和节流。</p>
+<p>客户选择一款产品，往往是因为这款产品能帮他赚到更多的钱，或者能解决他在团队工作过程中遇到的问题，提升团队的工作效率。</p>
+<p>也因此，客户决定是否使用一款产品时，不太可能根据个人的喜好去选择。</p>
+<p>同理，客户选择不使用一款产品的时候，也会从更理性的角度去思考问题，包括资金成本、团队学习成本、历史数据无法迁移成本等等。</p>
+<p>而其中，客户最大的阻碍，是数据，准确的说，应该是是在产品中留下的经营数据。</p>
+<p>比如客户在使用了多年企业微信之后，要换成钉钉，几乎是不可能的。</p>
+<p>因为客户在替换时，一旦考虑到整个团队在过去几年中，在产品里留下的工作资料，是无法迁移的，他就准备放弃了。</p>
+<p>因为他知道，数据一旦无法迁移，意味着过去很多经营内容，将无法追溯，这其中包括内部沟通资料，对外的业务资料，甚至是财务账单截图等等，都将丢失。</p>
+<p>俞军产品公式：</p>
+<blockquote>
+<p>用户价值 = (新体验-旧体验) – 替换成本</p>
+</blockquote>
+<p>而从俞军的产品替换公式来解释，随着时间的增加，产品的替换成本将持续增大，如果新产品无法提供更多能服务于团队的新功能，仅仅是因为“用户体验”更好的话，是无法推动客户替换产品的。</p>
+<p>除非，当客户团队所有的成员都跟客户反馈说，这款产品太难用了，无法解决多个问题时，客户才会去考虑，是否可以尝试使用下其他的产品了。</p>
+<p>所以，从这个角度上来说，用户体验，对B端的产品来说，并不是决定客户是否使用和放弃一款产品的决定因素。</p>
+<h2 id="三、当我在说“我不关注产品体验时”，我在说什么"><a href="#三、当我在说“我不关注产品体验时”，我在说什么" class="headerlink" title="三、当我在说“我不关注产品体验时”，我在说什么"></a>三、当我在说“我不关注产品体验时”，我在说什么</h2><p>那回过头来，我们来回答下最开始的那个问题：为什么很多B端产品总说“我不关注用户体验”呢？是因为用户体验真的不重要吗？</p>
+<p>在B端行业，如何更快地去帮助客户赚更多的钱， 更好地去帮客户节省更多资金成本，人力成本，才是更有价值的事情。</p>
+<p>所以，当B端产品经理这句话时，并不是因为用户体验真的不重要，而是对B端的产品来说，只有关乎产品核心价值的用户体验，才重要的。</p>
+<p>可很多初入B端得产品人提出的用户体验，其实和产品价值是无关的。</p>
+<p>假如有10个用户体验的优化，可能其中只有2个体验和产品的核心价值有关，所以，公司都会倾向于把资源投入的这两个体验中，把这2个的使用体验做到极致。</p>
+<p>比如，企业的支付流程，如何实现支付从T+1提升至时或秒到账的流程优化，提高企业节省支付到账时间这件事，不论多难，产品和开发都会想方设法去克服。</p>
+<p>因为这个是产品的核心价值体验，是能够提升企业合作效率，为团队提高工作效率的重要工作。</p>
+<p>而在支付流程中，支付的按钮放在左边还是右边，颜色用蓝色还是绿色，对企业来说，真的很重要吗？</p>
+<p>我其实只要保证和大多数产品一样，颜色和软件的主色调一致，其实就可以了吧。</p>
+<p>于是，你就会发现，市面上大部分的B端产品，在用户体验上，做的或许都不如C端产品。</p>
+<p>那也有人会说，那是因为你没有工匠精神，只要增加人力其实也可以做到的。</p>
+<p>这会导致投资回报率降低，管理成本增大。</p>
+<p>前面也说过，所有的产品，都是为了留住人。影响客户决策是否愿意为产品买单的关键因素，并不是用户体验，而是数据。</p>
+<p>而且，不论在什么公司，资源都是不够用的，资源一定是随着业务发展的必要性增加的，自然也就没有公司会愿意，为了不影响产品核心价值的去投入资源。</p>
+<p>俗话说，好钢要用在刀刃上，也就是这个道理吧。</p>
+]]></content>
+      <categories>
+        <category>产品经理</category>
+      </categories>
+      <tags>
+        <tag>产品经理</tag>
+        <tag>用户体验</tag>
+        <tag>UE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring中使用JUnit+mockito+powermock进行单元测试</title>
-    <url>/spring/2016-07-25-spring-unit-test-with-junit-mockito-powermock.html</url>
+    <url>/2016/07/24/2016-07-25-spring-unit-test-with-junit-mockito-powermock/</url>
     <content><![CDATA[<p>Spring中执行单元测试，最麻烦的就是解决Bean的定义以及注入的问题。最开始使用Spring的上下文初始化进行测试，开头是这样的：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span> </span><br><span class="line"><span class="meta">@ContextConfiguration(&quot;/config/Spring-db1.xml&quot;)</span> </span><br></pre></td></tr></table></figure>
 <p>于是，为了能让这个单元测试正常运行起来，我又Mock了一堆其他的如：MySQL，MongoDB，Redis等等无数的组件。最终测试终于可以运行起来，但是运行的时候又需要对整个Spring的上下文进行初始化，跑一个单元测试需要0.1秒，跑初始化流程就需要1分钟。不过当时单元测试并不是团队高优先级的任务，后来也就没有再研究。   </p>
@@ -2487,7 +2580,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>RC4被JDK8默认禁用导致腾讯QQ邮箱无法访问</title>
-    <url>/java/2016-07-30-use-rc4-in-tencent-mail.html</url>
+    <url>/2016/07/29/2016-07-30-use-rc4-in-tencent-mail/</url>
     <content><![CDATA[<p>7月29日开始，腾讯修改了邮箱的加密方式，导致我们线上的所有的腾讯代收、代发邮件的功能全部失效。解决方法在最后，如果需要可直接跳转至<a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a>一节</p>
 <h3 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h3><p>7月29日开始，线上的所有的腾讯代收、代发邮件的功能全部失效，报<code>handshake_error</code>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">javax.mail.MessagingException: Connect failed;</span><br><span class="line">  nested exception is:</span><br><span class="line">	javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure</span><br><span class="line">	at com.sun.mail.pop3.POP3Store.protocolConnect(POP3Store.java:209)</span><br><span class="line">	at javax.mail.Service.connect(Service.java:295)</span><br><span class="line">	at javax.mail.Service.connect(Service.java:176)</span><br><span class="line">	at cn.irenshi.biz.recruit.service.impl.RecruitReceiveMailServiceImpl.testConnect(RecruitReceiveMailServiceImpl.java:507)</span><br><span class="line">	at cn.irenshi.biz.recruit.service.impl.RecruitReceiveMailServiceImpl.testMailConnect(RecruitReceiveMailServiceImpl.java:534)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:497)</span><br><span class="line">	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302)</span><br><span class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190)</span><br><span class="line">	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)</span><br><span class="line">	... more</span><br><span class="line"></span><br><span class="line">Caused by: javax.net.ssl.SSLHandshakeException: Received fatal alert: handshake_failure</span><br><span class="line">	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)</span><br><span class="line">	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:2023)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1125)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1375)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1403)</span><br><span class="line">	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1387)</span><br><span class="line">	at com.sun.mail.util.SocketFetcher.configureSSLSocket(SocketFetcher.java:549)</span><br><span class="line">	at com.sun.mail.util.SocketFetcher.createSocket(SocketFetcher.java:354)</span><br><span class="line">	at com.sun.mail.util.SocketFetcher.getSocket(SocketFetcher.java:237)</span><br><span class="line">	at com.sun.mail.pop3.Protocol.&lt;init&gt;(Protocol.java:112)</span><br><span class="line">	at com.sun.mail.pop3.POP3Store.getPort(POP3Store.java:260)</span><br><span class="line">	at com.sun.mail.pop3.POP3Store.protocolConnect(POP3Store.java:205)</span><br><span class="line">	... 132 more</span><br></pre></td></tr></table></figure>
@@ -2569,7 +2662,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>万亿级调用系统：微信序列号生成器架构设计及演变</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-09-weixin-sequence-generator.html</url>
+    <url>/2016/08/08/2016-08-09-weixin-sequence-generator/</url>
     <content><![CDATA[<blockquote>
 <p><strong>曾钦松</strong>，微信高级工程师，目前负责微信后台基础服务、朋友圈后台等开发优化，致力于高可用高性能后台系统的设计与研发。2011年毕业于西安电子科技大学，早先曾在腾讯搜搜从事检索架构、分布式数据库方面的工作。</p>
 </blockquote>
@@ -2688,7 +2781,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>开始使用MyCAT</title>
-    <url>/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-17-mycat-startup.html</url>
+    <url>/2016/08/16/2016-08-17-mycat-startup/</url>
     <content><![CDATA[<p>MyCAT是基于阿里巴巴开源数据库中间件Cobar开发并维护的数据库中间件，弥补了Cobar无人维护的尴尬境地。详细介绍可以参考官网：<a href="http://mycat.io/">http://mycat.io/</a></p>
 <p>相比Cobar来说，MyCAT的坑算是少很多了，下面是开始使用MyCAT的一些步骤。</p>
 <h2 id="准备数据库"><a href="#准备数据库" class="headerlink" title="准备数据库"></a>准备数据库</h2><h3 id="创建MySQL数据库实例"><a href="#创建MySQL数据库实例" class="headerlink" title="创建MySQL数据库实例"></a>创建MySQL数据库实例</h3><p>用Docker启动，其他安装方式不再介绍。</p>
@@ -2849,7 +2942,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>Introduction to Microservices</title>
-    <url>/microservice/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</url>
+    <url>/2018/05/18/2018-05-19-introduction-to-microservices/</url>
     <content><![CDATA[<ul>
 <li>TOC</li>
 </ul>
@@ -2906,6 +2999,374 @@ with these **parameters**
       <tags>
         <tag>微服务</tag>
         <tag>Introduction to Microservices</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
+    <url>/2021/05/25/mysql-mongodb-migration/</url>
+    <content><![CDATA[<p>作者介绍</p>
+<blockquote>
+<p>杨亚洲，前滴滴出行专家工程师，现任OPPO文档数据库MongoDB负责人，负责数万亿级数据量文档数据库MongoDB内核研发、性能优化及运维工作，一直专注于分布式缓存、高性能服务端、数据库、中间件等相关研发。后续持续分享《MongoDB内核源码设计、性能优化、最佳运维实践》。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>线上某IOT核心业务集群之前采用MySQL作为主存储数据库，随着业务规模的不断增加，MySQL已无法满足海量数据存储需求，业务面临着容量痛点、成本痛点问题、数据不均衡问题等。</p>
+<p>400亿该业务迁移MongoDB后，同样的数据节省了极大的内存、CPU、磁盘成本，同时完美解决了容量痛点、数据不均衡痛点，并且实现了一定的性能提升。</p>
+<p>此外，迁移时候的MySQL数据为400亿，3个月后的现在对应MongoDB集群数据已增长到1000亿，如果以1000亿数据规模等比例计算成本，实际成本节省比例会更高。迁移MongoDB后，除了解决业务痛点问题，同时也促进了业务的快速迭代开发，业务不在关心数据库容量痛点、数据不均衡痛点、成本痛点等问题。</p>
+<p>当前国内很多mongod文档资料、性能数据等还停留在早期的MMAP_V1存储引擎，实际上从MongoDB-3.x版本开始，MongoDB默认存储引擎已经采用高性能、高压缩比、更小锁粒度的wiredtiger存储引擎，因此其性能、成本等优势相比之前的MMAP_V1存储引擎更加明显。</p>
+<h2 id="一、业务迁移背景"><a href="#一、业务迁移背景" class="headerlink" title="一、业务迁移背景"></a>一、业务迁移背景</h2><p>该业务在迁移MongoDB前已有约400亿数据，申请了64套MySQL集群，由业务通过shardingjdbc做分库分表，提前拆分为64个库，每个库100张表。主从高可用选举通过依赖开源orchestrator组建，MySQL架构图如下图所示：</p>
+<p><img src="/images/0011.png"></p>
+<p><strong>说明：</strong>上图中红色代表磁盘告警，磁盘使用水位即将100%。如上图所示，业务一年多前一次性申请了64套MySQL集群，单个集群节点数一主三从，每个节点规格如下：</p>
+<ul>
+<li>cpu：4</li>
+<li>mem：16G</li>
+<li>磁盘：500G</li>
+<li>总节点数：64*4=256</li>
+<li>SSD服务器</li>
+</ul>
+<p>该业务运行一年多时间后，总集群数据量达到了400亿，并以每月200亿速度增长，由于数据不均衡等原因，造成部分集群数据量大，持续性耗光磁盘问题。由于节点众多，越来越多的集群节点磁盘突破瓶颈，为了解决磁盘瓶颈，DBA不停的提升节点磁盘容量。业务和DBA都面临严重痛点，主要如下：</p>
+<ul>
+<li>数据不均衡问题</li>
+<li>节点容量问题</li>
+<li>成本持续性增加</li>
+<li>DBA工作量剧增(部分磁盘提升不了需要迁移数据到新节点)，业务也提心吊胆</li>
+</ul>
+<h2 id="二、为何选择MongoDB-附十大核心优势总结"><a href="#二、为何选择MongoDB-附十大核心优势总结" class="headerlink" title="二、为何选择MongoDB-附十大核心优势总结"></a>二、为何选择MongoDB-附十大核心优势总结</h2><p>业务遇到瓶颈后，基于MongoDB在公司已有的影响力，业务开始调研MongoDB，通过和业务接触了解到，业务使用场景都是普通的增、删、改、查、排序等操作，同时查询条件都比较固定，用MongoDB完全没任何问题。</p>
+<p>此外，MongoDB相比传统开源数据库拥有如下核心优索：</p>
+<h3 id="优势一：模式自由"><a href="#优势一：模式自由" class="headerlink" title="优势一：模式自由"></a>优势一：模式自由</h3><p>MongoDB为schema-free结构，数据格式没有严格限制。业务数据结构比较固定，该功能业务不用，但是并不影响业务使用MongoDB存储结构化的数据。</p>
+<h3 id="优势二：天然高可用支持"><a href="#优势二：天然高可用支持" class="headerlink" title="优势二：天然高可用支持"></a>优势二：天然高可用支持</h3><p>MySQL高可用依赖第三方组件来实现高可用，MongoDB副本集内部多副本通过raft协议天然支持高可用，相比MySQL减少了对第三方组件的依赖。</p>
+<h3 id="优势三：分布式-解决分库分表及海量数据存储痛点"><a href="#优势三：分布式-解决分库分表及海量数据存储痛点" class="headerlink" title="优势三：分布式-解决分库分表及海量数据存储痛点"></a>优势三：分布式-解决分库分表及海量数据存储痛点</h3><p>MongoDB是分布式数据库，完美解决MySQL分库分表及海量数据存储痛点，业务无需在使用数据库前评估需要提前拆多少个库多少个表，MongoDB对业务来说就是一个无限大的表(当前我司最大的表存储数千亿数据，查询性能无任何影响)。</p>
+<p>此外，业务在早期的时候一般数据都比较少，可以只申请一个分片MongoDB集群。而如果采用MySQL，就和本次迁移的IOT业务一样，需要提前申请最大容量的集群，早期数据量少的时候严重浪费资源。</p>
+<h3 id="优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持"><a href="#优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持" class="headerlink" title="优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持"></a>优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持</h3><ul>
+<li>关于balance：支持自动balance、手动balance、时间段任意配置balance.</li>
+<li>关于分片策略：支持范围分片、hash分片，同时支持预分片。</li>
+<li>关于片建类型：支持单自动片建、多字段片建</li>
+</ul>
+<h3 id="优势五：不同等级的数据一致性及安全性保证"><a href="#优势五：不同等级的数据一致性及安全性保证" class="headerlink" title="优势五：不同等级的数据一致性及安全性保证"></a>优势五：不同等级的数据一致性及安全性保证</h3><p>MongoDB在设计上根据不同一致性等级需求，支持不同类型的<code>Read Concern</code>、<code>Write Concern</code>读写相关配置，客户端可以根据实际情况设置。此外，MongoDB内核设计拥有完善的rollback机制来保证数据安全性和一致性。</p>
+<h3 id="优势六：高并发、高性能"><a href="#优势六：高并发、高性能" class="headerlink" title="优势六：高并发、高性能"></a>优势六：高并发、高性能</h3><p>为了适应大规模高并发业务读写，MongoDB在线程模型设计、并发控制、高性能存储引擎等方面做了很多细致化优化。</p>
+<h3 id="优势七：wiredtiger高性能存储引擎设计"><a href="#优势七：wiredtiger高性能存储引擎设计" class="headerlink" title="优势七：wiredtiger高性能存储引擎设计"></a>优势七：wiredtiger高性能存储引擎设计</h3><p>网上很多评论还停留在早期MMAPv1存储引擎，相比MMAPv1，wiredtiger引擎性能更好，压缩比更高，锁粒度更小，具体如下：</p>
+<ul>
+<li>WiredTiger提供了低延迟和高吞吐量</li>
+<li>处理比内存大得多的数据，而不会降低性能或资源</li>
+<li>系统故障后可快速恢复到最近一个checkpoint</li>
+<li>支持PB级数据存储</li>
+<li>多线程架构，尽力利用乐观锁并发控制算法减少锁操作</li>
+<li>具有hot-caches能力</li>
+<li>磁盘IO最大化利用，提升磁盘IO能力</li>
+<li>其他</li>
+</ul>
+<blockquote>
+<p>更多WT存储引擎设计细节可以参考：<br><a href="http://source.wiredtiger.com/3.2.1/architecture.html">http://source.wiredtiger.com/3.2.1/architecture.html</a></p>
+</blockquote>
+<h3 id="优势八：成本节省-WT引擎高压缩比支持"><a href="#优势八：成本节省-WT引擎高压缩比支持" class="headerlink" title="优势八：成本节省-WT引擎高压缩比支持"></a>优势八：成本节省-WT引擎高压缩比支持</h3><p>MongoDB对数据的压缩支持snappy、zlib算法，在以往线上真实的数据空间大小与真实磁盘空间消耗进行对比，可以得出以下结论：</p>
+<ul>
+<li>MongoDB默认的snappy压缩算法压缩比约为2.2-4.5倍</li>
+<li>zlib压缩算法压缩比约为4.5-7.5倍(本次迁移采用zlib高压缩算法)</li>
+</ul>
+<p><img src="/images/0001.jpeg"></p>
+<p>此外，以线上已有的从MySQL、Es迁移到MongoDB的真实业务磁盘消耗统计对比，同样的数据，存储在MongoDB、MySQL、Es的磁盘占比≈1：3.5：6。</p>
+<p>后续会有数千亿hbase数据迁移MongoDB，到时候总结同样数据MongoDB和Hbase的磁盘消耗比。</p>
+<h3 id="优势九：天然N机房-不管同城还是异地-多活容灾支持"><a href="#优势九：天然N机房-不管同城还是异地-多活容灾支持" class="headerlink" title="优势九：天然N机房(不管同城还是异地)多活容灾支持"></a>优势九：天然N机房(不管同城还是异地)多活容灾支持</h3><p>MongoDB天然高可用机制及代理标签自动识别转发功能的支持，可以通过节点不同机房部署来满足同城和异地N机房多活容灾需求，从而实现成本、性能、一致性的“三丰收”。</p>
+<h3 id="优势十：完善的客户端均衡访问策略"><a href="#优势十：完善的客户端均衡访问策略" class="headerlink" title="优势十：完善的客户端均衡访问策略"></a>优势十：完善的客户端均衡访问策略</h3><p>MongoDB客户端访问路由策略由客户端自己指定，该功能通过Read Preference实现，支持primary 、primaryPreferred 、secondary 、secondaryPreferred 、nearest 五种客户端均衡访问策略。</p>
+<h3 id="补充：分布式事务支持"><a href="#补充：分布式事务支持" class="headerlink" title="补充：分布式事务支持"></a>补充：分布式事务支持</h3><p>MongoDB-4.2 版本开始已经支持分布式事务功能，当前对外文档版本已经迭代到 version-4.2.11，分布式事务功能也进一步增强。此外，从 MongoDB-4.4 版本产品规划路线图可以看出，MongoDB 官方将会持续投入开发查询能力和易用性增强功能，例如 union 多表联合查询、索引隐藏等。</p>
+<blockquote>
+<p>更多MongoDB核心优势细节详见我分享的一篇文章，也欢迎各位参加讨论：</p>
+<p>mongodb源码分析、更多实践案例细节：<br><a href="https://github.com/y123456yz/reading-and-annotate-mongodb-3.6">https://github.com/y123456yz/reading-and-annotate-mongodb-3.6</a></p>
+<p>话题讨论 | MongoDB 拥有十大核心优势，为何国内知名度远不如 MySQL 高？<br><a href="https://xie.infoq.cn/article/180d98535bfa0c3e71aff1662">https://xie.infoq.cn/article/180d98535bfa0c3e71aff1662</a></p>
+</blockquote>
+<h2 id="三、MongoDB资源评估及部署架构"><a href="#三、MongoDB资源评估及部署架构" class="headerlink" title="三、MongoDB资源评估及部署架构"></a>三、MongoDB资源评估及部署架构</h2><p>业务开始迁移MongoDB的时候，通过和业务对接梳理，该集群规模及业务需求总结如下：</p>
+<ul>
+<li>已有数据量400亿左右</li>
+<li>数据磁盘消耗总和30T左右</li>
+<li>读写峰值流量4-5W/s左右，流量很小</li>
+<li>同城两机房多活容灾</li>
+<li>读写分离</li>
+<li>每月预计增加200亿数据</li>
+<li>满足几个月内1500亿新增数据需求</li>
+</ul>
+<p><strong>说明：</strong>数据规模和磁盘消耗按照单副本计算，例如MySQL 64个分片，256个副本，数据规模和磁盘消耗计算方式为：64个主节点数据量之和、64个分片主节点磁盘消耗之和。</p>
+<h3 id="1、MongoDB资源评估"><a href="#1、MongoDB资源评估" class="headerlink" title="1、MongoDB资源评估"></a>1、MongoDB资源评估</h3><p>分片数及存储节点套餐规格选定评估过程如下：</p>
+<h4 id="内存评估"><a href="#内存评估" class="headerlink" title="内存评估"></a>内存评估</h4><p>我司都是容器化部署，以往经验来看，MongoDB对内存消耗不高，历史百亿级以上MongoDB集群单个容器最大内存基本上都是64Gb，因此内存规格确定为64G。</p>
+<h4 id="分片评估"><a href="#分片评估" class="headerlink" title="分片评估"></a>分片评估</h4><p>业务流量峰值3-5W/s，考虑到可能后期有更大峰值流量，因此按照峰值10W/s写，5w/s读，也就是峰值15W/s评估，预计需要4个分片。</p>
+<h4 id="磁盘评估"><a href="#磁盘评估" class="headerlink" title="磁盘评估"></a>磁盘评估</h4><p>MySQL中已有数据400亿，磁盘消耗30T。按照以网线上迁移经验，MongoDB默认配置磁盘消耗约为mysql的1/3-1/5，400亿数据对应MongoDB磁盘消耗预计8T。考虑到1500亿数据，预计4个分片，按照每个分片400亿规模，预计每个分片磁盘消耗8T。</p>
+<p>线上单台物理机10多T磁盘，几百G内存，几十个CPU，为了最大化利用服务器资源，我们需要预留一部分磁盘给其他容器使用。另外，因为容器组套餐化限制，最终确定确定单个节点磁盘在7T。预计使用7T的节点，4个分片存储约1500亿数据。</p>
+<h4 id="CPU规格评估"><a href="#CPU规格评估" class="headerlink" title="CPU规格评估"></a>CPU规格评估</h4><p>由于容器调度套餐化限制，因此CPU只能限定为16CPU(实际上用不了这么多CPU)。</p>
+<h4 id="mongos代理及config-server规格评估"><a href="#mongos代理及config-server规格评估" class="headerlink" title="mongos代理及config server规格评估"></a>mongos代理及config server规格评估</h4><p>此外，由于分片集群还有mongos代理和config server复制集，因此还需要评估mongos代理和config server节点规格。由于config server只主要存储路由相关元数据，因此对磁盘、CUP、MEM消耗都很低；mongos代理只做路由转发只消耗CPU，因此对内存和磁盘消耗都不高。最终，为了最大化节省成本，我们决定让一个代理和一个config server复用同一个容器，容器规格如下：</p>
+<p>8CPU/8G内存/50G磁盘，一个代理和一个config server节点复用同一个容器。</p>
+<ul>
+<li>分片及存储节点规格总结：4分片/16CPU、64G内存、7T磁盘。</li>
+<li>mongos及config server规格总结：8CPU/8G内存/50G磁盘</li>
+</ul>
+<p><img src="/images/0002.jpeg"></p>
+<h3 id="2、集群部署架构"><a href="#2、集群部署架构" class="headerlink" title="2、集群部署架构"></a>2、集群部署架构</h3><p>由于该业务所在城市只有两个机房，因此我们采用2+2+1(2mongod+2mongod+1arbiter模式)，在A机房部署2个mongod节点，B机房部署2个mongod节点，C机房部署一个最低规格的选举节点，如下图所示：</p>
+<p><img src="/images/0012.png"></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li>每个机房代理部署2个mongos代理，保证业务访问代理高可用，任一代理挂掉，对应机房业务不受影响；</li>
+<li>如果机房A挂掉，则机房B和机房C剩余2mongod+1arbiter，则会在B机房mongod中从新选举一个主节点。arbiter选举节点不消耗资源；</li>
+<li>客户端配置nearest ，实现就近读，确保请求通过代理转发的时候，转发到最近网络时延节点，也就是同机房对应存储节点读取数据；</li>
+<li>弊端：如果是异地机房，B机房和C机房写存在跨机房写场景。如果A、B、C为同城机房，则没用该弊端，同城机房时延可以忽略。</li>
+</ul>
+<h2 id="四、业务全量-增量迁移方式"><a href="#四、业务全量-增量迁移方式" class="headerlink" title="四、业务全量+增量迁移方式"></a>四、业务全量+增量迁移方式</h2><p><img src="/images/0003.jpeg"></p>
+<blockquote>
+<p>迁移过程由业务自己完成，通过阿里开源的datax工具实现，该迁移工具的更多细节可以参考：<br><a href="https://github.com/alibaba/DataX">https://github.com/alibaba/DataX</a></p>
+</blockquote>
+<h2 id="五、性能优化过程"><a href="#五、性能优化过程" class="headerlink" title="五、性能优化过程"></a>五、性能优化过程</h2><p>该集群优化过程按照如下两个步骤优化：数据迁移开始前的提前预优化、迁移过程中瓶颈分析及优化、迁移完成后性能优化。</p>
+<h3 id="1、数据迁移开始前的提前预操作"><a href="#1、数据迁移开始前的提前预操作" class="headerlink" title="1、数据迁移开始前的提前预操作"></a>1、数据迁移开始前的提前预操作</h3><p>和业务沟通确定，业务每条数据都携带有一个设备标识ssoid，同时业务查询更新等都是根据ssoid维度查询该设备下面的单条或者一批数据，因此片建选择ssoid。</p>
+<h4 id="分片方式"><a href="#分片方式" class="headerlink" title="分片方式"></a>分片方式</h4><p>为了充分散列数据到4个分片，因此选择hash分片方式，这样数据可以最大化散列，同时可以满足同一个ssoid数据落到同一个分片，保证查询效率。</p>
+<h4 id="预分片"><a href="#预分片" class="headerlink" title="预分片"></a>预分片</h4><p>MongoDB如果分片片建为hashed分片，则可以提前做预分片，这样就可以保证数据写进来的时候比较均衡的写入多个分片。预分片的好处可以规避非预分片情况下的chunk迁移问题，最大化提升写入性能。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">sh.shardCollection(<span class="string">&quot;xxx.xxx&quot;</span>, &#123;<span class="attr">ssoid</span>:<span class="string">&quot;hashed&quot;</span>&#125;, <span class="literal">false</span>, &#123; <span class="attr">numInitialChunks</span>: <span class="number">8192</span>&#125; )</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意事项：切记提前对ssoid创建hashed索引，否则对后续分片扩容有影响。</p>
+</blockquote>
+<h4 id="就近读"><a href="#就近读" class="headerlink" title="就近读"></a>就近读</h4><p>客户端增加nearest 配置，从离自己最近的节点读，保证了读的性能。</p>
+<h4 id="mongos代理配置"><a href="#mongos代理配置" class="headerlink" title="mongos代理配置"></a>mongos代理配置</h4><p>A机房业务只配置A机房的代理，B机房业务只配置B机房代理，同时带上nearest配置，最大化的实现本机房就近读，同时避免客户端跨机房访问代理。</p>
+<h4 id="禁用enableMajorityReadConcern"><a href="#禁用enableMajorityReadConcern" class="headerlink" title="禁用enableMajorityReadConcern"></a>禁用<code>enableMajorityReadConcern</code></h4><p>禁用该功能后ReadConcern majority将会报错，ReadConcern majority功能主要是避免脏读，和业务沟通业务没该需求，因此可以直接关闭。</p>
+<p>MongoDB默认使能了<code>enableMajorityReadConcern</code>，该功能开启对性能有一定影响，参考：</p>
+<blockquote>
+<p>MongoDB readConcern 原理解析<br><a href="https://developer.aliyun.com/article/60553">https://developer.aliyun.com/article/60553</a></p>
+</blockquote>
+<blockquote>
+<p>OPPO百万级高并发MongoDB集群性能数十倍提升优化实践<br><a href="https://mongoing.com/archives/29934">https://mongoing.com/archives/29934</a></p>
+</blockquote>
+<h4 id="存储引擎cacheSize规格选择"><a href="#存储引擎cacheSize规格选择" class="headerlink" title="存储引擎cacheSize规格选择"></a>存储引擎cacheSize规格选择</h4><p>单个容器规格：16CPU、64G内存、7T磁盘，考虑到全量迁移过程中对内存压力，内存碎片等压力会比较大，为了避免OOM，设置cacheSize=42G。</p>
+<h3 id="2、数据全量迁移过程中优化过程"><a href="#2、数据全量迁移过程中优化过程" class="headerlink" title="2、数据全量迁移过程中优化过程"></a>2、数据全量迁移过程中优化过程</h3><p><img src="/images/0013.png"></p>
+<p>全量数据迁移过程中，迁移速度较块，内存脏数据较多，当脏数据比例达到一定比例后用户读写请求对应线程将会阻塞，用户线程也会去淘汰内存中的脏数据page，最终写性能下降明显。</p>
+<p>wiredtiger存储引擎cache淘汰策略相关的几个配置如下:</p>
+<p><img src="/images/0014.png"></p>
+<p>由于业务全量迁移数据是持续性的大流量写，而不是突发性的大流量写，因此eviction_target、eviction_trigger、eviction_dirty_target、eviction_dirty_trigger几个配置用处不大，这几个参数阀值只是在短时间突发流量情况下调整才有用。</p>
+<p>但是，在持续性长时间大流量写的情况下，我们可以通过提高wiredtiger存储引擎后台线程数来解决脏数据比例过高引起的用户请求阻塞问题，淘汰脏数据的任务最终交由evict模块后台线程来完成。</p>
+<p>全量大流量持续性写存储引擎优化如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.adminCommand( &#123; <span class="attr">setParameter</span> : <span class="number">1</span>, <span class="string">&quot;wiredTigerEngineRuntimeConfig&quot;</span> : <span class="string">&quot;eviction=(threads_min=4, threads_max=20)&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、全量迁移完成后，业务流量读写优化"><a href="#3、全量迁移完成后，业务流量读写优化" class="headerlink" title="3、全量迁移完成后，业务流量读写优化"></a>3、全量迁移完成后，业务流量读写优化</h3><p><img src="/images/0015.png"></p>
+<p>前面章节我们提到，在容器资源评估的时候，我们最终确定选择单个容器套餐规格为如下：</p>
+<blockquote>
+<p>16CPU、64G内存、7T磁盘。</p>
+</blockquote>
+<p>全量迁移过程中为了避免OOM，预留了约1/3内存给MongoDB server层、操作系统开销等，当全量数据迁移完后，业务写流量相比全量迁移过程小了很多，峰值读写OPS约2-4W/s。</p>
+<p>也就是说，前量迁移完成后，cache中脏数据比例几乎很少，基本上不会达到20%阀值，业务读流量相比之前多了很多(数据迁移过程中读流量走原MySQL集群)。为了提升读性能，因此做了如下性能调整(提前建好索引)：</p>
+<ul>
+<li>节点cacheSize从之前的42G调整到55G，尽量多的缓存热点数据到内存，供业务读，最大化提升读性能；</li>
+<li>每天凌晨低峰期做一次cache内存加速释放，避免OOM。</li>
+</ul>
+<p>上面的内核优后后，业务测时延监控曲线变化，时延更加平稳，平均时延也有25%左右的性能优后，如下图所示：</p>
+<p><img src="/images/0016.png"></p>
+<h2 id="六、迁移前后，业务测时延统计对比：-MySQL-vs-MongoDB"><a href="#六、迁移前后，业务测时延统计对比：-MySQL-vs-MongoDB" class="headerlink" title="六、迁移前后，业务测时延统计对比：(MySQL vs MongoDB)"></a>六、迁移前后，业务测时延统计对比：(MySQL vs MongoDB)</h2><p>迁移前业务测时延监控曲线(平均时延7ms, 2月1日数据，此时mysql集群只有300亿数据)：</p>
+<p><img src="/images/0017.png"></p>
+<p>迁移MongoDB后并且业务流量全部切到MongoDB后业务测时延监控曲线(平均6ms, 3月6日数据，此时MongoDB集群已有约500亿数据))</p>
+<p><img src="/images/0016.png"></p>
+<p>总结：</p>
+<ul>
+<li>MySQL(300亿数据)时延：7ms</li>
+<li>MongoDB(500亿数据)时延：6ms</li>
+</ul>
+<h2 id="七、迁移成本收益对比"><a href="#七、迁移成本收益对比" class="headerlink" title="七、迁移成本收益对比"></a>七、迁移成本收益对比</h2><h3 id="1、MySQL集群规格及存储数据最大量"><a href="#1、MySQL集群规格及存储数据最大量" class="headerlink" title="1、MySQL集群规格及存储数据最大量"></a>1、MySQL集群规格及存储数据最大量</h3><p><img src="/images/0019.png"></p>
+<p>原mysql集群一共64套，每套集群4副本，每个副本容器规格：4CPU、16G mem、500G磁盘，总共可以存储400亿数据，这时候大部分节点已经开始磁盘90%水位告警，DBA对部分节点做了磁盘容量提升。</p>
+<p>总结如下：</p>
+<ul>
+<li>集群总套数：64</li>
+<li>单套集群副本数：4</li>
+<li>每个节点规格：4CPU、16G mem、500G磁盘</li>
+<li>该64套集群最大存储数据量：400亿</li>
+</ul>
+<h3 id="2、MongoDB集群规格及存储数据最大量"><a href="#2、MongoDB集群规格及存储数据最大量" class="headerlink" title="2、MongoDB集群规格及存储数据最大量"></a>2、MongoDB集群规格及存储数据最大量</h3><p><img src="/images/0020.png"></p>
+<p>MongoDB从MySQL迁移过来后，数据量已从400亿增加到1000亿，并以每个月增加200亿数据。</p>
+<p>MongoDB集群规格及存储数据量总结如下：</p>
+<ul>
+<li>分片数：4</li>
+<li>单分片副本数：4</li>
+<li>每个节点规格：16CPU、64G mem、7T磁盘</li>
+<li>四个分片存储数据量：当前已存1000亿，最大可存1500亿数据。</li>
+</ul>
+<h3 id="3、成本对比计算过程"><a href="#3、成本对比计算过程" class="headerlink" title="3、成本对比计算过程"></a>3、成本对比计算过程</h3><p><strong>说明：</strong>由于MySQL迁移MongoDB后，数据不再往MySQL中写入，流量切到MongoDB时候MySQL中大约存储有400亿数据，因此我们以这个时间点做为对比时间点。以400亿数据为基准，资源消耗对比如下表(每个分片只计算主节点资源消耗，因为MySQL和MongoDB都是4副本)：</p>
+<p><img src="/images/0004.jpeg"></p>
+<p>由于MongoDB四个分片还有很多磁盘冗余，该四个分片相比400亿数据，还可以写1100亿数据。如果按照1500亿数据计算，如果还是按照MySQL之前套餐规格，则MySQL集群数需要再增加三倍，也就是总集群套数需要64*4=256套，资源占用对比如下：</p>
+<p><img src="/images/0005.jpeg"></p>
+<h3 id="4、收益总结-客观性对比"><a href="#4、收益总结-客观性对比" class="headerlink" title="4、收益总结(客观性对比)"></a>4、收益总结(客观性对比)</h3><p>从上面的内容可以看出，该业务迁移MongoDB后，除了解决了业务容量痛点、促进业务快速迭代开发、性能提升外，成本还节省了数倍。成本节省总结如下：</p>
+<p>400亿维度计算(mysql和MongoDB都存储相同的400亿数据)：</p>
+<ul>
+<li>CPU和内存成本比例：4:1</li>
+<li>磁盘成本比例：3.3:1</li>
+</ul>
+<p>1500亿维度计算(假设mysql集群都采用之前规格等比例换算)：</p>
+<ul>
+<li>CPU和内存成本比例：16:1</li>
+<li>磁盘成本比例：3.3:1</li>
+</ul>
+<p>从上面的分析可以看出，数据量越大，按照等比例换算原则，MongoDB存储成本会更低，原因如下：</p>
+<h4 id="CPU-内存节省原因："><a href="#CPU-内存节省原因：" class="headerlink" title="CPU/内存节省原因："></a>CPU/内存节省原因：</h4><p>主要是因为MongoDB海量数据存储及高性能原因，索引建好后，单实例单表即使几百亿数据，读写也是ms级返回(注意：切记查询更新建好索引)。</p>
+<p>此外，由于MongoDB分布式功能，对容量评估更加方便，就无需提前一次性申请很多套mysql，而是根据实际需要可以随时加分片。</p>
+<h4 id="磁盘节省原因："><a href="#磁盘节省原因：" class="headerlink" title="磁盘节省原因："></a>磁盘节省原因：</h4><p>MongoDB存储引擎wiredtiger默认高压缩、高性能。</p>
+<p>最后，鉴于客观性成本评价，CPU/内存成本部分可能会有争议，比如mysql内存和CPU是否申请的时候就申请过大。MongoDB对应CPU也同样存在该问题，例如申请的单个容器是16CPU，实际上真实只消耗了几个CPU。</p>
+<p>但是，磁盘节省是实实在在的，是相同数据情况下mysql和MongoDB的真实磁盘消耗对比。</p>
+<p>当前该集群总数据量已经达到近千亿，并以每个月200亿规模增加，单从容器计费层面上换算，1000亿数据按照等比例换算，预计节省成本10倍。</p>
+<h2 id="八、最后：千亿级中等规模MongoDB集群注意事项"><a href="#八、最后：千亿级中等规模MongoDB集群注意事项" class="headerlink" title="八、最后：千亿级中等规模MongoDB集群注意事项"></a>八、最后：千亿级中等规模MongoDB集群注意事项</h2><p>MongoDB无需分库分表，单表可以无限大，但是单表随着数据量的增多会引起以下问题：</p>
+<ul>
+<li>切记提前建好索引，否则影响查询更新性能(数据越多，无索引查询扫描会越慢)。</li>
+<li>切记提前评估好业务需要那些索引，单节点单个表数百亿数据，加索引执行时间较长。</li>
+<li>服务器异常情况下节点替换时间相比会更长。</li>
+<li>切记数据备份不要采用mongodump/mongorestore方式，而是采用热备或者文件拷贝方式备份。</li>
+<li>节点替换尽量从备份中拷贝数据加载方式恢复，而不是通过主从全量同步方式，全量同步过程较长。</li>
+</ul>
+<h2 id="九、未来挑战-该集群未来万亿级实时数据规模挑战"><a href="#九、未来挑战-该集群未来万亿级实时数据规模挑战" class="headerlink" title="九、未来挑战(该集群未来万亿级实时数据规模挑战)"></a>九、未来挑战(该集群未来万亿级实时数据规模挑战)</h2><p>随着时间推移，业务数据增长也会越来越多，单月数据量增长曲线预计会直线增加(当前每月数据量增加200亿左右)，预计未来2-3年该集群总数据量会达到万亿级，分片数也会达到20个分片左右，可能会遇到各自各样的问题。</p>
+<p>但是，IOT业务数据存在明显的冷数问题，一年前的数据用户基本上不会访问，因此我们考虑做如下优后来满足性能、成本的进一步提升：</p>
+<ul>
+<li>冷数据归档到低成本SATA盘</li>
+<li>冷数据提升压缩比，最大化减少磁盘消耗</li>
+</ul>
+<blockquote>
+<p>如何解决冷数据归档sata盘过程中的性能问题<br>冷热归档存储可以参考之前在dbaplus分享的另一篇文章：<br>1.《用最少人力玩转万亿级数据，我用的就是MongoDB！》<br>2.MongoDB源码分析、更多实践案例细节<br><a href="https://github.com/y123456yz/reading-and-annotate-mongodb-3.6">https://github.com/y123456yz/reading-and-annotate-mongodb-3.6</a></p>
+</blockquote>
+<h2 id="十、最后说明-业务场景"><a href="#十、最后说明-业务场景" class="headerlink" title="十、最后说明(业务场景)"></a>十、最后说明(业务场景)</h2><p>本千亿级IOT业务使用场景总结如下：</p>
+<ul>
+<li>业务数据读、更新、排序等都可以走索引，包括单字段索引、多字段索引、数组索引，所有查询和更新都能确定走具体的某个最优索引。</li>
+<li>查询都是单表查询，不涉及多表联合查询。</li>
+</ul>
+<p>数据库场景非常重要，脱离业务场景谈数据库优劣无任何意义。例如本文的业务场景，业务能确定需要建那些索引，同时所有的更新、查询、排序都可以对应具体的最优索引，因此该场景就非常适合MongoDB。</p>
+<p>每种数据库都有其适合的业务场景，没有万能的数据库。此外，不能因为某种场景不适合而全盘否定没数据库，主流数据库都有其存在的意义，千万不能因为某种场景下的不合适而全盘否定某个数据库。</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于产品需求阶段的思维公式</title>
+    <url>/2021/05/24/user-demands-howto/</url>
+    <content><![CDATA[<blockquote>
+<p>编辑导语：需求是一款产品在开发过程中始终需要面对的重要因素，那么需求从哪儿来？在对需求进行分析时又有哪些误区？本文作者对以上问题进行了解答，并且推导出了“需求”环节的思维公式。</p>
+</blockquote>
+<p>前段时间，我跟几位产品新同学讨论一个问题，产品经理的职责是什么？大家七嘴八舌说了很多，有的说项目管理、有的说功能设计、有的说用户调研，当然，这些都是，其中有个同学回答说：“做需求”，产品经理就是一个做需求的。</p>
+<p>我就问他，为什么是做需求呢，他说每一个需求，都是以上这些内容的总和，每一个需求，都包含了用户调研、功能设计、项目管理、资源协调，所以说，产品经理就是做需求的，这没毛病。</p>
+<p>可是，做需求只是表象，再往深了想，做需求，其实也是为了解决用户或者客户的实际问题。因此，我觉得说产品经理的职责是「解决问题」，更准确一点。“解决问题”是产品经理的职责，“做需求”是产品经理工作的主要内容。</p>
+<p>那我们就说说“需求”。</p>
+<p>需求这个话题聊的人太多了，不少前辈、大佬、专家，都深入阐述过，产品新人入门导师苏杰、刘飞、王诗沐、俞军几位老师，在他们的著作中，也用了大量的篇幅来讲需求。站在前人的肩膀上，结合自己的一些思考，我也想同读者分享一下，我对于“需求”的理解。</p>
+<p>本文从需求的概念、需求的科学理论，到需求的来源，结合做需求过程中的常见误区，最后推导出“需求”环节的思维公式。全文万字，可能是非常完善的“需求”通识文章了，收藏转发再细看。</p>
+<h2 id="一、需求是什么？"><a href="#一、需求是什么？" class="headerlink" title="一、需求是什么？"></a>一、需求是什么？</h2><p>生活中，我们经常会有一些行为，这些行为背后，是因为我们有相应的诉求。</p>
+<ul>
+<li>临近夏天，天气越来越热，走在街上，忍不住买一根雪糕；</li>
+<li>买了一屋子盲盒；</li>
+<li>认识到学习的价值，购买了很多付费课程。</li>
+</ul>
+<p>以上三个案例，都是最后表现出来的行为。这种行为，分别对应着各自的诉求：买雪糕是因为热，想要获得降温快感的诉求；买盲盒是满足收集欲和好奇心的诉求；买课程是为了满足提升能力、缓解焦虑，然后找到更好工作，或者升值加薪的诉求。</p>
+<p>这个“行为背后的诉求”，其实就是需求。所以我们可以给需求下一个定义：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">需求是行为背后的诉求。</span><br></pre></td></tr></table></figure>
+
+<p>基于这个定义，我们可以发现，任何行业，其实都有需求的概念，需求这件事，不仅仅存在于互联网产品上，其他的建筑行业、汽车行业、纺织行业等等，都同样通过挖掘用户背后的需求，来实现产品的创新和进步。</p>
+<p>对应到产品经理的职业上，我们这个“做需求”，做的是什么“需求”？</p>
+<p>产品经理成长过程中，一套思考的全流程，应该是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">归纳现象-发现问题-拆解问题-分类问题-提出解决方案-回归分析-发现新问题。</span><br></pre></td></tr></table></figure>
+<p>简化来讲，就是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">发现问题——归纳核心痛点——解决方案。</span><br></pre></td></tr></table></figure>
+
+<p>这其中的“解决方案”，就成了产品经理工作中所要完成的需求。这是产品经理接触最多的工作内容，也是产品工作的核心。只有通过优雅高效的解决方案，才能真正解决用户痛点，实现产品经理存在的价值。</p>
+<h2 id="二、两个需求理论"><a href="#二、两个需求理论" class="headerlink" title="二、两个需求理论"></a>二、两个需求理论</h2><p>正因为“需求”是一个常悟常新的话题，在绵延的历史长河中，也有很多经典的、历久不衰的需求理论。对于产品经理，有两个非常经典的需求理论，就是<code>“马斯洛需求层次理论”</code>和<code>“KANO模型”</code>。</p>
+<h3 id="马斯洛需求层次理论"><a href="#马斯洛需求层次理论" class="headerlink" title="马斯洛需求层次理论"></a>马斯洛需求层次理论</h3><p><img src="/images/0006.png" alt="马斯洛需求层次理论"></p>
+<p>马斯洛需求层次理论就不用多说了，初高中的时候课本里就提到过。马斯洛把一个人的需求分为生理需求、安全需求、社交需求、尊重需求和自我实现的需求。</p>
+<p>一般来说，这五个需求映射到产品上，则越是金字塔底部的需求，需求面越大，但ARPU可能越小，比如肚子不饿的生理需求，10块钱的炒粉就可以满足。</p>
+<h3 id="KANO模型"><a href="#KANO模型" class="headerlink" title="KANO模型"></a>KANO模型</h3><p><img src="/images/0007.png" alt="KANO模型"></p>
+<p>KANO模型，是东京理工大学教授狩野纪昭(Noriaki Kano)发明的对用户需求分类和优先排序的有用工具，以分析用户需求对用户满意的影响为基础，体现了产品性能和用户满意之间的非线性关系。</p>
+<p>KANO模型把产品需求分成五类：</p>
+<h4 id="1-基础型需求"><a href="#1-基础型需求" class="headerlink" title="1. 基础型需求"></a>1. 基础型需求</h4><p>基础性需求是一个产品最基础的功能，这个需求不能够被满足，则产品就不能正常使用，比如IM软件的打字聊天功能，美颜软件的拍摄功能等等。</p>
+<h4 id="2-期望型需求"><a href="#2-期望型需求" class="headerlink" title="2. 期望型需求"></a>2. 期望型需求</h4><p>期望型需求的效果，是让用户满意度提升。比如微信聊天中的表情包，用户期望有一种俏皮的、不局限于文字的聊天方式，表情包恰好满足了用户这一点。</p>
+<h4 id="3-兴奋（魅力）型需求"><a href="#3-兴奋（魅力）型需求" class="headerlink" title="3. 兴奋（魅力）型需求"></a>3. 兴奋（魅力）型需求</h4><p>兴奋型需求也称为魅力型需求，是超出用户预期的，让用户满意度大幅提升的需求。比如微信的“拍一拍”和动态表情，用户并没有这个功能的预期，但微信做出来之后，大家也玩儿得不亦乐乎。</p>
+<p>还有当年的微信红包，用户突然发现微信中就可以直接发红包了，足不出户，就能完成拜年互动，于是，一个春节，借着红包的力量，微信支付一下子成为可以比肩支付宝的支付平台。</p>
+<p>值得注意的是，<strong>这五种需求类型，并不是一成不变的，随着行业的进步，他们之间可能会发生转变</strong>。比如微信红包在刚推出时，属于魅力型需求，但随着红包成为趋势，用户也要求其他社交产品做红包功能，这就变成了期望型需求。</p>
+<h4 id="4-无差异型需求"><a href="#4-无差异型需求" class="headerlink" title="4. 无差异型需求"></a>4. 无差异型需求</h4><p>无差异性需求则是用户并不在意的需求，无论有或没有，用户体验都并不会产生较大的影响，用户满意度也并不会提高或降低。</p>
+<p>做无差异性需求看似是一个鸡肋的、无意义的行为，但在当下互联网产品大幅度内卷的情况下，几乎每个平台类APP都在疯狂堆砌这些功能，试图抢占用户时间——打车软件做团购、团购软件做打车、地图软件做购物、工具软件做内容，这大抵就是做产品的岐路罢（当然，实际上也有公司战略的考虑）。</p>
+<h4 id="5-反向型需求"><a href="#5-反向型需求" class="headerlink" title="5. 反向型需求"></a>5. 反向型需求</h4><p>顾名思义，反向型需求就是做了之后，用户体验和用户满意度会下降的需求。在这里我忍不住要吐槽知乎，现在的知乎，充斥着各种小故事小短文，最关键的是，小故事读着正爽，来了一句“最低0.3元/天开通会员，查看完整内容”，掐死知乎的心思都有了。</p>
+<p>值得一说的是，现在的互联网产品中，反向型需求一般是因为商业诉求同用户体验产生了矛盾，做产品是为了盈利，追求效益无可厚非，而<strong>产品经理，就要在商业诉求和用户体验中反复横跳，做放纵与克制间的守夜人</strong>。</p>
+<h3 id="马斯洛-vs-KANO"><a href="#马斯洛-vs-KANO" class="headerlink" title="马斯洛 vs KANO"></a>马斯洛 vs KANO</h3><p><strong>马斯洛需求层次理论，说得是人性。KANO模型，对应着产品功能。</strong>这两个理论经过多年的发展，其内涵已经足够丰富，许多新的产品理论，也大多脱胎于类似的理念，异曲而同工。</p>
+<p>这些“新产品理论”中，梁宁老师格外推崇的“痛点爽点痒点”理论，是非常热门的概念。</p>
+<ul>
+<li><strong>痛点是恐惧</strong>，上班马上就迟到，迟到就要被扣工资，这时候地铁口有一辆共享单车，非常及时地解决了即将迟到的恐惧，这就是痛点；</li>
+<li><strong>爽点是即时满足</strong>，周六的早晨一觉醒来已经是中午，依然不想起床，躺在床上动动手指，外卖就送到家门口，暂时的快乐得以满足，这就是爽点；</li>
+<li><strong>痒点是虚拟自我实现</strong>，看着直播里的小姐姐，甜甜地说giegie你好厉害，你立刻幻想到了迎娶白富美，马上一个火箭送出去，这就是因为满足了用户对于自己的虚拟想象，最近特别流行的“头上长摄像头”短视频，也是一样的道理。</li>
+</ul>
+<h2 id="三、需求从哪儿来？"><a href="#三、需求从哪儿来？" class="headerlink" title="三、需求从哪儿来？"></a>三、需求从哪儿来？</h2><p>了解了需求是什么，也学习了关于需求的理论，作为一名产品经理，归根结底还是要执行力。那落到操作层面，需求到底从哪儿来？</p>
+<p>需求的来源有很多很多，我把它们先归为两类：一类是正经来源，另一类是不那么正经的来源。</p>
+<p><img src="/images/0008.png"></p>
+<h3 id="1-需求的正经来源"><a href="#1-需求的正经来源" class="headerlink" title="1. 需求的正经来源"></a>1. 需求的正经来源</h3><p>在我看来，需求的正经来源，只有两个：用户和数据。</p>
+<h4 id="1）需求来源于用户"><a href="#1）需求来源于用户" class="headerlink" title="1）需求来源于用户"></a>1）需求来源于用户</h4><p>这是一句每个产品经理都信口拈来的话。产品的存在，就是为了解决用户的问题，用户所面临的这些问题，肯定都得从用户当中去发现。而对于产品来说，需求阶段是整个产品生命周期中的孕育期，需求能否准确命中，决定着一个功能乃至一个产品的生死。</p>
+<h4 id="2）需求同样也来源于数据"><a href="#2）需求同样也来源于数据" class="headerlink" title="2）需求同样也来源于数据"></a>2）需求同样也来源于数据</h4><p>在数据时代的今天，每一个人都是数据大网下的一个节点，最关键的是，通过用户的数据，能够更好地发现用户的群体行为，从而找准大多数用户的真正需求。某种意义上来讲，数据中找到的用户需求，比直接和用户访谈、调研得到的数据更真实。</p>
+<p>为什么需求要来源于数据？是因为，“用户”是会骗人的呀。业内有一个非常经典的栗子：</p>
+<blockquote>
+<p>索尼要为一款即将面市的游戏机做一个调研，请了很多目标用户来公司，收集用户对于样品的反馈，其中一项就是询问用户希望这款游戏机是什么颜色（有黄色及黑色），很多人在被问及这个问题时，都答了黄色，索尼就认为，黄色的游戏机更收欢迎。但最后，访谈结束时，索尼公司提出，用户可以从门口随意挑选一个颜色的游戏机带走，以感谢他们参加此次用户访谈，结果时候统计数据却发现，用户们在实际挑选时，纷纷选择了黑色的游戏机。</p>
+</blockquote>
+<p>用户调研的需求具体生动，但有可能因为样本太小并不真实；数据分析得到的用户行为，样本足够统计准确，却略显僵硬并不鲜活。其实，在做产品需求的过程中，用户和数据，都是为了更好地满足用户需要，应当两种来源结合使用、交叉验证。</p>
+<p><strong>用户是微观，定性；数据是宏观，定量。</strong></p>
+<h3 id="2-需求的不正经来源"><a href="#2-需求的不正经来源" class="headerlink" title="2. 需求的不正经来源"></a>2. 需求的不正经来源</h3><p>虽然严格来说，用户需求都来源于用户和数据，但其实在真正的产品工作中，也有很多需求是来源于其他渠道，毕竟生活和工作不可能时时刻刻都处在理想状态。</p>
+<p>我之所以称它们为“不正经来源”，倒也不是说这些来源不好，而是表示，它们不像用户和数据这样“掉书袋”“科班理论”。</p>
+<p><img src="/images/0009.png"></p>
+<h4 id="1）竞争对手"><a href="#1）竞争对手" class="headerlink" title="1）竞争对手"></a>1）竞争对手</h4><p>实际工作中，确实很多需求，都来源于竞争对手。“我们为什么要做这个功能？是因为竞品这么做啦！这个功能为什么这样做？是因为竞品就是这么做哒！”这种想法当然不对，但也不是说，做需求不能看竞品。</p>
+<p>相反，持续进行竞品的监控分析，能够获得很多需求灵感，而且，竞品的新功能也是在付出成本帮助我们去做验证，如果效果OK，那我们去借鉴参考，也不是什么坏事。所以，<strong>需求来源于竞争对手，核心在于思考竞品为什么这么做，我们可以从中学习什么优点，辩证批判地看待竞品的动作。</strong></p>
+<h4 id="2）产品经理拍脑袋"><a href="#2）产品经理拍脑袋" class="headerlink" title="2）产品经理拍脑袋"></a>2）产品经理拍脑袋</h4><p>不得不说，挺多需求确实是拍脑袋拍出来的……<strong>原因挺多的，但也要尽量避免</strong>。</p>
+<h4 id="3）协同部门"><a href="#3）协同部门" class="headerlink" title="3）协同部门"></a>3）协同部门</h4><p>尤其是体量比较大的产品，产品经理距离客户/用户的距离，其实没有那么近，一线的很多用户反馈，往往并不能直接传达给产品团队，大多数情况下，是销售、客服、市场等协同部门的同事去响应。所以，协同部门就会定期向产品团队反馈需求。</p>
+<p>协同部门提出的需求，一般分为两类，一类是“用户希望怎样”，一类是“我们（协同部门）希望怎样”。</p>
+<p>前者，是一线协同部门把用户反馈过来的问题，传递给产品团队；后者，则是一线部门为了自身的KPI或者工作量，而提出的需求，比如销售部门为了更好的售卖产品，就会不断反馈要求获得产品中更多的入口、更多的弹窗。</p>
+<p><strong>针对协同部门的需求，产品经理要做的，首先是要分类整理，判断哪些需求是产品真实存在的问题，哪些是协同部门对于产品规则理解不深刻的问题。针对用户真实存在的问题，又要往深层次思考，用户的核心诉求是什么，进而根据优先级，提出产品方案。</strong></p>
+<h4 id="4）客户直接提出的功能需求"><a href="#4）客户直接提出的功能需求" class="headerlink" title="4）客户直接提出的功能需求"></a>4）客户直接提出的功能需求</h4><p>有时候客户或者用户反馈问题时，会直接提出一些具体的功能建议：希望在XXX处做一个XXX功能。这个来源能够收到的需求非常多，毕竟“人人都是产品经理”嘛，每个人都能对产品提点功能建议。</p>
+<p>针对这种来源的需求，产品经理要做的，不是照单全收，而是得认真归类分析，找到问题背后的真实来源，进而提出优雅的产品解决方案。用户很热，想买雪糕，但她正好在姨妈期，如果直接听用户的，就会导致她肚子疼，这个时候，产品经理可以带她去吹空调，解决“热”的问题。</p>
+<p>“热”是核心问题，“吃雪糕”和“吹空调”都是解决方案，选择哪个解决方案，要结合具体的情况而定（风险提示：这里就是举个例子，谈恋爱不能太“产品思维”）。</p>
+<p>你看，同样是用户提出的反馈，认真分析后找出需求，就叫用户访谈，就是正经的需求来源；不加分析直接采用，就是不正经的需求来源，容易踩雷，你说有不有趣。</p>
+<p>话说回来，这些不正经来源，其实深溯一下，很多也还是来源于用户和数据。比如需求来源于竞争对手，其实只不过是竞争对手的产品经理完成了需求收集，这个需求，来源于竞争对手的用户；需求来源于客户的具体建议，那也是表达出客户对于当前功能的不满，这种不满背后是什么样的原因，这个原因就是真正的需求。</p>
+<blockquote>
+<p>无论是需求来源于老板还是竞争对手，产品经理都应该想一想，这个需求到底是从何而来。老板提出了这个需求，那老板是出于什么样的考量？看似降低了这一个小功能的体验，但有没有可能，是为了全公司战略的联动？竞争对手做了这个功能，有没有可能这就是竞争对手的产品经理拍脑袋拍出来的，我们到底要不要跟进？</p>
+</blockquote>
+<h2 id="四、需求的误区"><a href="#四、需求的误区" class="headerlink" title="四、需求的误区"></a>四、需求的误区</h2><p>既然明确了需求的来源，我们就可以推导出，一个需求的思维公式，从而快速准确地找到核心需求。但在归纳之前，我们不如先用一种逆向思维，来看看“需求”阶段中的错误示范，五个常见的需求误区，这能够帮助我们更好的理解需求，避免走上弯路。</p>
+<h3 id="1-误区一：自己代表用户"><a href="#1-误区一：自己代表用户" class="headerlink" title="1. 误区一：自己代表用户"></a>1. 误区一：自己代表用户</h3><p>前段时间有一个问题讨论得特别火，“产品经理要不要变成自己产品的用户？”有正方认为产品经理只有是产品的核心用户，才能更好地找到目标用户的痛点；反方则认为，对于产品经理来说，冷峻理智地站在上帝视角，才是把产品做好的重要法门。</p>
+<p>其实对于这个问题，往深层次思考其实是<strong>产品经理的同理心</strong>。</p>
+<p>产品经理既需要客观全面的看待整个产品，也需要瞬间把自己切换到用户视角来提升体验和发现漏洞，对用户有同理心，能够站在用户的视角看待需求。产品经理本身就是这样一个反复跳转的角色，小白用户、资深用户、产品上帝、老板视角，等等等等，这些角色可能每天都要转变几十次。</p>
+<p>用户视角看产品，是发现产品问题的一个妙招，但过于依赖这个办法，就会走火入魔。很多产品经理恰好是自己产品的受众，这是一件非常幸运和幸福的事情，但这种情况下，就要格外注意，<em>你要做的功能，是你自己的需求，还是用户的需求？</em></p>
+<p>在产品经理自认为自己是目标用户后，往往会陷入“我自己就是用户，我能代表目标用户群体”这个死胡同当中。最后的结果当然是一场赌博，意外命中了群体需求，那就赚了；如果没赌中，可能就是一个鸡肋的功能，在后期做减法的时候痛不欲生。</p>
+<p>这个误区归根结底还是需求调研不充分的问题，依赖主管臆断，陷入经验主义，导致需求偏向。</p>
+<h3 id="2-误区二：确定了产品强行找用户"><a href="#2-误区二：确定了产品强行找用户" class="headerlink" title="2. 误区二：确定了产品强行找用户"></a>2. 误区二：确定了产品强行找用户</h3><p>有人可能会觉得，这是一个很低级的问题，但就是这样一个低级的问题，几乎每时每刻都在发生。</p>
+<p>理想主义的产品经理会以为，一个需求一定要来源于用户痛点，但现实是，每天都有无数的产品或功能，是因为老板拍脑袋、公司要求强行创新、KPI压力负重、业务战略需要、圆之前融资画得大饼，而匆匆上马的。</p>
+<p>我之前做过一个产品，是因为老板觉得小众音乐在未来很有市场，应该做一个产品提前占位，就立项了一个创新项目。先定了小众音乐这条赛道，才开始想满足什么需求，甚至才开始为了这个已经定好了方向的项目招聘产品经理。</p>
+<p>但现实情况是，产品的痛点和需求并非源自实际的用户群体，只能根据竞品先做了一些功能，然后开始想，哪些用户可能喜欢这些功能，这样倒推回来，确实能够找到一个差不多的目标用户群体写在MRD、PRD里。但事实呢，这些“先有了功能后定下来的目标群体”本身没有任何的动力使用产品。结局自然是可预料的，公司砸钱砸出来几万用户，补贴一停用户就流失，产品就这么不了了之，后来业务调整裁撤了。</p>
+<p>需求还是一定要来源于用户的，即使是来自老板的要求，也得在公司战略和用户痛点当中尽力周旋，<strong>先有需求后有产品，这个顺序不能乱</strong>。</p>
+<h3 id="3-误区三：只抓住表象，不能深层次思考需求背后的动机"><a href="#3-误区三：只抓住表象，不能深层次思考需求背后的动机" class="headerlink" title="3. 误区三：只抓住表象，不能深层次思考需求背后的动机"></a>3. 误区三：只抓住表象，不能深层次思考需求背后的动机</h3><p>在拿到一个需求时，我们要思考，这个需求深层次的动机是什么。</p>
+<p>我刚做产品的时候，经常会被用户提得反馈牵着走，用户经常会说，“这个功能有问题，应该这样做那样做”，我一听还觉得挺有道理，就被带跑了。但其实不应该这样，用户或者老板在提出一个需求的时候，我们要深层次地想一想，<strong>他们为什么提出这个需求，是有更多的期待没有被满足，还是这个功能的流程逻辑有漏洞</strong>。</p>
+<p>用户的需求反馈往往带着主观的影响，一些有想法的用户在提反馈的时候，也会带上一个设想的解决方案，毕竟“人人都是产品经理”，但作为职业的产品经理，还是要理智地思考思考，把需求背后的动机挖掘出来，才能解决更核心的问题，才能提高更多用户的体验。</p>
+<p>之前在写互联网销售的文章中，我引用过“卖钻讲孔”的故事，其实这个故事是从王诗沐老师的《幕后产品》中学到的。</p>
+<p>客户要买一个钻头，我们应该看到他买钻头是想打一个孔，他的真正需求是打孔，我们如果能够给他提供一整套打孔的解决方案，是不是更加符合客户的心意？这样深挖需求动机的思考，是职业产品经理所不能绕开的。</p>
+<h3 id="4-误区四：以偏概全，以孤例代表整体，陷入小众用户的自我束缚"><a href="#4-误区四：以偏概全，以孤例代表整体，陷入小众用户的自我束缚" class="headerlink" title="4. 误区四：以偏概全，以孤例代表整体，陷入小众用户的自我束缚"></a>4. 误区四：以偏概全，以孤例代表整体，陷入小众用户的自我束缚</h3><p>对于产品经理来说，因为产品要服务的用户很多，即便都是同一类目标用户，也会因为用户的圈层而产生需求的差异。产品经理不可能面面俱到每一个用户，因此就必然要在功能上予以取舍。</p>
+<p>小众用户的需求是需求吗？当然是，即使是小众的需求，也应当纳入产品经理的需求池当中。</p>
+<p>但是否要做、什么时候做、怎么做，这三个问题还是要想清楚。相对于“自己代表用户”这个误区，小众需求确实是命中了需求，但小众需求无法与大众市场相连接，从更宏观的视角来看，性价比并不高。</p>
+<p>做一些小众需求，的确能够产生比较不错的口碑，但把过多的精力和资源放在小众需求上，某种程度也是在伤害主流用户的体验。<strong>需求的把握同样需要遵循二八法则，即优先满足80%用户的主流需求，优先考虑更大众化的痛点，保证大多数用户的体验。</strong></p>
+<p>至于小众需求怎么处理，有两种思路。<strong>一种是先暂时延期，等到大众需求基本满足，产品主流用户增量见顶，开始寻找额外增量的时候，通过满足小众群体的需要，来寻求产品突破点；另外一种则是找到小众需求和大众需求的相通之处，深入挖掘深层次需要，既提高了主流用户的体验，同时也用一种更加优雅的方式解决了这些小众需求。</strong></p>
+<h3 id="5-误区五：需求确实存在，但不符合产品整体目标"><a href="#5-误区五：需求确实存在，但不符合产品整体目标" class="headerlink" title="5. 误区五：需求确实存在，但不符合产品整体目标"></a>5. 误区五：需求确实存在，但不符合产品整体目标</h3><p>我们常说产品经理是CEO的预科班，做一家公司，必须要明确公司的目标、愿景，对于一个产品来说，思考它的整体目标是一件至关重要的事情。</p>
+<p>正如前面所说，产品经理会面临各种各样的需求，有真需求、有伪需求，有大众需求、有小众需求，有商业需求、有性能需求，面对这么多需求，如何取舍如何排序就是一个关键的问题。</p>
+<p>对于这些数不清的待办需求，产品经理要做到心中有数。需求池当中的这个需求，能否在产品长期目标的主线上发挥作用；如果需要开启一个支线的产品目标，那这个支线的投入和产出又是如何。产品经理不仅要为用户体验负责，也需要对产品良性发展负责。</p>
+<p>可能会有同学说，思考产品长期目标是产品总监的事情，新手期产品经理做好自己的事情就可以了。但其实，即使初级产品经理没有权力做出产品目标的相关决策，至少也可以把自己放在更高的视野做做沙盘推演，学会用更大的视野思考整条业务线的宏观目标，对于一个产品经理的成长，会非常有帮助。</p>
+<h2 id="五、需求的思维公式"><a href="#五、需求的思维公式" class="headerlink" title="五、需求的思维公式"></a>五、需求的思维公式</h2><p>我们根据需求的定义、来源、误区，可以抽象出需求的思维要素。我给出这样一个公式：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">需求&#x3D;目标人群+场景+痛点&#x2F;问题+解决方案</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/0010.png"></p>
+<p>一个完整的需求，应当是有特定的目标人群，在特定的场景下，发现特定的问题，并提出针对这个问题的解决方案。</p>
+<p>任何一个需求，都不能脱离这四个组成部分。</p>
+<h3 id="1-目标人群"><a href="#1-目标人群" class="headerlink" title="1. 目标人群"></a>1. 目标人群</h3><p>目标人群代表着“什么人”的问题。任何一个产品，都一定是面向某一个群体，而不是面向所有人，因为人和人的诉求，不可能完全一致，会因为性别、年龄、学历、收入水平、从事行业等许多因素，产生差异。因此，一个需求面向的人群一定是有一个范围的，比如“找互联网工作的人”“骑行爱好者”等等。</p>
+<h3 id="2-场景"><a href="#2-场景" class="headerlink" title="2. 场景"></a>2. 场景</h3><p>即使是圈定了目标人群，也并不能说，这个目标人群的用户群体在任何时刻都存在这个需求，场景就是“什么时候”有这个需求。就以打电话这个需求为例，打电话是“需要和他人远程沟通”这个场景下的诉求，其他时候，用户是不需要打电话这个功能的，我们不能苛求用户所有时刻都在打电话。</p>
+<p>场景还有一个重要特性，就是用户具体怎么使用这个功能。比如用户在支付时进行扫码，就是在“支付”场景下，用了“扫一扫”的功能。</p>
+<p>有时候，用户天然产生的场景不够多，那我们就可以创造场景，比如支付宝为了更多的使用场景，投资了哈罗单车，提供了支付宝直接扫码就可以骑车的功能，于是，就创造出了一个新的使用支付宝扫一扫的场景。</p>
+<h3 id="3-痛点-问题"><a href="#3-痛点-问题" class="headerlink" title="3. 痛点/问题"></a>3. 痛点/问题</h3><p>明确了目标人群和场景，还要知道，这一些人在这个场景下，遇到了什么问题，只有把问题找准了，才不会马屁拍在马蹄子上。</p>
+<p>比如：西二旗上班的白领（目标人群），出了地铁口距离公司还有一公里，马上就要迟到了（场景），走路来不及，打车打不到（遇到的问题）。这个时候，帮助用户快速到达公司不至于迟到，就是要解决的问题。</p>
+<h3 id="4-解决方案"><a href="#4-解决方案" class="headerlink" title="4. 解决方案"></a>4. 解决方案</h3><p>找到了问题，那就要提出需求中最核心的“解决方案”，产品终归是要解决用户问题的，要不然，找到了一堆问题，一个都不解决，那依然没什么用。这一群人，在这个场景下，遇到了问题，你打算用什么方法解决。</p>
+<p>值得注意的是，解决方案不一定有一个，而且大多数情况下，是有多个。产品经理就要在这多个解决方案中，找到最合适的那个。</p>
+<p>还是白领迟到这个例子，最后一公里，走路来不及，打车打不到，我们可以给一个共享单车的解决方案，也可以给通勤摆渡车的解决方案。分析之后发现，上班高峰容易堵车，摆渡车依然有迟到风险，所以，最后给用户提供了共享单车的解决方案，帮助用户解决了问题。</p>
+<p>一般情况下，大部分需求，都可以用这个思维公式进行提炼。但任何产品理论都是教科书式的知识，在实际工作中，还是要灵活应用，具体问题具体分析。</p>
+<p>以上，就是关于“需求”模块下，我的总结、分析和思考，逐渐形成的一点小体系。但依然不够完善，我也会在后面的工作中，持续反思完善。</p>
+]]></content>
+      <categories>
+        <category>产品经理</category>
+      </categories>
+      <tags>
+        <tag>产品经理</tag>
+        <tag>需求</tag>
+        <tag>方法论</tag>
       </tags>
   </entry>
 </search>

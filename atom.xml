@@ -17,9 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>微软模拟飞行基本概念</title>
+    <link href="http://www.xiaotanzhu.com/2021/05/29/msfs-concepts/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/29/msfs-concepts/</id>
+    <published>2021-05-29T16:00:00.000Z</published>
+    <updated>2021-05-29T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">微软模拟飞行中使用到的一些基本概念和名词对照</summary>
+    
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
+    
+    
+    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
+    
+    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>微软模拟飞行教程</title>
-    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html"/>
-    <id>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</id>
+    <link href="http://www.xiaotanzhu.com/2021/05/29/msfs-tutorials/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/29/msfs-tutorials/</id>
     <published>2021-05-29T16:00:00.000Z</published>
     <updated>2021-05-29T16:00:00.000Z</updated>
     
@@ -40,30 +61,76 @@
   </entry>
   
   <entry>
-    <title>微软模拟飞行基本概念</title>
-    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html"/>
-    <id>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</id>
-    <published>2021-05-29T16:00:00.000Z</published>
-    <updated>2021-05-29T16:00:00.000Z</updated>
+    <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
+    <link href="http://www.xiaotanzhu.com/2021/05/25/mysql-mongodb-migration/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/25/mysql-mongodb-migration/</id>
+    <published>2021-05-25T16:00:00.000Z</published>
+    <updated>2021-05-25T16:00:00.000Z</updated>
     
     
-    <summary type="html">微软模拟飞行中使用到的一些基本概念和名词对照</summary>
+    <summary type="html">千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程</summary>
     
     
     
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
+    <category term="数据库" scheme="http://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
+    <category term="MySQL" scheme="http://www.xiaotanzhu.com/tags/mysql/"/>
     
-    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
+    <category term="MongoDB" scheme="http://www.xiaotanzhu.com/tags/mongodb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于产品需求阶段的思维公式</title>
+    <link href="http://www.xiaotanzhu.com/2021/05/24/user-demands-howto/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/24/user-demands-howto/</id>
+    <published>2021-05-24T16:00:00.000Z</published>
+    <updated>2021-05-24T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">关于产品需求阶段的思维公式，都在这儿了</summary>
+    
+    
+    
+    <category term="产品经理" scheme="http://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+    
+    <category term="产品经理" scheme="http://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+    <category term="需求" scheme="http://www.xiaotanzhu.com/tags/%E9%9C%80%E6%B1%82/"/>
+    
+    <category term="方法论" scheme="http://www.xiaotanzhu.com/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>B端产品人为什么总说“我不关注用户体验”</title>
+    <link href="http://www.xiaotanzhu.com/2021/05/24/user-experience-in-tob-products/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/24/user-experience-in-tob-products/</id>
+    <published>2021-05-24T16:00:00.000Z</published>
+    <updated>2021-05-24T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">B端产品人为什么总说“我不关注用户体验”</summary>
+    
+    
+    
+    <category term="产品经理" scheme="http://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+    
+    <category term="产品经理" scheme="http://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+    <category term="用户体验" scheme="http://www.xiaotanzhu.com/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/"/>
+    
+    <category term="UE" scheme="http://www.xiaotanzhu.com/tags/ue/"/>
     
   </entry>
   
   <entry>
     <title>MacOS常见操作</title>
-    <link href="http://www.xiaotanzhu.com/macos/macos-howtos.html"/>
-    <id>http://www.xiaotanzhu.com/macos/macos-howtos.html</id>
+    <link href="http://www.xiaotanzhu.com/2021/05/17/macos-howtos/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/17/macos-howtos/</id>
     <published>2021-05-17T16:00:00.000Z</published>
     <updated>2021-05-17T16:00:00.000Z</updated>
     
@@ -83,8 +150,8 @@
   
   <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
-    <link href="http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html"/>
-    <id>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</id>
+    <link href="http://www.xiaotanzhu.com/2021/05/08/letsencrypt-for-free-ssl-cert/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/08/letsencrypt-for-free-ssl-cert/</id>
     <published>2021-05-08T16:00:00.000Z</published>
     <updated>2021-05-08T16:00:00.000Z</updated>
     
@@ -110,8 +177,8 @@
   
   <entry>
     <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
-    <link href="http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html"/>
-    <id>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</id>
+    <link href="http://www.xiaotanzhu.com/2021/05/04/msfs2020-flight-sh-wx/"/>
+    <id>http://www.xiaotanzhu.com/2021/05/04/msfs2020-flight-sh-wx/</id>
     <published>2021-05-04T16:00:00.000Z</published>
     <updated>2021-05-04T16:00:00.000Z</updated>
     
@@ -135,8 +202,8 @@
   
   <entry>
     <title>PowerBI常见操作</title>
-    <link href="http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html"/>
-    <id>http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</id>
+    <link href="http://www.xiaotanzhu.com/2021/04/17/powerbi-howtos/"/>
+    <id>http://www.xiaotanzhu.com/2021/04/17/powerbi-howtos/</id>
     <published>2021-04-17T16:00:00.000Z</published>
     <updated>2021-04-17T16:00:00.000Z</updated>
     
@@ -156,8 +223,8 @@
   
   <entry>
     <title>Linux find命令高阶用法</title>
-    <link href="http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html"/>
-    <id>http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</id>
+    <link href="http://www.xiaotanzhu.com/2021/03/27/linux-command-find-howtos/"/>
+    <id>http://www.xiaotanzhu.com/2021/03/27/linux-command-find-howtos/</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2021-03-27T16:00:00.000Z</updated>
     
@@ -177,8 +244,8 @@
   
   <entry>
     <title>Redis常见的CPU和内存性能问题</title>
-    <link href="http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html"/>
-    <id>http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</id>
+    <link href="http://www.xiaotanzhu.com/2021/03/06/redis-performance-issues-cpu/"/>
+    <id>http://www.xiaotanzhu.com/2021/03/06/redis-performance-issues-cpu/</id>
     <published>2021-03-06T16:00:00.000Z</published>
     <updated>2021-03-06T16:00:00.000Z</updated>
     
@@ -198,8 +265,8 @@
   
   <entry>
     <title>Ansible常用命令</title>
-    <link href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html"/>
-    <id>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</id>
+    <link href="http://www.xiaotanzhu.com/2020/05/16/ansible-commands/"/>
+    <id>http://www.xiaotanzhu.com/2020/05/16/ansible-commands/</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -217,8 +284,8 @@
   
   <entry>
     <title>Spring Cloud(一)：大话Spring Cloud</title>
-    <link href="http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</id>
+    <link href="http://www.xiaotanzhu.com/2018/06/30/2018-07-01-simple-springcloud/"/>
+    <id>http://www.xiaotanzhu.com/2018/06/30/2018-07-01-simple-springcloud/</id>
     <published>2018-06-30T16:00:00.000Z</published>
     <updated>2018-06-30T16:00:00.000Z</updated>
     
@@ -238,8 +305,8 @@
   
   <entry>
     <title>Introduction to Microservices</title>
-    <link href="http://www.xiaotanzhu.com/microservice/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html"/>
-    <id>http://www.xiaotanzhu.com/microservice/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</id>
+    <link href="http://www.xiaotanzhu.com/2018/05/18/2018-05-19-introduction-to-microservices/"/>
+    <id>http://www.xiaotanzhu.com/2018/05/18/2018-05-19-introduction-to-microservices/</id>
     <published>2018-05-18T16:00:00.000Z</published>
     <updated>2018-05-18T16:00:00.000Z</updated>
     
@@ -261,8 +328,8 @@
   
   <entry>
     <title>Spring Cloud组件介绍</title>
-    <link href="http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html</id>
+    <link href="http://www.xiaotanzhu.com/2018/03/06/2018-03-07-spring-cloud-components/"/>
+    <id>http://www.xiaotanzhu.com/2018/03/06/2018-03-07-spring-cloud-components/</id>
     <published>2018-03-06T16:00:00.000Z</published>
     <updated>2018-03-06T16:00:00.000Z</updated>
     
@@ -282,8 +349,8 @@
   
   <entry>
     <title>Spring Framework: Modules</title>
-    <link href="http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html</id>
+    <link href="http://www.xiaotanzhu.com/2017/03/08/2017-03-09-spring-framework-modules/"/>
+    <id>http://www.xiaotanzhu.com/2017/03/08/2017-03-09-spring-framework-modules/</id>
     <published>2017-03-08T16:00:00.000Z</published>
     <updated>2017-03-08T16:00:00.000Z</updated>
     
@@ -303,8 +370,8 @@
   
   <entry>
     <title>Spring Framework的整体架构</title>
-    <link href="http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</id>
+    <link href="http://www.xiaotanzhu.com/2017/03/01/2017-03-02-spring-framework-architecture/"/>
+    <id>http://www.xiaotanzhu.com/2017/03/01/2017-03-02-spring-framework-architecture/</id>
     <published>2017-03-01T16:00:00.000Z</published>
     <updated>2017-03-01T16:00:00.000Z</updated>
     
@@ -322,8 +389,8 @@
   
   <entry>
     <title>以SQL方式读取MySQL的GTID格式Binlog</title>
-    <link href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html"/>
-    <id>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</id>
+    <link href="http://www.xiaotanzhu.com/2016/10/30/2016-10-31-read-mysql-binlog-as-sql/"/>
+    <id>http://www.xiaotanzhu.com/2016/10/30/2016-10-31-read-mysql-binlog-as-sql/</id>
     <published>2016-10-30T16:00:00.000Z</published>
     <updated>2016-10-30T16:00:00.000Z</updated>
     
@@ -345,8 +412,8 @@
   
   <entry>
     <title>关于 Android Service 的介绍</title>
-    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</id>
+    <link href="http://www.xiaotanzhu.com/2016/10/13/2016-10-14-introduction-to-android-service/"/>
+    <id>http://www.xiaotanzhu.com/2016/10/13/2016-10-14-introduction-to-android-service/</id>
     <published>2016-10-13T16:00:00.000Z</published>
     <updated>2016-10-13T16:00:00.000Z</updated>
     
@@ -366,8 +433,8 @@
   
   <entry>
     <title>设置VIM的编码格式</title>
-    <link href="http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html"/>
-    <id>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</id>
+    <link href="http://www.xiaotanzhu.com/2016/10/09/2016-10-10-set-vim-encoding/"/>
+    <id>http://www.xiaotanzhu.com/2016/10/09/2016-10-10-set-vim-encoding/</id>
     <published>2016-10-09T16:00:00.000Z</published>
     <updated>2016-10-09T16:00:00.000Z</updated>
     
@@ -384,71 +451,6 @@
     <category term="编码" scheme="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
     
     <category term="vim" scheme="http://www.xiaotanzhu.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>好用的电子书搜索和格式转换平台</title>
-    <link href="http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</id>
-    <published>2016-10-09T16:00:00.000Z</published>
-    <updated>2016-10-09T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">好用的电子书搜索和格式转换平台</summary>
-    
-    
-    
-    <category term="其他" scheme="http://www.xiaotanzhu.com/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="电子书" scheme="http://www.xiaotanzhu.com/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>批量转换文件编码</title>
-    <link href="http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html"/>
-    <id>http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</id>
-    <published>2016-09-21T16:00:00.000Z</published>
-    <updated>2016-09-21T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">批量转换文件编码</summary>
-    
-    
-    
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/categories/linux/"/>
-    
-    
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/tags/linux/"/>
-    
-    <category term="编码" scheme="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
-    
-    <category term="enca" scheme="http://www.xiaotanzhu.com/tags/enca/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android包（apk）手动签名</title>
-    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</id>
-    <published>2016-09-20T16:00:00.000Z</published>
-    <updated>2016-09-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Android包（apk）手动签名</summary>
-    
-    
-    
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
-    
-    
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
-    
-    <category term="apk" scheme="http://www.xiaotanzhu.com/tags/apk/"/>
-    
-    <category term="签名" scheme="http://www.xiaotanzhu.com/tags/%E7%AD%BE%E5%90%8D/"/>
     
   </entry>
   
