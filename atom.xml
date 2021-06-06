@@ -315,9 +315,7 @@
     
     
     
-    <category term="Microservice" scheme="http://www.xiaotanzhu.com/categories/microservice/"/>
-    
-    <category term="微服务" scheme="http://www.xiaotanzhu.com/categories/microservice/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="微服务" scheme="http://www.xiaotanzhu.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
     
     <category term="微服务" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
