@@ -18,40 +18,40 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.wangjingfei.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="千亿数据扛不住，三思后还是从MySQL迁走了……">
-<meta property="og:url" content="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+<meta property="og:url" content="http://www.wangjingfei.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
 <meta property="og:site_name" content="小炭猪">
 <meta property="og:description" content="千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0011.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0001.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0002.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0012.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0003.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0013.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0014.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0015.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0016.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0017.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0016.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0019.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0020.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0004.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0005.jpeg">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0011.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0001.jpeg">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0002.jpeg">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0012.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0003.jpeg">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0013.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0014.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0015.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0016.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0017.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0016.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0019.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0020.png">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0004.jpeg">
+<meta property="og:image" content="http://www.wangjingfei.com/images/0005.jpeg">
 <meta property="article:published_time" content="2021-05-25T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-05-25T16:00:00.000Z">
 <meta property="article:author" content="Fify">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.xiaotanzhu.com/images/0011.png">
+<meta name="twitter:image" content="http://www.wangjingfei.com/images/0011.png">
 
-<link rel="canonical" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+<link rel="canonical" href="http://www.wangjingfei.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
 
 
 <script id="page-configurations">
@@ -230,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+    <link itemprop="mainEntityOfPage" href="http://www.wangjingfei.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -815,7 +815,7 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html";
+    this.page.url = "http://www.wangjingfei.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html";
     this.page.identifier = "数据库/mysql-mongodb-migration.html";
     this.page.title = "千亿数据扛不住，三思后还是从MySQL迁走了……";
     };
