@@ -18,8 +18,8 @@
   
   <entry>
     <title>微软模拟飞行基本概念</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/29/msfs-concepts/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/29/msfs-concepts/</id>
+    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html"/>
+    <id>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</id>
     <published>2021-05-29T16:00:00.000Z</published>
     <updated>2021-05-29T16:00:00.000Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>微软模拟飞行教程</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/29/msfs-tutorials/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/29/msfs-tutorials/</id>
+    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html"/>
+    <id>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</id>
     <published>2021-05-29T16:00:00.000Z</published>
     <updated>2021-05-29T16:00:00.000Z</updated>
     
@@ -62,8 +62,8 @@
   
   <entry>
     <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/25/mysql-mongodb-migration/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/25/mysql-mongodb-migration/</id>
+    <link href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html"/>
+    <id>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</id>
     <published>2021-05-25T16:00:00.000Z</published>
     <updated>2021-05-25T16:00:00.000Z</updated>
     
@@ -83,8 +83,8 @@
   
   <entry>
     <title>关于产品需求阶段的思维公式</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/24/user-demands-howto/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/24/user-demands-howto/</id>
+    <link href="http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html"/>
+    <id>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html</id>
     <published>2021-05-24T16:00:00.000Z</published>
     <updated>2021-05-24T16:00:00.000Z</updated>
     
@@ -106,8 +106,8 @@
   
   <entry>
     <title>B端产品人为什么总说“我不关注用户体验”</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/24/user-experience-in-tob-products/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/24/user-experience-in-tob-products/</id>
+    <link href="http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html"/>
+    <id>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html</id>
     <published>2021-05-24T16:00:00.000Z</published>
     <updated>2021-05-24T16:00:00.000Z</updated>
     
@@ -129,8 +129,8 @@
   
   <entry>
     <title>MacOS常见操作</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/17/macos-howtos/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/17/macos-howtos/</id>
+    <link href="http://www.xiaotanzhu.com/macos/macos-howtos.html"/>
+    <id>http://www.xiaotanzhu.com/macos/macos-howtos.html</id>
     <published>2021-05-17T16:00:00.000Z</published>
     <updated>2021-05-17T16:00:00.000Z</updated>
     
@@ -150,8 +150,8 @@
   
   <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/08/letsencrypt-for-free-ssl-cert/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/08/letsencrypt-for-free-ssl-cert/</id>
+    <link href="http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html"/>
+    <id>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</id>
     <published>2021-05-08T16:00:00.000Z</published>
     <updated>2021-05-08T16:00:00.000Z</updated>
     
@@ -177,8 +177,8 @@
   
   <entry>
     <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
-    <link href="http://www.xiaotanzhu.com/2021/05/04/msfs2020-flight-sh-wx/"/>
-    <id>http://www.xiaotanzhu.com/2021/05/04/msfs2020-flight-sh-wx/</id>
+    <link href="http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html"/>
+    <id>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</id>
     <published>2021-05-04T16:00:00.000Z</published>
     <updated>2021-05-04T16:00:00.000Z</updated>
     
@@ -202,8 +202,8 @@
   
   <entry>
     <title>PowerBI常见操作</title>
-    <link href="http://www.xiaotanzhu.com/2021/04/17/powerbi-howtos/"/>
-    <id>http://www.xiaotanzhu.com/2021/04/17/powerbi-howtos/</id>
+    <link href="http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html"/>
+    <id>http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</id>
     <published>2021-04-17T16:00:00.000Z</published>
     <updated>2021-04-17T16:00:00.000Z</updated>
     
@@ -223,8 +223,8 @@
   
   <entry>
     <title>Linux find命令高阶用法</title>
-    <link href="http://www.xiaotanzhu.com/2021/03/27/linux-command-find-howtos/"/>
-    <id>http://www.xiaotanzhu.com/2021/03/27/linux-command-find-howtos/</id>
+    <link href="http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html"/>
+    <id>http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2021-03-27T16:00:00.000Z</updated>
     
@@ -244,8 +244,8 @@
   
   <entry>
     <title>Redis常见的CPU和内存性能问题</title>
-    <link href="http://www.xiaotanzhu.com/2021/03/06/redis-performance-issues-cpu/"/>
-    <id>http://www.xiaotanzhu.com/2021/03/06/redis-performance-issues-cpu/</id>
+    <link href="http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html"/>
+    <id>http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</id>
     <published>2021-03-06T16:00:00.000Z</published>
     <updated>2021-03-06T16:00:00.000Z</updated>
     
@@ -265,8 +265,8 @@
   
   <entry>
     <title>Ansible常用命令</title>
-    <link href="http://www.xiaotanzhu.com/2020/05/16/ansible-commands/"/>
-    <id>http://www.xiaotanzhu.com/2020/05/16/ansible-commands/</id>
+    <link href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html"/>
+    <id>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -284,8 +284,8 @@
   
   <entry>
     <title>Spring Cloud(一)：大话Spring Cloud</title>
-    <link href="http://www.xiaotanzhu.com/2018/06/30/2018-07-01-simple-springcloud/"/>
-    <id>http://www.xiaotanzhu.com/2018/06/30/2018-07-01-simple-springcloud/</id>
+    <link href="http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html"/>
+    <id>http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</id>
     <published>2018-06-30T16:00:00.000Z</published>
     <updated>2018-06-30T16:00:00.000Z</updated>
     
@@ -305,8 +305,8 @@
   
   <entry>
     <title>Introduction to Microservices</title>
-    <link href="http://www.xiaotanzhu.com/2018/05/18/2018-05-19-introduction-to-microservices/"/>
-    <id>http://www.xiaotanzhu.com/2018/05/18/2018-05-19-introduction-to-microservices/</id>
+    <link href="http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html"/>
+    <id>http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</id>
     <published>2018-05-18T16:00:00.000Z</published>
     <updated>2018-05-18T16:00:00.000Z</updated>
     
@@ -326,8 +326,8 @@
   
   <entry>
     <title>Spring Cloud组件介绍</title>
-    <link href="http://www.xiaotanzhu.com/2018/03/06/2018-03-07-spring-cloud-components/"/>
-    <id>http://www.xiaotanzhu.com/2018/03/06/2018-03-07-spring-cloud-components/</id>
+    <link href="http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html"/>
+    <id>http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html</id>
     <published>2018-03-06T16:00:00.000Z</published>
     <updated>2018-03-06T16:00:00.000Z</updated>
     
@@ -347,8 +347,8 @@
   
   <entry>
     <title>Spring Framework: Modules</title>
-    <link href="http://www.xiaotanzhu.com/2017/03/08/2017-03-09-spring-framework-modules/"/>
-    <id>http://www.xiaotanzhu.com/2017/03/08/2017-03-09-spring-framework-modules/</id>
+    <link href="http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html"/>
+    <id>http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html</id>
     <published>2017-03-08T16:00:00.000Z</published>
     <updated>2017-03-08T16:00:00.000Z</updated>
     
@@ -368,8 +368,8 @@
   
   <entry>
     <title>Spring Framework的整体架构</title>
-    <link href="http://www.xiaotanzhu.com/2017/03/01/2017-03-02-spring-framework-architecture/"/>
-    <id>http://www.xiaotanzhu.com/2017/03/01/2017-03-02-spring-framework-architecture/</id>
+    <link href="http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html"/>
+    <id>http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</id>
     <published>2017-03-01T16:00:00.000Z</published>
     <updated>2017-03-01T16:00:00.000Z</updated>
     
@@ -387,8 +387,8 @@
   
   <entry>
     <title>以SQL方式读取MySQL的GTID格式Binlog</title>
-    <link href="http://www.xiaotanzhu.com/2016/10/30/2016-10-31-read-mysql-binlog-as-sql/"/>
-    <id>http://www.xiaotanzhu.com/2016/10/30/2016-10-31-read-mysql-binlog-as-sql/</id>
+    <link href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html"/>
+    <id>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</id>
     <published>2016-10-30T16:00:00.000Z</published>
     <updated>2016-10-30T16:00:00.000Z</updated>
     
@@ -410,8 +410,8 @@
   
   <entry>
     <title>关于 Android Service 的介绍</title>
-    <link href="http://www.xiaotanzhu.com/2016/10/13/2016-10-14-introduction-to-android-service/"/>
-    <id>http://www.xiaotanzhu.com/2016/10/13/2016-10-14-introduction-to-android-service/</id>
+    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html"/>
+    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</id>
     <published>2016-10-13T16:00:00.000Z</published>
     <updated>2016-10-13T16:00:00.000Z</updated>
     
@@ -431,8 +431,8 @@
   
   <entry>
     <title>设置VIM的编码格式</title>
-    <link href="http://www.xiaotanzhu.com/2016/10/09/2016-10-10-set-vim-encoding/"/>
-    <id>http://www.xiaotanzhu.com/2016/10/09/2016-10-10-set-vim-encoding/</id>
+    <link href="http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html"/>
+    <id>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</id>
     <published>2016-10-09T16:00:00.000Z</published>
     <updated>2016-10-09T16:00:00.000Z</updated>
     
