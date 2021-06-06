@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://www.xiaotanzhu.com
+url: http://www.wangjingfei.com
 root: /
 #permalink: :category/:year/:month/:day/:title.html
 permalink: :category/:title.html
