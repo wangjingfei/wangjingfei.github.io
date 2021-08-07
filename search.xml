@@ -97,6 +97,90 @@
       </tags>
   </entry>
   <entry>
+    <title>无线电基础导航中文教程（ILS精密仪表进近） </title>
+    <url>/%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/introduction-to-ils.html</url>
+    <content><![CDATA[<h2 id="什么是ILS"><a href="#什么是ILS" class="headerlink" title="什么是ILS"></a>什么是ILS</h2><p><code>Instrument Landing System (ILS)</code> is defined as a precision runway approach aid based on two radio beams which together provide pilots with both vertical and horizontal guidance during an approach to land.</p>
+<blockquote>
+<p>Reference: <a href="https://www.skybrary.aero/index.php/Instrument_Landing_System_(ILS)">https://www.skybrary.aero/index.php/Instrument_Landing_System_(ILS)</a></p>
+</blockquote>
+<h2 id="ILS图解"><a href="#ILS图解" class="headerlink" title="ILS图解"></a>ILS图解</h2><p><img src="/images/0018.jpeg"></p>
+<p><code>下滑道</code>管的是飞机什么时候该飞多高，最后能确保飞机降到跑道合理的位置。</p>
+<p><code>水平航向道</code>管的是飞机是否能对准跑道中线，对不准意味着可能会落到跑道旁边。</p>
+<h2 id="LOCALIZER"><a href="#LOCALIZER" class="headerlink" title="LOCALIZER"></a>LOCALIZER</h2><p>Localizer就是ILS的一部分：水平航向道，以下简称LOC。对于赛斯纳172来说，LOC的内容显示在VOR1或VOR2表中（取决于你把LOC频率输入在哪个VOR里）。我们知道VOR可以截360条径向线，LOC看起来类似VOR，差别是LOC只能截1条径向线，这条线的方向就是跑道方向。</p>
+<blockquote>
+<p><a href="https://www.faa.gov/about/office_org/headquarters_offices/ato/service_units/techops/navservices/gbng/vor/">VOR定义</a></p>
+</blockquote>
+<p>VOR表显示LOC内容，与VOR表显示VOR内容有如下差别：</p>
+<ol>
+<li>LOC只能截到1个航向，这个方向正好对齐跑道。</li>
+<li>当VOR表显示LOC内容时，“竖线”的灵敏度是VOR信号的4倍，虽然驾驶方法与VOR一样，但航向调整需更加小心。VOR信号下每偏离1个点表示偏离了2度，LOC信号每偏离1个点表示偏离0.5度。</li>
+</ol>
+<p><img src="/images/0019.jpeg"></p>
+<blockquote>
+<p>左右两个图竖线偏离了两个点，如果是VOR信号表示偏了4度，若是LOC信号表示偏了1度。</p>
+</blockquote>
+<ol start="3">
+<li>由于LOC只有一个方向即跑道方向，所以VOR表的OBS旋钮在LOC信号下是无效的。虽然旋转OBS还能改变VOR表的盘面，但不会有任何效果。</li>
+</ol>
+<p><img src="/images/0020.jpeg"></p>
+<blockquote>
+<p>如上图所示，已经对正LOC信号，OBS却调在3个不同位置，但并不影响竖线的位置</p>
+</blockquote>
+<h2 id="KMHT机场→KBVY机场"><a href="#KMHT机场→KBVY机场" class="headerlink" title="KMHT机场→KBVY机场"></a>KMHT机场→KBVY机场</h2><p>从KMHT机场17号跑道起飞，降落KBVY机场16号跑道，使用LOC方式进近。</p>
+<p>这段飞行，我计划先用MHT台的126度径向线背台飞，在DME 9.5海里的位置刚好可以切入KBVY机场的LOC信号。为什么这么飞，可以从进近图上看出原因。</p>
+<p><img src="/images/0021.jpeg"></p>
+<p><img src="/images/0023.png"></p>
+<p>以下描述请结合<a href="https://flightaware.com/resources/airport/BVY/IAP/LOC+RWY+16/pdf">KBVY (LOC RWY 16).pdf</a>：</p>
+<ol>
+<li>VOR2的频率调MHT台114.4，OBS调126，起飞后很快收到。</li>
+<li>VOR1频率调110.5（KBVY机场16号跑道的LOC信号），OBS虽然是无效的，但最好调157度以免出现混乱。刚才开始VOR1是收不到任何信号的。</li>
+<li>从KMHT机场起飞后切入MHT台126度径向线，背台飞9.5海里，刚好进入KBVY机场25号跑道LOC的信号正中间。此处你一定可以收到LOC，其实未到此处已经收到了。</li>
+<li>注意VOR1表的指针，适时转弯切入LOC，方法与切VOR一样。此时你已正对跑道，磁航向157度。</li>
+<li>把VOR2的频率调PSM台116.5，OBS 223度。这样可以交叉验证你是否到达<code>LADTI INT点</code>。这个点距离16号跑道LOC 12.6海里，同时也处在PSM台223度径向线上。</li>
+<li>继续沿着VOR1表的指示飞，用同样方法调VOR2检查自己是否到达<code>TAITS INT</code>点。</li>
+<li>注意看进近图的下降图，按要求下降高度。</li>
+<li>如果能够完全对准VOR1表的指针，那么你100%可以对准跑道。剩下的事情只是调整高度。</li>
+</ol>
+<h2 id="LDA（Localizer-type-Directional-Aid）"><a href="#LDA（Localizer-type-Directional-Aid）" class="headerlink" title="LDA（Localizer-type Directional Aid）"></a>LDA（Localizer-type Directional Aid）</h2><p>LDA的操作方法与LOC是一样的，唯一的差别是注明LOC的跑道，飞机沿LOC给的信号飞一定可以对正跑道，LDA虽然灵敏度与LOC一样但却不对准跑道，机师在最后阶段自己转弯来对正跑道。原因是因为如果从始直终都对准跑道，则飞机要穿过危险的山区。最典型的例子之一是美国夏威夷火奴鲁鲁机场的26L跑道，航向道与跑道有45度夹角。请查看附带文件：<a href="https://resources.globalair.com/dtpp/globalair_00754LDA26L.PDF">PHNL (LDA RWY 26L).pdf</a> 。LDA的信号从航图上看是从26R跑道头射出来的。看清的平面图26L在哪，别落到26R！</p>
+<p><img src="/images/0023.jpeg" alt="沿着26L跑道的LDA信号飞，右边是居民区和山区，如果正对跑道就要从那些山里飞过来。"></p>
+<p>从进近航图上看，航向道右边布满密密麻麻的高度标志十分危险。所以航向道只好定位在海边。</p>
+<p><img src="/images/0024.jpeg" alt="沿LDA飞，跑道与自己的角度应该是这样子的"></p>
+<h2 id="GS-（Glide-Slope）"><a href="#GS-（Glide-Slope）" class="headerlink" title="GS （Glide Slope）"></a>GS （Glide Slope）</h2><p>ILS中的下滑道叫GS。标准的ILS下滑道与跑道的夹角是3度。我们必须知道在不同地速下应该保持每分钟多少英尺的下降率，方能确保自己处在正确下滑道内。下表是下降率与地速的关系：注意是地速不是空速，眼前的速度表显示的是空速。请另外了解指示空速、真空速与地速的关系是什么。</p>
+<p><img src="/images/0025.jpeg"></p>
+<p>地速x5得出的结果与标准数据比较相近，虽有差别但仍可接受，微微调节既可。速算法的下降率比标准下降率小一点，能确保自己处在下滑道稍高一点的位置。</p>
+<p><img src="/images/0026.jpeg"></p>
+<p>上图是VOR1表截到ILS信号后的表现。中间的竖线道理与上一节的LOC一样，中间的横线显示你与下滑道的关系。左图说明你比正确下滑道高，此时应该下降高度，对于赛斯纳172，下降高度的主要方法是收油门为主推杆为辅；中间图说明恰到好处；右图说明你比正确下滑道低，对于赛斯纳172，上升高度的主要方法是加油门为主拉杆为辅。同时还要努力保持速度75到80节。</p>
+<p><img src="/images/0027.jpeg"></p>
+<h2 id="外指点、中指点和内指点"><a href="#外指点、中指点和内指点" class="headerlink" title="外指点、中指点和内指点"></a>外指点、中指点和内指点</h2><p>做ILS降落时，跑道的前方可能会安放3个信号设备，当飞机从上面飞过时会有声音和灯光报告。3个设备是外指点、中指点和内指点，</p>
+<p><strong>外指点：</strong>距离跑道头4~7海里，提醒飞行员在指定高度的这个位置要加入ILS的下滑道。</p>
+<p><strong>中指点：</strong>距离跑道头3500英尺。顺着下滑道飞下来的飞机，过中台时比跑道高大约200英尺，刚好是1类的决断高度。</p>
+<p><strong>内指点：</strong>距离跑道头1000英尺，是2类的决断高度。</p>
+<p>点击MKR按钮使变绿，飞过远中近指点时会发出声音报告，而且相应指示灯会亮起。O代表外指点，M表示中指点，I是内指点。外中内指点不是每条跑道都有。</p>
+<p><img src="/images/0028.jpeg"></p>
+<h2 id="加入下滑道的方法"><a href="#加入下滑道的方法" class="headerlink" title="加入下滑道的方法"></a>加入下滑道的方法</h2><p><img src="/images/0029.jpeg"></p>
+<p>如上图所示，应该从下滑道下面加入下滑道，而不能从上面。否则可能需要一段猛下降，这样不好。按航图要求飞的话绝对不会让你从上面加入下滑道，它能让你在十分合适又舒服的位置角度开始下降到跑道上。</p>
+<p><img src="/images/0030.jpeg" alt="KELM机场6号跑道ILS"></p>
+<p>图中叶子形状的标记是远台，OM表示这是远台。可以看出这条跑道只有远台，无中台与近台。</p>
+<p>按照此图要求，飞机要选沿109.65 （ULW） VOR台的223度径向线，飞不超过10海里的距离后右转进入6号跑道109.1的ILS。转弯前高度保持在3800英尺，转弯时开始降到3300英尺。这个过程不能耽误，要一气呵成，因为若不及时降到3300英尺，很可能出现上一节讲的“从下滑道上面加入下滑道”的情况。为什么转弯前就不能下降到3300呢？因为（ULW）VOR台的223度径向线与ILS交叉，若低于3300有机会相撞。</p>
+<p>这个进近程序与先前学过的不同，它从一个方向直接转弯进入跑道延长线，而先前学过的进近程序的来去线路完全重合。注意下降图的转弯位置是弧线连过去的，之前的航图转弯位置是折断的。</p>
+<p><strong>注意高度与能见度标准有两个“S-ILS 6”“S-LOC 6”。</strong></p>
+<p><code>“S-ILS 6”</code>表示接收到“航向道与下降道”时ABCD类飞机使用的标准：1144英尺决断高度，距离跑道0.5英里时必须看见灯光。从现在开始我们使用“决断高度”这个词。比如此图要求1144，那么决断高度就是1144，若下降到1144还看不太清楚跑道则必须立刻决定到底是否继续下降。VOR和LOC进近时这个数字称为“最小下降高度”，表示下降到这个高度后可以飞一小会儿试试能否看见跑道，看不见才复飞。</p>
+<p><code>“S-LOC 6”</code>表示如果你只接收到航向道而无法收到下滑道时，使用的降落标准。有下滑道时决断高度1144，而无下滑道时最小下降高度2020，高了许多，因为下滑道可以安全引导飞机下降，但没有下滑道时飞行员只能自己控制飞机下降，能见度差的话飞行员没发现危险就麻烦了。在没有下滑道时，还应该在到达远台时高度2800英尺，注意下面写着LOC only的字样，说明只在无下滑道时才执行的标准。</p>
+<h2 id="KCHS机场15号跑道ILS"><a href="#KCHS机场15号跑道ILS" class="headerlink" title="KCHS机场15号跑道ILS"></a>KCHS机场15号跑道ILS</h2><p><img src="/images/0031.jpeg"></p>
+<p><a href="https://flightaware.com/resources/airport/CHS/IAP/ILS+OR+LOC+RWY+15/pdf">上图PDF版本</a></p>
+<p>图中三个叶子形状的分别是远中近指标点，注意有1个名叫ASHLY频率329的NDB台与外指标点重合，飞过该点时不仅有声音和灯光，若NDB调329频率也会看到NDB表的指针快速向后摆动。此时这个NDB台就是远台，网上联飞，有时空管会要求“过远台报”，在这个例子里，你如果看到NDB表的指针快速向后摆动则说明过远台，此时要报告空管。此外还有中台与近台，但此图中没有中台近台。</p>
+<p>机场内建有1个名叫CHS的VOR台，将频率输入VOR2表，就可以测量自己与跑道的距离（别忘了把DME开关打到R2档）。为什么要用VOR台来测距呢？因为有的机场ILS带有DME功能，而有的机场ILS不带DME功能。KCHS机场的ILS就不带DME功能，所以VOR1表输入ILS频率109.7用于降落，ILS虽可以让你对准跑道下降，但却无法告诉你距离跑道还有多远，所以要借助VOR台测距。从剖面图中可知，过远台以后距离跑道头还有4+0.4+0.1=4.5海里（4是外指点到中指点的距离，0.4是中指点到内指点的距离，0.1是内指点到跑道头的距离），从跑道头到VOR台还有1.2海里的距离，为什么呢？从机场俯视图看VOR台建在跑道末端，这是产生1.2海里的原因。</p>
+<p>进近程序除了以前常介绍的程序转弯之外，还可用DME弧方式转到ILS的信号中来。DME弧就是以VOR台为圆心画出来的圆圈，图中左边的DME弧从CHS台219度径向线开始到323度结束，只要确保自己始终与CHS台保持12海里，即可飞出一段弧线。323度结束后视情况继续右转即可进入ILS信号范围，注意在DME弧内要保持1600英尺。</p>
+]]></content>
+      <categories>
+        <category>模拟飞行</category>
+      </categories>
+      <tags>
+        <tag>ILS</tag>
+        <tag>模拟飞行</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微软模拟飞行基本概念</title>
     <url>/msfs2020/msfs-concepts.html</url>
     <content><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
