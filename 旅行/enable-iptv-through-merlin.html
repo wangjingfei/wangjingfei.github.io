@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <script src="/lib/live2d/autoload.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.wangjingfei.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="新疆自驾游地图：完整高清版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过Merlin版AC88U路由器看IPTV">
+<meta property="og:url" content="http://www.wangjingfei.com/%E6%97%85%E8%A1%8C/enable-iptv-through-merlin.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="新疆自驾游地图：完整高清版">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-01T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="旅行">
+<meta property="article:tag" content="自驾">
+<meta property="article:tag" content="新疆">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.wangjingfei.com/%E6%97%85%E8%A1%8C/enable-iptv-through-merlin.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>通过Merlin版AC88U路由器看IPTV | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.wangjingfei.com/%E6%97%85%E8%A1%8C/enable-iptv-through-merlin.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          通过Merlin版AC88U路由器看IPTV
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-02T00:00:00+08:00">2021-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%85%E8%A1%8C/" itemprop="url" rel="index"><span itemprop="name">旅行</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/%E6%97%85%E8%A1%8C/enable-iptv-through-merlin.html" class="post-meta-item leancloud_visitors" data-flag-title="通过Merlin版AC88U路由器看IPTV" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">新疆自驾游地图：完整高清版</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>参考：<br><a target="_blank" rel="noopener" href="http://www.360doc.com/content/18/0721/21/56810834_772226545.shtml">http://www.360doc.com/content/18/0721/21/56810834_772226545.shtml</a></p>
+<p>dhcp-option-force=125,00:00:00:00:1d:02:06:48:47:57:2d:43:54:03:07:48:47:32:32:30:47:53:0a:02:20:00:0b:02:00:55:0d:02:00:2e</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">CONFIG=<span class="variable">$1</span></span><br><span class="line"><span class="built_in">source</span> /usr/sbin/helper.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过 pc_append把dhcp相关的设置append到 /tmp/etc/dnsmasq.conf 文件里</span></span><br><span class="line"><span class="comment"># 这样IPTV就能获取到VLAN的IP了</span></span><br><span class="line">pc_append <span class="string">&quot;dhcp-option-force=125,00:00:00:00:1d:02:06:48:47:57:2d:43:54:03:07:48:47:32:32:30:47:53:0a:02:20:00:0b:02:00:55:0d:02:00:2e&quot;</span> /tmp/etc/dnsmasq.conf</span><br></pre></td></tr></table></figure>
+<p>robocfg vlan 51 ports “0t 1t 2t 3t 4t 8t” vlan 85 ports “0t 1t 2t 3t 4t 8t”</p>
+<p>[教程] 上海电信完美解决4K IPTV一劳永逸增强板<br>  [复制链接]<br>yangyoung007<br>2</p>
+<p>主题<br>277</p>
+<p>帖子<br>408</p>
+<p>积分<br>中级魔法师</p>
+<p>精华<br>0<br>门户文章<br>0<br>魔力币<br>354<br>魔法值<br>0<br>注册时间<br>2016-4-6<br>发消息<br> 发表于 2016-4-27 13:48:02 | 显示全部楼层 |阅读模式<br>本帖最后由 yangyoung007 于 2019-3-28 13:53 编辑</p>
+<p>由于之前方法是零时添加dnsmasq的方法，所以一旦启用S<em>S或者执行相关S</em>S操作后都会失效包括之前有帖子在s<em>s目录添加dnsmasq的一键脚本，只要是修改s</em>s账户或者s*s服务重置的时候，都会重写dnsmasq造成失效只要让路由再次重启才行，现在完美解决了。此方法不区分koolshare改版固件是7.0或者以下还是7.1或者以上的版本，都可以通用<br>前人栽树后人乘凉再次由衷感谢4楼中所提到的帖子所给的启发。———-20170104修正。。<br>但是前人挖坑后人遭殃，偶然件发现了新问题重新抓包测试，并翻阅了相关文献进行修复。——20170106补<br>增加原生ASUS固件的修改方法。。。。。改版有$$、无$$三种版本都全了，，原生安装$$的按照改版$$完成就行了。——20170123.。</p>
+<p>切记请不要在iptv和路由之间添加设备，，如已经添加设备的请先去掉，待iptv能正常使用后在添加，方便判断问题在哪里，<br> 如遇图中情况，请先检查自己的网络，没有公网地址的是不可能有电信专网地址的，本贴是转门解决专网问题的。。一般没公网是iptv盒子获取不到ip造成的<br>请以文字描述的为主图片只是参考大概操作，请把帖子看完在错误<br>超级小白操作法见四楼结尾处！！！！！！！！！！只要二步</p>
+<p>最新申请了上海电信50m2年宽带套餐送了4k机顶盒一枚，但是由于之前那个电信小工比较2b，把我iptv退了，后来又重新申请，结果就变成了一个非主流的4k盒子不是上面常用的烽火和中兴的，而是兆能z82.连万能的淘宝都找不到的上古神器。光猫是现在号称配置最强的悦me系列不过是贝尔的，此帖就此开始了。<br>原料：兆能z82 4k iptv     一台<br>         上海贝尔E-140W-P 一台<br>         华硕ac66u             一台<br>         乐视x43s               一台（有情客串）</p>
+<p>软件工具准备</p>
+<p>securecrt可以用putty或者xshell等等</p>
+<p>看了论坛里的资料有点晕，所以准备整理简化下给需要的小白使用，续待。。。。由于平时不在家更新较慢。欢迎拍砖指教。</p>
+<p>由于intel网卡不能直接抓取vlan包，所以进行修改<br>进入注册表进入如下目录<br>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet0001\Control\Class{4D36E972-E325-11CE-BFC1-08002bE10318}<br>然后从0000开始000x，这里是0007网卡比较多窗口右边寻找一个DriverDesc的键，值得内容为Intel(R) XXXXXXXX<br>然后再这个目录里新建一个DWORD，名字叫MonitorMode，数值为1，然后重启就能进行抓包了</p>
+<p>抓包开始，<br>在命令提示符里输入ipconfig /release  ipconfig /renew<br>释放ip，获取ip</p>
+<p>如图我们抓到了dhcp的offer包，从路由发完客户端的包，里面有个option 125 这个就是关键</p>
+<p>点一下125，出现125的所有内容                                          </p>
+<p>可以看到上图这个字段是对应光猫的型号可以去除</p>
+<p>option 60得内容</p>
+<p>如果实在不会的提供一个简单方法下载dhcptest ，打开相应的应用有32位和64位那个版本，<br>按下d会自动抓包显示。</p>
+<p>————————————————–以上是抓包教程—————————————————-<br>以下是光猫设置</p>
+<p>连接模式只留下internet和other，把tr069删除，然后按照图设置，设置成bridge模式。服务模式改成按图，切记不要选有tr069的，否则就删掉重来，<br>在绑定端口哪里，把勾都取消，然后在数据绑定的地方所有端口的vlan1都绑上85.这样不管你路由插那个口都可以用了，然后保存</p>
+<p>在说一遍是数据绑定不是端口绑定看清楚，端口绑定是不能绑定四个口的，我们这里不需要端口绑定的，统统取消只要数据绑定，仔细看图后在回帖问，谢谢</p>
+<p>由于取消了端口绑定老的iptv也应该可以直接使用了，如果不能使用可能需要脱去不是iptv的tag包，脱去会变成只能给iptv用的口，就和之前的itv口一样（未经测试，欢迎测试后告诉我）</p>
+<p>iptv业务和dhcp默认就是这样的不用修改如果不是请按图设置，至于为什么要打开光猫的dhcp，是为以后维护方便</p>
+<p>在路由的外部网络(WAN)里面打开启用 V<em>P</em>N + DHCP 连接，这样路由就可以收到来自光猫的dhcp，变成192.168.1.2.而光猫的地址<br>是192.168.1.1.以后不用在插拔网线了，直接在电脑打192.168.1.1就能进入光猫调试。记得在内部网络(LAN)—》内网地址设置的<br>ip地址改成非192.168.1.1地址否则会和光猫地址冲突，如果非要192.168.1.1的网段，请把光猫改成其他网段。这里不<br>在介绍了。如果把光猫改成192.168.1.2-254，虽然是可以用的，但是不推荐，因为有2个dhcp的服务器，容易造成dhcp错误。<br>（新版ASUS固件380.还需要打开Spoof LAN TTL value才可以访问光猫，没有这个选项的就不用选了）</p>
+<p>==============补充修复=================================</p>
+<p>以上是光猫抓得只有8个option包</p>
+<p>以上是路由抓得只有12个option包<br>经过对比，路由比光猫少option 60.。（经过测试有些iptv需要这个有些不需要），但通过查找option得文献得知，60和125都是<br>给设备做认证用得，主流都是用option 43和60、125一般都不用了<br>路由比光猫多了option 58 59 15 28 这四个，通过查找option得文献得知<br>15是路由器域名、28是网段广播地址、58、59是在dhcp到期前提前续租可以增加租约而不改ip（这个其实是一个很好得功能）。<br>一般只有中兴和烽火会用到15、28其中的一个华为会用到60，其他盒子都125<br>所以对dhcp包进行二次在修改。一个是实用型，一个是光猫型</p>
+<p>dhcptest.rar</p>
+<p>434.82 KB, 下载次数: 3241</p>
+<p>dhcp工具</p>
+<p>4k-start简.pdf</p>
+<p>71 Bytes, 下载次数: 1594</p>
+<p>4k-start全.pdf</p>
+<p>109 Bytes, 下载次数: 2311</p>
+<p>dns光猫.pdf</p>
+<p>246 Bytes, 下载次数: 2375</p>
+<p>dns实用.pdf</p>
+<p>202 Bytes, 下载次数: 1400</p>
+<p>wan-start.pdf</p>
+<p>206 Bytes, 下载次数: 1748</p>
+<p>评分<br>4<br>查看全部评分</p>
+<p>deljp</p>
+<p>kaipublue</p>
+<p>zykcnro</p>
+<p>admin</p>
+<p>回复<br>举报</p>
+<p>yangyoung007<br>2</p>
+<p>主题<br>277</p>
+<p>帖子<br>408</p>
+<p>积分<br>中级魔法师</p>
+<p>精华<br>0<br>门户文章<br>0<br>魔力币<br>354<br>魔法值<br>0<br>注册时间<br>2016-4-6<br>发消息<br>  楼主| 发表于 2016-4-27 13:48:15 | 显示全部楼层<br>本帖最后由 yangyoung007 于 2019-3-28 13:51 编辑</p>
+<p>我们使用putty登陆路由器<br>然后收入命令robocfg show</p>
+<p>可以看到默认的情况是 有vlan1 和vlan2 接口是0 、1、2、3、4、8，其中0是wan口 1到4是lan口 8是cpu口<br>当然有些路由刷了ASUS固件后端口号都乱了我们怎么办呢（主要出现在非华硕路由身上），别急。看到图片左边的 off mac：xx：xx：xx吗<br>这里显示的就是对应端口插入设备的mac地址，比如0号口显示的mac是光猫的地址，然后光猫正好插在wan口，那么0就是wan口<br>如果没有插入的口就是显示00：00：00，同理我们也能找到相应的lan口，比如2口插的是iptv，出现的是iptv的mac地址，那么lan2口就是2号。这样你想用口看下有地址的就有对应关系了。这里可能会问8是什么，8就是cpu端口，只要mac地址显示的是路由背后的mac地址的就是cpu端口，需要cpu参与的必须填入8，<br>iptv这种可以硬件直接转发的不用填8<br>以下是要修改的脚本<br>4k-start 内容<br>#!/bin/sh<br>robocfg vlan 51 ports “0t 1t 2t 3t 4t 5t 6t 7t” vlan 85 ports “0t 1t 2t 3t 4t 5t 6t 7t”<br>dns 内容<br>dhcp-option-force=lan,125,00:00:00:00:10:02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55<br>dhcp-option=lan,60,00:00:01:00:02:03:43:50:45:03:0e:45:38:20:47:50:4f:4e:20:52:4f:55:54:45:52:04:03:31:2E:30<br>dhcp-option=lan,15<br>dhcp-option=lan,28</p>
+<p>以上脚本已经生成文件上传了，名字叫4k-start简.pdf、4k-start全.pdf、dns实用.pdf、dns光猫.pdf，自己把.pdf删除使用winscp上传到相应目录下就行了，<br>以下内容是重点请仔细阅读<br>4k-start简.pdf、4k-start全.pdf这2个文件2选1就行了，这个脚本是在开机的时候划分相应vlan用的，区别就是“4k-start全”所有lan口都可以用iptv，支持8口路由，“4k-start简”只有lan口4可以用iptv，如果有其他需求自己修改。把这个文件改名为4k-star上传到/jffs/scripts下权限设置成0755</p>
+<p>dns实用.pdf、dns光猫.pdf这2个文件也是2选1就行了，这个文件就是添加iptv需要的验证信息用的，区别就是“dns实用.pdf”只有二条信息多数设备用这个就行了，“dns光猫.pdf”有四条信息，完美全模拟光猫状态，可以实用任何盒子。把这个文件改名为dns.conf上传到/jffs/configs/dnsmasq.d下权限设置成0644或者0755（其实只要只读就行了）修改方法在往下看。对于没有dnsmasq.d这个文件的用户请直接看下面的原生ASUS固件部分<br>dns实用.pdf不行的可以试试看dns光猫.pdf这个</p>
+<p>登陆的时候一定要选scp协议否则会登陆不上的</p>
+<p>修改内容的时候直接在winscp双击打开文件修改就行了</p>
+<p>修改文件权限最傻瓜的方法，用winscp登录你的路由器，找到你要修改权限的文件，右键—属性，然后看上图<br>接下来：权限那里按照图样打√，或者“八进制表示”那里直接填写0755，√会自动打上，然后确定。<br>然后看看图的右上角，权限是不是rwxr-xr-x，是就OK了<br>其中红色圈哪里是选择目录的，先选root，然后就能看到jffs了在点进去，绿色是路径位置的，<br>使用教程不正常的请先看下自己的vlan有几个只要保留vlan1和vlan2就行了多余的要删除。。放好dns后请先抓包，如果只能抓到53的包，请先重新刷一次固件和格式化jjfs分区。删除vlan的名字是robocfg vlans reset 后面根要使用的vlan和端口如<br>robocfg vlans reset vlan 1 ports “1 2 3 4 8t” vlan 2 ports “0 8u”<br>自己路由是什么就照抄就行了。。这个都不会的话直接到四楼尾部点传送门到一键脚本设置iptv的帖子去吧。</p>
+<p>最后几部步见证奇迹的时刻</p>
+<p>开机自动启动划分vlan，点击tools–》Script–》类型选择wan-start、脚本配置/jffs/scripts/4k-start。然后点加号添加到下方，然后重启<br>就能观看4k的iptv了。而且不会受到s<em>s的影响不管你怎么折腾s</em>s，之前的办法是零时生效的，只要s*s一刷新就会失效<br>对于没有tools–》Script。。。请直接看下面的原生ASUS固件部分</p>
+<p>原生ASUS固件<br>原生ASUS固件的设备在tools里面会没有Script。可以有以下二中方法</p>
+<p>1、要进入/jffs/scripts/ 里面没有任何文件的，直接放入4k-start文件设置成0755，并把文件名字修改成wan-start就会自己会开机后自动加载（最新版380ASUS固件，需要把名字改成services-start，才会生效），（没有安装过s<em>s都会是空白目录，如果<br>之前安装过s</em>s的不成功请使用2号方案）</p>
+<p>2、要进入/jffs/scripts/里面有wan-start文件的,打开里面的wan-start文件，在文件的最后添加4k-start里的命令<br>robocfg vlan 51 ports “0t 4t” vlan 85 ports “0t 4t” 或者 robocfg vlan 51 ports “0t 1t 2t 3t 4t 5t 6t 7t” vlan 85 ports “0t 1t 2t 3t 4t 5t 6t 7t”<br>直接保存，然后重启路由器。</p>
+<p>原生ASUS固件的设备会没有/jffs/configs/dnsmasq.d这个地方，解决方法如下</p>
+<p>1、要进入/jffs/configs/里面没有任何文件的，直接放入dns文件设置成0644或者0755，并把文件名字修改成dnsmasq.conf.add</p>
+<p>有些设备可能因为增加了额外的dhcp-option会出现网页需要刷新2次才能出现的问题（本身网站也有点问题不是每个网站都会），现在有解决办法，<br>点击 内部网络(LAN)–》DHCP服务器–》Hide DHCP/RA queries选择改成是 、租约时间修改的短一点定时刷新。</p>
+<p>检测是否成功的方法<br>命令1：robocfg show 检查iptv需要的vlan85 和vlan51 是否在vlan2下面有，然后里面的端口是否对应，主要是vlan1和vlan2里的端口，2个vlan重复的端口<br>不需要填入，这样你所有端口都可以使用，或者你就指定需要看iptv的端口，<br>命令2：service restart_dnsmasq 这条命令是重新刷新dhcp的。可以不重启就能监测，你放的dns是否正确，命令输入后，直接运行帖子提供的dhcptest工具进行检测，，这个工具更具你系统是32还是64位进行相应选择。打开后按d抓包检测，如果只有一个53的话，说明你的文件有问题，也不用重启了，省得重启进不去路由要强制复位。。直到能抓到60和125的包为止，就ok了，<br>有人发现还是不成啊，这个时候可以进行iptv自检，然后看相关错误的提示，一个是端口错误一个是验证错误，iptv的错误代码，0094就是端口命令1里面的错误，。。0095就是验证命令2里面的错误，定位错误后，仔细查看里面的内容，比如端口不含iptv插的端口，option里面的字符错误，，如果还是没找到错误的可以联系我，我也不是一直有空，基本都是工作日有空，或者你就等我那一天晚上有空时间不定，最好还是自己搞，需要搞的留下自己qq。。因回复的人较多难免会有遗留。如果遗留了请再次回帖。。。。。20170120 完结</p>
+<p>至此就可以进行完美iptv使用体验了，最后一点，请在系统管理中的系统里，把Format JFFS partition at next boot改成否，如果为是的话下次重启后就白弄了，要重新在做一次。Enable JFFS custom scripts and configs一定要为是，否则脚本无法生效</p>
+<p>回复 支持 4 反对 0<br>举报</p>
+<p>yangyoung007<br>2</p>
+<p>主题<br>277</p>
+<p>帖子<br>408</p>
+<p>积分<br>中级魔法师</p>
+<p>精华<br>0<br>门户文章<br>0<br>魔力币<br>354<br>魔法值<br>0<br>注册时间<br>2016-4-6<br>发消息<br>  楼主| 发表于 2016-4-27 13:48:33 | 显示全部楼层<br>本帖最后由 yangyoung007 于 2017-1-17 21:46 编辑</p>
+<p>dhcp-option=60,00:00:01:00:02:03:43:50:45:03:0e:45:38:20:47:50:4f:4e:20:52:4f:55:54:45:52:04:03:31:2E:30<br>option解释：CPE  E8 GPON ROUTER 1.0  （客户终端设备e8 gpon 路由 1.0）</p>
+<p>dhcp-option-force=125,00:00:00:00:14:02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55:0d:02:00:2e<br>option解释：<br>125=dhcp-option 125<br>00:00:00:00 （enterprise number）Enterprise ID 需要替换成OTT盒子的ID这个步骤iptv盒子自动完成。<br>14 ‘{data-len1}’ （20bytes option－data）<br>02:06:48:47:57:2d:43:54 (subcode-2 0x4847572d4354=HGW-CT)<br>0a:02:20:00  (subcode-10 0x2000 untag)<br>0b:02:00:55  (subcode-11 0x0055=85 iptv vlanid)<br>0d:02:00:2e  (subcode-13 0x002e=46 voice vlanid)<br>通用（实测然并卵。。所以不用了）<br>dhcp-option-force=vi-encap:0,2,”HGW-CT”<br>以下是各设备抓包情况</p>
+<p>中兴F420：<br>dhcp-option-force=<br>125,00:00:00:00:1a:02:06:48:47:57:2d:43:54:03:04:5a:58:48:4e:0a:02:20:00:0b:02:00:55:0d:02:00:2e</p>
+<p>中兴F450G：<br>dhcp-option-force=<br>125,00:00:00:00:16:02:06:48:47:57:2d:43:54:03:04:5a:58:48:4e:0b:02:00:55:0a:02:20:00</p>
+<p>贝尔RG2010-CA：<br>dhcp-option-force=<br>125,00:00:00:00:14:02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55:0d:02:00:2e</p>
+<p>中兴F460：<br>dhcp-option-force=<br>125,00:00:00:00:14:02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55:0d:02:00:2e</p>
+<p>烽火HG220G<br>dhcp-option-force=<br>125,00:00:00:00:1b:02:06:48:47:57:2d:43:54:03:05:48:47:32:32:31:0a:02:20:00:0b:02:00:55:0d:02:00:2e</p>
+<p>烽火HG220GS<br>dhcp-option-force=<br>125,00:00:00:00:1d:02:06:48:47:57:2d:43:54:03:07:48:47:32:32:30:47:53:0a:02:20:00:0b:02:00:55:0d:02:00:2e</p>
+<p>华勤HGU421N v3<br>dhcp-option-force=<br>125,00:00:00:00:20:02:06:48:47:57:2D:43:54:03:0A:48:47:55:34:32:31:4E:20:76:33:0A:02:20:00:0B:02:00:55:0D:02:20:00</p>
+<p>贝尔E-140W-P(白色悦me)<br>dhcp-option-force=<br>125,00:00:00:00:1a:02:06:48:47:57:2d:43:54:03:08:45:2d:31:34:30:57:2d:50:0b:02:00:55:0a:02:20:00<br>以上是各种设备抓包结果合计。</p>
+<p>去除厂家信息+voice vlanid+修改dhcp-option字长为以下内容<br>dhcp-option-force=125,00:00:00:00:10:02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55<br>（最短代码测试通过！！！）</p>
+<p>其实就是dhcp-option125+盒子可添加Enterprise ID+dhcp-option数据长度+HGW-CT+untag+iptv vlanid，就完了，其他2个一个是设备厂家名字一个是语音通道都不是重点（没有用iptv打电话吧，不排除以后有iptv视频电话的可能）<br>感谢 kimkid 提供测试的结果精简后的成果结果。<br>force=125,00:00:00:00:14:02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55:0d:02:00:2e<br>其中的14就是dhcp-option其实也可以修改这个是报出内容长度只要大于报文内容都行默认不建议修改以免过段丢数据，抓包抓出来是什么就什么吧。<br>1a（十六进制）=26个（十进制），同理，16=22个，14=20个，20=32个，1b=27个，1d=29个.,十进制转十六进制<br>14=02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55:0d:02:00:2e   其中：：中间字符这样就算一个</p>
+<p>dhcp-option-force=lan,125,00:00:00:00:10:02:06:48:47:57:2d:43:54:0a:02:20:00:0b:02:00:55<br>dhcp-option=lan,15<br>dhcp-option=lan,28<br>dhcp-option=lan,60,00:00:01:00:02:03:43:50:45:03:0e:45:38:20:47:50:4f:4e:20:52:4f:55:54:45:52:04:03:31:2E:30</p>
+<p>其中 dhcp-option=lan,15和dhcp-option=lan,28是针对烽火中兴光猫的，如果其他光猫不能用可以加上试试看、dhcp-option=lan,60是针对华为盒子其他盒子不用，<br>如果都不行，请自行抓包，抓包方法看上面的教程。</p>
+<p>回复 支持 2 反对 0<br>举报</p>
+<p>yangyoung007<br>2</p>
+<p>主题<br>277</p>
+<p>帖子<br>408</p>
+<p>积分<br>中级魔法师</p>
+<p>精华<br>0<br>门户文章<br>0<br>魔力币<br>354<br>魔法值<br>0<br>注册时间<br>2016-4-6<br>发消息<br>  楼主| 发表于 2016-4-27 13:48:51 | 显示全部楼层<br>本帖最后由 yangyoung007 于 2017-1-23 16:50 编辑</p>
+<p>感谢以下参考帖 ：</p>
+<p>ttp://koolshare.cn/thread-21659-1-1.html 悦me光猫E-140W-P替换华为8245,修改mac地址,成功上网并观看iTV<br>ttps://wwwchiphell.com/thread-1357194-1-1.html 上海电信光猫桥接自己路由实现IPTV小红或者4K正常功能配置<br>ttps://wwwchiphell.com/thread-1421026-1-1.html 你们想要的上海电信光猫桥接＋4K IPTV配置流程<br>ttps://wwwchiphell.com/thread-1356203-1-1.html 中兴ZXHN F450G 桥接模式和4K IPTV共存的办法<br>ttps://wwwchiphell.com/thread-939443-1-1.html 请教一下，关于上海电信光纤ott+iptv<br>ttp://koolshare.cn/thread-37102-1-1.html 上海电信完美解决4K IPTV桥接教程 4/16增加华为盒子支持<br>ttp://koolshare.cn/thread-34659-1-1.html 上海电信4K IPTV 烽火HG680-J 成功实现光猫桥接后正常使用<br>ttp://koolshare.cn/thread-25919-1-1.html 上海的有IPTV 的用户,请看过来!<br>ttp://koolshare.cn/thread-36278-1-1.html 上海电信IPTV在ASUS固件中实现讨论<br>ttp://koolshare.cn/thread-32834-1-1.html 请教asus-ASUS固件中修改VLAN和端口配置，实现4K IPTV数据传输<br>ttps://wwwchiphell.com/thread-1515345-1-1.html ASUS固件搞定上海电信4k iptv的option125<br>ttp://koolshare.cn/thread-45810-1-1.html dnsmasq 更加便捷添加iptv规则的方法，附带修正的125Option</p>
+<p>——————————超级小白教程————————</p>
+<p>仔细阅读文字内容，不要看着图片内容做重要的事情说三边<br>仔细阅读文字内容，不要看着图片内容做重要的事情说三边<br>仔细阅读文字内容，不要看着图片内容做重要的事情说三边</p>
+<p>下载dns光猫.pdf 和wan-start.pdf  二个文件 dns光猫.pdf 改为dns.conf 放到/jffs/configs/dnsmasq.d下权限设置成0644,如果/jffs/configs/下没有<br>dnsmasq.d的目录，直接把dns光猫.pdf 改为dnsmasq.conf.add放到/jffs/configs/下权限设置成0644<br>wan-start.pdf改为wan-start 放到/jffs/scripts下权限设置成0755</p>
+<p>然后重启完成。</p>
+<p>如果这样还看不懂你不是小白是得了懒癌。。。工具操作方法上面都有。原理也在上面，包括diy和监测故障方法。</p>
+<p>一代懒癌解药——传送门<a target="_blank" rel="noopener" href="https://koolshare.cn/thread-37102-1-1.html">https://koolshare.cn/thread-37102-1-1.html</a></p>
+<p>再懒再不行的话，就别瞎折腾了。别搞了。。。。。。。小白问题不再回复</p>
+<p>感谢好心人diskerjtr 研制的最新二代懒癌解药——传送门 <a target="_blank" rel="noopener" href="https://koolshare.cn/thread-80206-1-1.html">https://koolshare.cn/thread-80206-1-1.html</a></p>
+<p>一代不行的可以试试二代，，推荐使用二代，，但不能保证100%可用，，如不行自己更具帖子修改下就ok。。。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%97%85%E8%A1%8C/" rel="tag"># 旅行</a>
+              <a href="/tags/%E8%87%AA%E9%A9%BE/" rel="tag"># 自驾</a>
+              <a href="/tags/%E6%96%B0%E7%96%86/" rel="tag"># 新疆</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/msfs2020/msfs-concepts.html" rel="prev" title="微软模拟飞行基本概念">
+      <i class="fa fa-chevron-left"></i> 微软模拟飞行基本概念
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E6%97%85%E8%A1%8C/drive-in-xinjiang.html" rel="next" title="新疆自驾游地图：完整高清版">
+      新疆自驾游地图：完整高清版 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.wangjingfei.com/%E6%97%85%E8%A1%8C/enable-iptv-through-merlin.html";
+    this.page.identifier = "旅行/enable-iptv-through-merlin.html";
+    this.page.title = "通过Merlin版AC88U路由器看IPTV";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
