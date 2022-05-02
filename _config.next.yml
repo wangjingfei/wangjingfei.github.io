@@ -39,6 +39,9 @@ avatar:
   # If true, the avatar will be rotated with the cursor.
   rotated: false
 
+vendors:
+  live2d_js: https://cdn.wangjingfei.com/live2d/autoload.js
+
 # Social Links
 # Usage: `Key: permalink || icon`
 # Key is the link label showing to end users.
