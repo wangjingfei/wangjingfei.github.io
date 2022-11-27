@@ -46,6 +46,29 @@
 
   <script src="https://cdn.wangjingfei.com/live2d/autoload.js"></script>
 
+<link rel="stylesheet" href="https://useimean.com/sdk/main.css" />
+<script src="https://useimean.com/sdk/main.js"></script>
+ <script>
+  ImeanSDK.init({
+    projectId: 'ow0YEsVG-Y1gFAtpskJic', // 项目id
+    baseUrl: 'https://useimean.com', // 请求服务器地址
+    onStepChange:function ({
+      recording, // 经验对象
+      currentIndex, // 当前步骤数组下标
+    }) { }, // 引导中步骤变化
+    onFinish:function ({
+      recording, // 经验对象
+    }) { }, // 引导步骤完成
+    onExit:function ({
+      recording, // 经验对象
+    }) { }, // 引导中主动退出
+    identity:function () {
+      return {}
+    }, // 返回用户信息
+    hideHelp: true, // 设置为false即展示帮助中心
+  })
+</script>
+
   <title>标签: 新手教程 | 小炭猪</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
