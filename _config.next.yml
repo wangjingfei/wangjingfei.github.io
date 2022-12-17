@@ -40,7 +40,7 @@ avatar:
   rotated: false
 
 vendors:
-  live2d_js: https://cdn.wangjingfei.com/live2d/autoload.js
+  live2d_js: /static/live2d-widget/autoload.js
 
 # Social Links
 # Usage: `Key: permalink || icon`
